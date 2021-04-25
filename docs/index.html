@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>About - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        <title>Multiples of 3 and 5 - Algorithm notes on the back of used envelopes bound in a ring binder</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">4.</strong> Largest palindrome product</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Open Data Structures</li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">4.</strong> Largest palindrome product</a></li><li class="spacer"></li><li class="spacer"></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,8 +163,44 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>This website is a collection of Ryoji's memos in <a href="https://github.com/growingspaghetti/project-euler">github.com/growingspaghetti/project-euler</a> as the scrapbox.</p>
-<!-- toc -->
+                        <html>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7HA2byHmvIaxWXOhdLJMXgsyf7M5vx7ZWRU2ZV4qGgIOFrLaehDqONZVPYB_tLZdrCRFmUgMAagf9/embed?start=false&loop=false&delayms=60000" frameborder="0" width="720" height="434" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</html>
+<pre><pre class="playground"><code class="language-rust">struct ArithmeticProgression {
+    first: i32,
+    last: i32,
+    diff: i32,
+}
+
+impl ArithmeticProgression {
+    fn new(first: i32, less_than: i32, diff: i32) -&gt; ArithmeticProgression {
+        ArithmeticProgression {
+            first: first,
+            diff: diff,
+            last: {
+                let lt_or_equal = less_than - 1;
+                lt_or_equal - (lt_or_equal - first) % diff
+            },
+        }
+    }
+    fn arithmetic_series(&amp;self) -&gt; i32 {
+        let terms = (self.last - self.first) / self.diff + 1;
+        (self.first + self.last) * terms / 2
+    }
+}
+
+fn main() {
+    let three = ArithmeticProgression::new(0, 1000, 3).arithmetic_series();
+    let five = ArithmeticProgression::new(0, 1000, 5).arithmetic_series();
+    let fifteen = ArithmeticProgression::new(0, 1000, 15).arithmetic_series();
+    println!(&quot;{}&quot;, three + five - fifteen);
+    assert_eq!(three + five - fifteen, 233168);
+    assert_eq!(ArithmeticProgression::new(2, 15, 3).arithmetic_series(), 2+5+8+11+14);
+    assert_eq!(ArithmeticProgression::new(3, 15, 3).arithmetic_series(), 3+6+9+12);
+    assert_eq!(ArithmeticProgression{first: 3, last: 15, diff:3}.arithmetic_series(),
+    3+6+9+12+15);
+}
+</code></pre></pre>
 
                     </main>
 
@@ -173,7 +209,7 @@
                         
 
                         
-                            <a rel="next" href="e1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="e2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -187,7 +223,7 @@
                 
 
                 
-                    <a rel="next" href="e1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="e2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
