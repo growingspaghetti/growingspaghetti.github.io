@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Multiples of 3 and 5 - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        <title>Smallest multiple - Algorithm notes on the back of used envelopes bound in a ring binder</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="SUMMARY.html">Summary</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html" class="active"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="SUMMARY.html">Summary</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html" class="active"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,42 +163,90 @@
 
                 <div id="content" class="content">
                     <main>
-                        <html>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7HA2byHmvIaxWXOhdLJMXgsyf7M5vx7ZWRU2ZV4qGgIOFrLaehDqONZVPYB_tLZdrCRFmUgMAagf9/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-</html>
-<pre><pre class="playground"><code class="language-rust">struct ArithmeticProgression {
-    first: i32,
-    last: i32,
-    diff: i32,
+                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS0vhb4qKuLM62w4AUrn4DQfhzn9hKKS3NmOkhPK3t30mMhf7wB_KqFh5fz0vmGPZcpjP12FT7tlxZT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<pre><pre class="playground"><code class="language-rust">fn gcd(mut a: u64, mut b: u64) -&gt; u64 {
+    if b &gt; a {
+        std::mem::swap(&amp;mut a, &amp;mut b);
+    }
+    assert!(b != 0);
+    let r = a % b;
+    if r == 0 {
+        return b;
+    }
+    gcd(b, r)
 }
 
-impl ArithmeticProgression {
-    fn new(first: i32, less_than: i32, diff: i32) -&gt; ArithmeticProgression {
-        ArithmeticProgression {
-            first: first,
-            diff: diff,
-            last: {
-                let lt_or_equal = less_than - 1;
-                lt_or_equal - (lt_or_equal - first) % diff
-            },
-        }
-    }
-    fn arithmetic_series(&amp;self) -&gt; i32 {
-        let terms = (self.last - self.first) / self.diff + 1;
-        (self.first + self.last) * terms / 2
-    }
+fn lcm(a: u64, b: u64) -&gt; u64 {
+    a * b / gcd(a, b)
 }
 
 fn main() {
-    let three = ArithmeticProgression::new(0, 1000, 3).arithmetic_series();
-    let five = ArithmeticProgression::new(0, 1000, 5).arithmetic_series();
-    let fifteen = ArithmeticProgression::new(0, 1000, 15).arithmetic_series();
-    println!(&quot;{}&quot;, three + five - fifteen);
-    assert_eq!(three + five - fifteen, 233168);
-    assert_eq!(ArithmeticProgression::new(2, 15, 3).arithmetic_series(), 2+5+8+11+14);
-    assert_eq!(ArithmeticProgression::new(3, 15, 3).arithmetic_series(), 3+6+9+12);
-    assert_eq!(ArithmeticProgression{first: 3, last: 15, diff:3}.arithmetic_series(),
-    3+6+9+12+15);
+    let mut acc = 2u64;
+    for n in 3..=20u64 {
+        acc = lcm(acc, n);
+    }
+    println!(&quot;{}&quot;, acc);
+    assert_eq!(acc, 232792560);
+}
+</code></pre></pre>
+<hr />
+<pre><pre class="playground"><code class="language-rust">#[derive(Clone)]
+struct Factor {
+    prime: u32,
+    occurence: u32,
+}
+
+fn list_factors(mut n: u32) -&gt; [Option&lt;Factor&gt;; 20] {
+    assert!(n &lt;= 20);
+    let mut factors: [Option&lt;Factor&gt;; 20] = Default::default();
+    let mut d = 2u32;
+    while n &gt; 1 {
+        while n % d == 0 {
+            match factors[d as usize].as_mut() {
+                Some(f) =&gt; {
+                    f.occurence += 1;
+                }
+                None =&gt; {
+                    factors[d as usize] = Some(Factor {
+                        prime: d,
+                        occurence: 1,
+                    })
+                }
+            }
+            n /= d;
+        }
+        d += 1;
+    }
+    factors
+}
+
+fn main() {
+    let mut factors: [Option&lt;Factor&gt;; 20] = Default::default();
+    for n in 2..=20u32 {
+        let local_factors = list_factors(n);
+        for it in local_factors.iter().zip(factors.iter_mut()) {
+            match it {
+                (Some(lf), Some(f)) =&gt; {
+                    if lf.occurence &gt; f.occurence {
+                        f.occurence = lf.occurence;
+                    }
+                }
+                (Some(lf), None) =&gt; {
+                    let (_, f) = it;
+                    *f = Some(lf.clone());
+                }
+                _ =&gt; (),
+            }
+        }
+    }
+    let mut acc = 1u32;
+    for o in &amp;factors {
+        if let Some(f) = o {
+            acc *= f.prime.pow(f.occurence);
+        }
+    }
+    println!(&quot;{}&quot;, acc);
+    assert_eq!(acc, 232792560);
 }
 </code></pre></pre>
 
@@ -207,13 +255,13 @@ fn main() {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="SUMMARY.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="e4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="e2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -225,13 +273,13 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="SUMMARY.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="e4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="e2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
