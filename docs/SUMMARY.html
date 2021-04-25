@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Even Fibonacci numbers - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        <title>Summary - Algorithm notes on the back of used envelopes bound in a ring binder</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="SUMMARY.html">Summary</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html" class="active"><strong aria-hidden="true">2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">4.</strong> Largest palindrome product</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Open Data Structures</li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="SUMMARY.html" class="active">Summary</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">4.</strong> Largest palindrome product</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Open Data Structures</li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,99 +163,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaHP7TcUI71uiwljBVfn6M7yFRxgXos451Bcb_q-y0h__0CLFzDZn916HYRaj-y_hfgcS-MUbDsEh6/embed?start=false&loop=false&delayms=60000" frameborder="0" width="720" height="434" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct TripleBox {
-    i: u64,
-    j: u64,
-    k: u64,
-}
-
-impl TripleBox {
-    fn shift(&amp;mut self) {
-        self.i = self.j + self.k;
-        self.j = self.k + self.i;
-        self.k = self.i + self.j;
-    }
-}
-
-fn main() {
-    let mut sum = 0;
-    let mut tb = TripleBox { i: 0, j: 1, k: 1 };
-    while tb.i &lt;= 4_000_000 {
-        sum += tb.i;
-        tb.shift()
-    }
-    println!(&quot;{}&quot;, sum);
-    assert_eq!(sum, 4613732)
-}
-</code></pre></pre>
+                        <h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<p><a href="./SUMMARY.html">Summary</a></p>
 <hr />
-<pre><pre class="playground"><code class="language-rust">struct LuckyClover {
-    a: u64,
-    b: u64,
-    c: u64,
-    d: u64,
-}
-
-impl LuckyClover {
-    fn multiply(&amp;mut self, other: &amp;LuckyClover) {
-        let a = self.a * other.a + self.b * other.c;
-        let b = self.a * other.b + self.b * other.d;
-        let c = self.c * other.a + self.d * other.c;
-        let d = self.c * other.b + self.d * other.d;
-        self.a = a;
-        self.b = b;
-        self.c = c;
-        self.d = d;
-    }
-    fn identity_matrix() -&gt; LuckyClover {
-        LuckyClover {
-            a: 1,
-            b: 0,
-            c: 0,
-            d: 1,
-        }
-    }
-}
-
-fn main() {
-    let multiplier = LuckyClover {
-        a: 1,
-        b: 1,
-        c: 1,
-        d: 0,
-    };
-    let cubed = {
-        let mut i = LuckyClover::identity_matrix();
-        i.multiply(&amp;multiplier);
-        i.multiply(&amp;multiplier);
-        i.multiply(&amp;multiplier);
-        std::mem::drop(multiplier);
-        i
-    };
-    let mut sum = 0;
-    let mut fibmatrix = LuckyClover::identity_matrix();
-    while fibmatrix.b &lt;= 4_000_000 {
-        sum += fibmatrix.b;
-        fibmatrix.multiply(&amp;cubed);
-    }
-    println!(&quot;{}&quot;, sum);
-    assert_eq!(sum, 4613732)
-}
-</code></pre></pre>
+<h1 id="project-euler"><a class="header" href="#project-euler">Project Euler</a></h1>
+<ul>
+<li><a href="./e1.html">Multiples of 3 and 5</a></li>
+<li><a href="./e2.html">Even Fibonacci numbers</a></li>
+<li><a href="./e3.html">Largest prime factor</a></li>
+<li><a href="./e4.html">Largest palindrome product</a></li>
+</ul>
+<hr />
+<h1 id="open-data-structures"><a class="header" href="#open-data-structures">Open Data Structures</a></h1>
+<hr />
+<h1 id="data-structures-and-algorithms-in-java-michael-t-goodrich"><a class="header" href="#data-structures-and-algorithms-in-java-michael-t-goodrich">Data Structures and Algorithms in Java (Michael T. Goodrich)</a></h1>
+<hr />
+<p><a href="./about.html">About</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="e1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
 
                         
-                            <a rel="next" href="e3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="e1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -267,13 +199,9 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="e1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
 
                 
-                    <a rel="next" href="e3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="e1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
