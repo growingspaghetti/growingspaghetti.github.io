@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Largest palindrome product - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        <title>Multiples of 3 and 5 - Algorithm notes on the back of used envelopes bound in a ring binder</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Multiples of 3 and 5</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">2.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">3.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">4.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html" class="active"><strong aria-hidden="true">5.</strong> Largest palindrome product</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Open Data Structures</li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html" class="active"><strong aria-hidden="true">1.</strong> Multiples of 3 and 5</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">2.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">3.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">4.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">5.</strong> Largest palindrome product</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Open Data Structures</li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,59 +163,15 @@
 
                 <div id="content" class="content">
                     <main>
-                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTTJxJFxMM7KkbNVNMuhPlLG4EJdhHkaJKgibWTKEeKjuzUlvoNJ-qDBOC9qDxd9FbIS4y-Zf76P5F8/embed?start=false&loop=false&delayms=60000" frameborder="0" width="720" height="434" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn is_palindrome(a: u32) -&gt; bool {
-    let mut t = a;
-    let mut b = 0u32;
-    while t &gt; 0 {
-        b *= 10;
-        b += t % 10;
-        t /= 10;
-    }
-    a == b
-}
-
-fn scan_b(a: u32, largest_pal_pro: &amp;mut Option&lt;u32&gt;) {
-    let mut b = 999;
-    while b &gt;= a {
-        let p = a * b;
-        if p &lt;= largest_pal_pro.unwrap_or_default() {
-            return;
-        }
-        if is_palindrome(p) {
-            match largest_pal_pro.as_mut() {
-                Some(v) =&gt; *v = p,
-                None =&gt; *largest_pal_pro = Some(p),
-            }
-        }
-        b -= 1;
-    }
-}
-
-fn main() {
-    let mut largest_pal_pro: Option&lt;u32&gt; = None;
-    for a in (110..=990).rev().step_by(11) {
-        scan_b(a, &amp;mut largest_pal_pro);
-    }
-    let ans = largest_pal_pro.unwrap();
-
-    println!(&quot;{}&quot;, ans);
-    assert_eq!(ans, 906609);
-}
-</code></pre></pre>
-
+                        
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="e3.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
 
                         
-                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="e1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -227,13 +183,9 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="e3.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
 
                 
-                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="e1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
