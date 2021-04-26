@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Smallest multiple - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        <title>10001st prime - Algorithm notes on the back of used envelopes bound in a ring binder</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="SUMMARY.html">Summary</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html" class="active"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="SUMMARY.html">Summary</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html" class="active"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,116 +163,114 @@
 
                 <div id="content" class="content">
                     <main>
-                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS0vhb4qKuLM62w4AUrn4DQfhzn9hKKS3NmOkhPK3t30mMhf7wB_KqFh5fz0vmGPZcpjP12FT7tlxZT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn gcd(mut a: u64, mut b: u64) -&gt; u64 {
-    if b &gt; a {
-        std::mem::swap(&amp;mut a, &amp;mut b);
+                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSQMS02Bs8MWMfHRChuI3eTMbxC-Anx7tUPAGemmKWugKFVup2d25ipBwcU5OQdcxHluC3wQxY6M9Bp/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<pre><pre class="playground"><code class="language-rust">fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
+    for i in (prime..sieve.len()).step_by(prime) {
+        sieve[i] = false;
     }
-    assert!(b != 0);
-    let r = a % b;
-    if r == 0 {
-        return b;
-    }
-    gcd(b, r)
 }
 
-fn lcm(a: u64, b: u64) -&gt; u64 {
-    a * b / gcd(a, b)
+fn extend(sieve: &amp;mut Vec&lt;bool&gt;, primes: &amp;Vec&lt;usize&gt;) {
+    sieve.extend(vec![true; sieve.len()]);
+    for &amp;p in primes {
+        rule_out(&amp;mut sieve.as_mut(), p);
+    }
 }
 
 fn main() {
-    let mut acc = 2u64;
-    for n in 3..=20u64 {
-        acc = lcm(acc, n);
-    }
+    let mut counter = 0u32;
+    let mut sieve = vec![true; 10000];
+    let mut primes: Vec&lt;usize&gt; = vec![];
+    sieve[0] = false;
+    sieve[1] = false;
+    let mut cursor = 0usize;
+    let n = 'label: loop {
+        for i in cursor..sieve.len() {
+            if !sieve[i] {
+                continue;
+            }
+            counter += 1;
+            if counter == 10001 {
+                break 'label i as u64;
+            }
+            &amp;primes.push(i);
+            rule_out(&amp;mut sieve, i);
+        }
+        cursor = sieve.len() - 1;
+        extend(&amp;mut sieve, &amp;primes);
+    };
 
-    println!(&quot;{}&quot;, acc);
-    assert_eq!(acc, 232792560);
+    println!(&quot;{}&quot;, n);
+    assert_eq!(n, 104743);
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">#[derive(Clone)]
-struct Factor {
-    prime: u32,
-    occurence: u32,
-}
-
-fn increment_occurence(factors: &amp;mut [Option&lt;Factor&gt;; 20], p: u32) {
-    assert!(p &lt; 20);
-    match factors[p as usize].as_mut() {
-        Some(f) =&gt; {
-            f.occurence += 1;
-        }
-        None =&gt; {
-            factors[p as usize] = Some(Factor {
-                prime: p,
-                occurence: 1,
-            })
+<pre><pre class="playground"><code class="language-rust">fn is_prime(n: u64) -&gt; bool {
+    if n &lt; 2 {
+        return false;
+    }
+    if n == 2 || n == 3 || n == 5 || n == 7 {
+        return true;
+    }
+    let basic_primes = [2u64, 3, 5, 7];
+    for &amp;d in &amp;basic_primes {
+        if n % d == 0 {
+            return false;
         }
     }
-}
 
-fn list_factors(mut n: u32) -&gt; [Option&lt;Factor&gt;; 20] {
-    assert!(n &lt;= 20);
-    let mut factors: [Option&lt;Factor&gt;; 20] = Default::default();
-    let mut d = 2u32;
-    while n &gt; 1 {
-        while n % d == 0 {
-            increment_occurence(&amp;mut factors, d);
-            n /= d;
+    let side = (n as f64).sqrt() as u64;
+    let mut d = 7u64;
+    let steps = [2u64, 2, 2, 4];
+    while d &lt;= side {
+        d += steps[0];
+        if n % d == 0 {
+            return false;
         }
-        d += 1;
-    }
-    factors
-}
-
-fn merge(factors: &amp;mut [Option&lt;Factor&gt;; 20], b: &amp;[Option&lt;Factor&gt;; 20]) {
-    for it in b.iter().zip(factors.iter_mut()) {
-        match it {
-            (Some(bf), Some(f)) =&gt; {
-                if bf.occurence &gt; f.occurence {
-                    f.occurence = bf.occurence;
-                }
-            }
-            (Some(bf), None) =&gt; {
-                let (_, f) = it;
-                *f = Some(bf.clone());
-            }
-            _ =&gt; (),
+        d += steps[1];
+        if n % d == 0 {
+            return false;
+        }
+        d += steps[2];
+        if n % d == 0 {
+            return false;
+        }
+        d += steps[3];
+        if n % d == 0 {
+            return false;
         }
     }
+    true
 }
 
 fn main() {
-    let mut factors: [Option&lt;Factor&gt;; 20] = Default::default();
-    for n in 2..=20u32 {
-        let local_factors = list_factors(n);
-        merge(&amp;mut factors, &amp;local_factors);
-    }
-    let mut acc = 1u32;
-    for o in &amp;factors {
-        if let Some(f) = o {
-            acc *= f.prime.pow(f.occurence);
+    let mut n = 0u64;
+    let mut counter = 0u32;
+    while counter &lt; 10001 {
+        n += 1;
+        if is_prime(n) {
+            counter += 1;
         }
     }
-
-    println!(&quot;{}&quot;, acc);
-    assert_eq!(acc, 232792560);
+    
+    println!(&quot;{}&quot;, n);
+    assert_eq!(n, 104743);
 }
 </code></pre></pre>
+<p><a href="./e3.html">3. Largest prime factor</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="e4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="e6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="e6.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -284,13 +282,13 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="e4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="e6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="e6.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
