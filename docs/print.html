@@ -603,8 +603,8 @@ fn main() {
         return true;
     }
     let basic_primes = [2u64, 3, 5, 7];
-    for &amp;d in &amp;basic_primes {
-        if n % d == 0 {
+    for d in &amp;basic_primes {
+        if n % *d == 0 {
             return false;
         }
     }
