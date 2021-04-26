@@ -413,18 +413,22 @@ fn main() {
     a == b
 }
 
-fn scan_b(a: u32, largest_pal_pro: &amp;mut Option&lt;u32&gt;) {
+fn update_largest_palindrome_product(lpp: &amp;mut Option&lt;u32&gt;, with: u32) {
+    match lpp.as_mut() {
+        Some(v) =&gt; *v = with,
+        None =&gt; *lpp = Some(with),
+    }
+}
+
+fn scan_b(a: u32, largest_pp: &amp;mut Option&lt;u32&gt;) {
     let mut b = 999;
     while b &gt;= a {
         let p = a * b;
-        if p &lt;= largest_pal_pro.unwrap_or_default() {
+        if p &lt;= largest_pp.unwrap_or_default() {
             return;
         }
         if is_palindrome(p) {
-            match largest_pal_pro.as_mut() {
-                Some(v) =&gt; *v = p,
-                None =&gt; *largest_pal_pro = Some(p),
-            }
+            update_largest_palindrome_product(largest_pp, p);
         }
         b -= 1;
     }
@@ -485,7 +489,7 @@ fn increment_occurrence(factors: &amp;mut [Option&lt;Factor&gt;; 20], p: u32) {
             factors[p as usize] = Some(Factor {
                 prime: p,
                 occurrence: 1,
-            })
+            });
         }
     }
 }

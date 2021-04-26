@@ -207,7 +207,7 @@ fn increment_occurrence(factors: &amp;mut [Option&lt;Factor&gt;; 20], p: u32) {
             factors[p as usize] = Some(Factor {
                 prime: p,
                 occurrence: 1,
-            })
+            });
         }
     }
 }
