@@ -472,19 +472,19 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust">#[derive(Clone)]
 struct Factor {
     prime: u32,
-    occurence: u32,
+    occurrence: u32,
 }
 
-fn increment_occurence(factors: &amp;mut [Option&lt;Factor&gt;; 20], p: u32) {
+fn increment_occurrence(factors: &amp;mut [Option&lt;Factor&gt;; 20], p: u32) {
     assert!(p &lt; 20);
     match factors[p as usize].as_mut() {
         Some(f) =&gt; {
-            f.occurence += 1;
+            f.occurrence += 1;
         }
         None =&gt; {
             factors[p as usize] = Some(Factor {
                 prime: p,
-                occurence: 1,
+                occurrence: 1,
             })
         }
     }
@@ -496,7 +496,7 @@ fn list_factors(mut n: u32) -&gt; [Option&lt;Factor&gt;; 20] {
     let mut d = 2u32;
     while n &gt; 1 {
         while n % d == 0 {
-            increment_occurence(&amp;mut factors, d);
+            increment_occurrence(&amp;mut factors, d);
             n /= d;
         }
         d += 1;
@@ -508,8 +508,8 @@ fn merge(factors: &amp;mut [Option&lt;Factor&gt;; 20], b: &amp;[Option&lt;Factor
     for it in b.iter().zip(factors.iter_mut()) {
         match it {
             (Some(bf), Some(f)) =&gt; {
-                if bf.occurence &gt; f.occurence {
-                    f.occurence = bf.occurence;
+                if bf.occurrence &gt; f.occurrence {
+                    f.occurrence = bf.occurrence;
                 }
             }
             (Some(bf), None) =&gt; {
@@ -530,7 +530,7 @@ fn main() {
     let mut acc = 1u32;
     for o in &amp;factors {
         if let Some(f) = o {
-            acc *= f.prime.pow(f.occurence);
+            acc *= f.prime.pow(f.occurrence);
         }
     }
 
