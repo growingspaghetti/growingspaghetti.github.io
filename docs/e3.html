@@ -164,14 +164,14 @@
                 <div id="content" class="content">
                     <main>
                         <p><htmnl><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSTrpjghGiCjA0R9p38sLYptZYTiHKxk_Xljri6TMzeMCjf7lyjq1WSWaIKIJxBDG_sc7dpzfyhbaqz/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html></p>
-<pre><pre class="playground"><code class="language-rust">fn largest_prime_factor(mut n: u64) -&gt; u64 {
-    assert!(n &gt; 1);
-    fn divide_fully(n: &amp;mut u64, d: u64) {
-        while *n % d == 0 {
-            *n /= d;
-        }
+<pre><pre class="playground"><code class="language-rust">fn divide_fully(n: &amp;mut u64, d: u64) {
+    while *n % d == 0 {
+        *n /= d;
     }
+}
 
+fn largest_prime_factor(mut n: u64) -&gt; u64 {
+    assert!(n &gt; 1);
     let basic_primes = [2u64, 3, 5, 7];
     for &amp;d in &amp;basic_primes {
         divide_fully(&amp;mut n, d);
@@ -181,24 +181,11 @@
     }
     let side = (n as f64).sqrt() as u64;
     let mut divisor = 7u64;
-    let steps = [2u64, 2, 2, 4];
-    while divisor &lt;= side {
-        divisor += steps[0];
-        divide_fully(&amp;mut n, divisor);
-        if n == 1 {
-            return divisor;
+    for i in [2u64, 2, 2, 4].iter().cycle() {
+        if divisor &gt; side {
+            break;
         }
-        divisor += steps[1];
-        divide_fully(&amp;mut n, divisor);
-        if n == 1 {
-            return divisor;
-        }
-        divisor += steps[2];
-        divide_fully(&amp;mut n, divisor);
-        if n == 1 {
-            return divisor;
-        }
-        divisor += steps[3];
+        divisor += *i;
         divide_fully(&amp;mut n, divisor);
         if n == 1 {
             return divisor;
@@ -219,6 +206,7 @@ fn main() {
     assert_eq!(largest_prime_factor(5), 5);
     assert_eq!(largest_prime_factor(17), 17);
 }
+
 </code></pre></pre>
 <hr />
 <pre><pre class="playground"><code class="language-rust">fn largest_prime_factor(mut n: u64) -&gt; u64 {
