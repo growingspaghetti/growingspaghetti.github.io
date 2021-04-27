@@ -106,7 +106,7 @@ Memory and the **pointer** in summary
 <a href="https://youtu.be/sTFJtxJXkaY" target="_blank"><img src="./imgs/pointer.png"></a>
 </div>
 
-# Data Structures and Algorithms
+## Data structures and algorithms
 
 For your information, the notation **O**, that describes the growth of requirement, is relative and depends on the focus, that is, there's the implicit agreement on what's the base unit when having a discussion about it.
 
