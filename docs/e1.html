@@ -174,13 +174,11 @@
 
 impl ArithmeticProgression {
     fn new(first: i32, less_than: i32, diff: i32) -&gt; ArithmeticProgression {
+        let lt_or_equal = less_than - 1;
         ArithmeticProgression {
             first: first,
             diff: diff,
-            last: {
-                let lt_or_equal = less_than - 1;
-                lt_or_equal - (lt_or_equal - first) % diff
-            },
+            last: lt_or_equal - (lt_or_equal - first) % diff,
         }
     }
     fn arithmetic_series(&amp;self) -&gt; i32 {
