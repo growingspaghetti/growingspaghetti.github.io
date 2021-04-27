@@ -108,7 +108,7 @@ Memory and the **pointer** in summary
 
 # Data Structures and Algorithms
 
-For your information, the notation **O**, that describes the growth of requirement, is relative and depends on the focus.
+For your information, the notation **O**, that describes the growth of requirement, is relative and depends on the focus, that is, there's the implicit agreement on what's the base unit when having discussion about it.
 
 As described in Open Data Structures, the CPU instructions are specific on the devices and compilers, namely, the **Rust** compiler inserts the boundary check to avoid from accessing the garbage values unlike C; and like some CPUs have special circuits designed for the Java byte code execution, it says **ARM** CPUs have optimizations for short condition branching.
 
