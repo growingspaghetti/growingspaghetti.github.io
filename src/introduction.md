@@ -61,10 +61,10 @@ Confirm that the bit part of the **64bit** and **32bit** CPU describes the addre
 <a href="https://youtu.be/ansXGewduN4?t=1613" target="_blank"><img src="./imgs/64bit.png"></a>
 </div>
 
-🎞️ Japanese kid does abacus crazy fast!\
+🎞️ そろばんで３度目の日本一　西宮市の中３女子\
 The arithmetics with a set of circuits in CPU must be the same mechanism to a series of skills that the hands perform on a bit-wise abacus in fundamentals.
 <div class="thumbnail">
-<a href="https://youtu.be/Oq9LTY5cnSI?t=19" target="_blank"><img src="./imgs/abac.png"></a>
+<a href="https://youtu.be/7LZemQttCXE?t=13" target="_blank"><img src="./imgs/abac.png"></a>
 </div>
 
 🎞️ Pointers and dynamic memory - stack vs heap\
