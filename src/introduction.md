@@ -249,6 +249,20 @@ As for referring to math handbooks, it looks to me they are the only ones I need
 
 Alternatively,  <a href="https://cambomaths.files.wordpress.com/2010/03/1300_math_formulas.pdf" target="_blank">1300 Math Formulas PDF</a>
 
+## Compiler design
+
+I haven't read them but it seems there are some chapters about data structures.
+
+📖 Advanced Compiler Design and Implementation
+<div class="thumbnail">
+<a href="https://www.amazon.com/Advanced-Compiler-Design-Implementation-Muchnick/dp/1558603204/" target="_blank"><img src="./imgs/cpd.png"></a>
+</div>
+
+📖 Compilers: Principles, Techniques, and Tools 2nd Edition
+<div class="thumbnail">
+<a href="https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811" target="_blank"><img src="./imgs/cmp.png"></a>
+</div>
+
 # PS
 
 Data structures and algorithms might be easier than the non-pedagogical programming in a sense for its internal perfection and predictability.
