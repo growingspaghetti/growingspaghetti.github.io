@@ -644,18 +644,14 @@ struct Factor {
 }
 
 fn increment_occurrence(factors: &amp;mut [Option&lt;Factor&gt;; 20], p: u32) {
-    assert!(p &lt; 20);
-    match factors[p as usize].as_mut() {
-        Some(f) =&gt; {
-            f.occurrence += 1;
-        }
-        None =&gt; {
-            factors[p as usize] = Some(Factor {
-                prime: p,
-                occurrence: 1,
-            });
-        }
+    if let Some(f) = factors[p as usize].as_mut() {
+        f.occurrence += 1;
+        return;
     }
+    factors[p as usize] = Some(Factor {
+        prime: p,
+        occurrence: 1,
+    });
 }
 
 fn list_factors(mut n: u32) -&gt; [Option&lt;Factor&gt;; 20] {
