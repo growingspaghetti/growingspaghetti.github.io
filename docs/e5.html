@@ -225,16 +225,9 @@ fn list_factors(mut n: u32) -&gt; [Option&lt;Factor&gt;; 20] {
 fn merge(factors: &amp;mut [Option&lt;Factor&gt;; 20], b: &amp;[Option&lt;Factor&gt;; 20]) {
     for it in b.iter().zip(factors.iter_mut()) {
         match it {
-            (Some(bf), Some(f)) =&gt; {
-                if bf.occurrence &gt; f.occurrence {
-                    f.occurrence = bf.occurrence;
-                }
-            }
-            (Some(bf), None) =&gt; {
-                let (_, f) = it;
-                *f = Some(bf.clone());
-            }
-            _ =&gt; (),
+            (Some(bf), None) =&gt; *it.1 = Some(bf.clone()),
+            (Some(bf), Some(f)) if bf.occurrence &gt; f.occurrence =&gt; f.occurrence = bf.occurrence,
+            _ =&gt; continue,
         }
     }
 }
