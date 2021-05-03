@@ -506,7 +506,7 @@ fn main() {
 
 fn largest_prime_factor(mut n: u64) -&gt; u64 {
     assert!(n &gt; 1);
-    let basic_primes = [2u64, 3, 5, 7];
+    let basic_primes = [2u64, 3, 5];
     for &amp;d in &amp;basic_primes {
         divide_fully(&amp;mut n, d);
         if n == 1 {
@@ -514,8 +514,8 @@ fn largest_prime_factor(mut n: u64) -&gt; u64 {
         }
     }
     let side = (n as f64).sqrt() as u64;
-    let mut divisor = 7u64;
-    for i in [2u64, 2, 2, 4].iter().cycle() {
+    let mut divisor = 5u64;
+    for i in [2u64, 4].iter().cycle() {
         if divisor &gt; side {
             break;
         }
@@ -766,18 +766,18 @@ fn main() {
     if n &lt; 2 {
         return false;
     }
-    if n == 2 || n == 3 || n == 5 || n == 7 {
+    if n == 2 || n == 3 || n == 5 {
         return true;
     }
-    for d in &amp;[2u64, 3, 5, 7] {
+    for d in &amp;[2u64, 3, 5] {
         if n % *d == 0 {
             return false;
         }
     }
 
     let side = (n as f64).sqrt() as u64;
-    let mut d = 7u64;
-    for i in [2u64, 2, 2, 4].iter().cycle() {
+    let mut d = 5u64;
+    for i in [2u64, 4].iter().cycle() {
         if d &gt; side {
             break;
         }
