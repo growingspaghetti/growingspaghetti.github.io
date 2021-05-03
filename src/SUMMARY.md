@@ -14,6 +14,7 @@
    - [Sum square difference](./e6.md)
    - [10001st prime](./e7.md)
    - [Largest product in a series](./e8.md)
+   - [Special Pythagorean triplet](./e9.md)
 
 ---
 
