@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Largest prime factor - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        <title>Summation of primes - Algorithm notes on the back of used envelopes bound in a ring binder</title>
         
         
 
@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html" class="active"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html" class="active"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,72 +163,57 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p><htmnl><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSTrpjghGiCjA0R9p38sLYptZYTiHKxk_Xljri6TMzeMCjf7lyjq1WSWaIKIJxBDG_sc7dpzfyhbaqz/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html></p>
-<pre><pre class="playground"><code class="language-rust">fn divide_fully(n: &amp;mut u64, d: u64) {
-    while *n % d == 0 {
-        *n /= d;
+                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDrcKWHFjeKXjPU8Imn_bIxq0SFnTdaY00LN6i4LCVPSkAm-zdfUxqIJOYvKLibFpK3WCuqaSmrEQS/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></iframe></html>
+<pre><pre class="playground"><code class="language-rust">struct Index {
+    i: usize,
+    _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
+}
+
+impl Index {
+    fn increment(&amp;mut self) {
+        self.i += self._ite.next().unwrap();
+    }
+    fn new() -&gt; Index {
+        Index {
+            i: 5,
+            _ite: Box::new(vec![2usize, 4].into_iter().cycle()),
+        }
     }
 }
 
-fn largest_prime_factor(mut n: u64) -&gt; u64 {
-    assert!(n &gt; 1);
-    let basic_primes = [2u64, 3, 5];
-    for &amp;d in &amp;basic_primes {
-        divide_fully(&amp;mut n, d);
-        if n == 1 {
-            return d;
-        }
+fn rule_out_square(sieve: &amp;mut [bool; 2_000_001], prime: usize) {
+    for i in (prime * prime..sieve.len()).step_by(prime) {
+        sieve[i] = false;
     }
-    let side = (n as f64).sqrt() as u64;
-    let mut divisor = 5u64;
-    for i in [2u64, 4].iter().cycle() {
-        if divisor &gt; side {
+}
+
+fn main() {
+    let mut matrix = [true; 2_000_001];
+    let sqrt = (matrix.len() as f64).sqrt().ceil() as usize;
+    let mut sum = 2u64 + 3;
+    let mut index = Index::new();
+    loop {
+        if index.i &gt; sqrt {
             break;
         }
-        divisor += *i;
-        divide_fully(&amp;mut n, divisor);
-        if n == 1 {
-            return divisor;
+        if matrix[index.i] {
+            sum += index.i as u64;
+            rule_out_square(&amp;mut matrix, index.i);
         }
+        index.increment();
     }
-    if n == 1 {
-        divisor
-    } else {
-        n
-    }
-}
-
-fn main() {
-    let ans = largest_prime_factor(600851475143u64);
-    assert_eq!(ans, 6857);
-    println!(&quot;{}&quot;, ans);
-    assert_eq!(largest_prime_factor(60), 5);
-    assert_eq!(largest_prime_factor(5), 5);
-    assert_eq!(largest_prime_factor(17), 17);
-}
-
-</code></pre></pre>
-<hr />
-<pre><pre class="playground"><code class="language-rust">fn largest_prime_factor(mut n: u64) -&gt; u64 {
-    assert!(n &gt; 1);
-    let mut divisor = 2u64;
-    while n != 1 {
-        if n % divisor == 0 {
-            n /= divisor;
-        } else {
-            divisor += 1;
+    loop {
+        if index.i &gt;= matrix.len() {
+            break;
         }
+        if matrix[index.i] {
+            sum += index.i as u64;
+        }
+        index.increment();
     }
-    divisor
-}
 
-fn main() {
-    let ans = largest_prime_factor(600851475143u64);
-    assert_eq!(ans, 6857);
-    println!(&quot;{}&quot;, ans);
-    assert_eq!(largest_prime_factor(60), 5);
-    assert_eq!(largest_prime_factor(5), 5);
-    assert_eq!(largest_prime_factor(17), 17);
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 142913828922);
 }
 </code></pre></pre>
 
@@ -237,13 +222,13 @@ fn main() {
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="e2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="e9.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="e4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -255,13 +240,13 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="e2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="e9.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="e4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
