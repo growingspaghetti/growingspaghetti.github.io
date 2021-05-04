@@ -187,19 +187,26 @@ impl TriangleNumber {
     fn num(&amp;self) -&gt; u64 {
         self._nth * (self._nth + 1) / 2
     }
+    fn _divide_fully(&amp;self, n: &amp;mut u64, d: u64, side: &amp;mut u64, count: &amp;mut u64) {
+        if *n % d == 0 {
+            let mut exp = 0u64;
+            while {
+                *n /= d;
+                exp += 1;
+                *n % d == 0
+            } {}
+            *side = (*n as f64).sqrt() as u64;
+            *count *= exp + 1;
+        }
+    }
     fn _num_of_divisors(&amp;mut self, mut n: u64) -&gt; u64 {
         let mut count = 1u64;
-        let side = (n as f64).sqrt() as u64;
+        let mut side = (n as f64).sqrt() as u64;
         for &amp;p in self._primes.iter() {
             if p &gt; side || n == 1 {
                 break;
             }
-            let mut exp = 0u64;
-            while n % p == 0 {
-                n /= p;
-                exp += 1;
-            }
-            count *= exp + 1;
+            self._divide_fully(&amp;mut n, p, &amp;mut side, &amp;mut count);
         }
         if n != 1 {
             count *= 2;

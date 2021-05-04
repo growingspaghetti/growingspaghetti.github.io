@@ -164,29 +164,33 @@
                 <div id="content" class="content">
                     <main>
                         <p><htmnl><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSTrpjghGiCjA0R9p38sLYptZYTiHKxk_Xljri6TMzeMCjf7lyjq1WSWaIKIJxBDG_sc7dpzfyhbaqz/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html></p>
-<pre><pre class="playground"><code class="language-rust">fn divide_fully(n: &amp;mut u64, d: u64) {
-    while *n % d == 0 {
-        *n /= d;
+<pre><pre class="playground"><code class="language-rust">fn divide_fully(n: &amp;mut u64, d: u64, side: &amp;mut u64) {
+    if *n % d == 0 {
+        while {
+            *n /= d;
+            *n % d == 0
+        } {}
+        *side = (*n as f64).sqrt() as u64;
     }
 }
 
 fn largest_prime_factor(mut n: u64) -&gt; u64 {
     assert!(n &gt; 1);
+    let mut side = (n as f64).sqrt() as u64;
     let basic_primes = [2u64, 3, 5];
     for &amp;d in &amp;basic_primes {
-        divide_fully(&amp;mut n, d);
+        divide_fully(&amp;mut n, d, &amp;mut side);
         if n == 1 {
             return d;
         }
     }
-    let side = (n as f64).sqrt() as u64;
     let mut divisor = 5u64;
     for i in [2u64, 4].iter().cycle() {
         if divisor &gt; side {
             break;
         }
         divisor += *i;
-        divide_fully(&amp;mut n, divisor);
+        divide_fully(&amp;mut n, divisor, &amp;mut side);
         if n == 1 {
             return divisor;
         }
