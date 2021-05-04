@@ -16,6 +16,7 @@
    - [Largest product in a series](./e8.md)
    - [Special Pythagorean triplet](./e9.md)
    - [Summation of primes](./e10.md)
+   - [Largest product in a grid](./e11.md)
 
 ---
 

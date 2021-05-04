@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="chapter-item expanded "><a href="e11.html"><strong aria-hidden="true">1.11.</strong> Largest product in a grid</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -391,7 +391,7 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 }
 
 impl ArithmeticProgression {
-    fn new(first: i32, less_than: i32, diff: i32) -&gt; ArithmeticProgression {
+    fn new(first: i32, less_than: i32, diff: i32) -&gt; Self {
         let lt_or_equal = less_than - 1;
         ArithmeticProgression {
             first: first,
@@ -841,7 +841,7 @@ fn main() {
     assert_eq!(ans.unwrap(), 31875000);
 }
 </code></pre></pre>
-<html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDrcKWHFjeKXjPU8Imn_bIxq0SFnTdaY00LN6i4LCVPSkAm-zdfUxqIJOYvKLibFpK3WCuqaSmrEQS/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></iframe></html>
+<html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDrcKWHFjeKXjPU8Imn_bIxq0SFnTdaY00LN6i4LCVPSkAm-zdfUxqIJOYvKLibFpK3WCuqaSmrEQS/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <pre><pre class="playground"><code class="language-rust">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
@@ -851,7 +851,7 @@ impl Index {
     fn increment(&amp;mut self) {
         self.i += self._ite.next().unwrap();
     }
-    fn new() -&gt; Index {
+    fn new() -&gt; Self {
         Index {
             i: 5,
             _ite: Box::new(vec![2usize, 4].into_iter().cycle()),
@@ -866,25 +866,25 @@ fn rule_out_square(sieve: &amp;mut [bool; 2_000_001], prime: usize) {
 }
 
 fn main() {
-    let mut matrix = [true; 2_000_001];
-    let sqrt = (matrix.len() as f64).sqrt().ceil() as usize;
+    let mut sieve = [true; 2_000_001];
+    let sqrt = (sieve.len() as f64).sqrt().ceil() as usize;
     let mut sum = 2u64 + 3;
     let mut index = Index::new();
     loop {
         if index.i &gt; sqrt {
             break;
         }
-        if matrix[index.i] {
+        if sieve[index.i] {
             sum += index.i as u64;
-            rule_out_square(&amp;mut matrix, index.i);
+            rule_out_square(&amp;mut sieve, index.i);
         }
         index.increment();
     }
     loop {
-        if index.i &gt;= matrix.len() {
+        if index.i &gt;= sieve.len() {
             break;
         }
-        if matrix[index.i] {
+        if sieve[index.i] {
             sum += index.i as u64;
         }
         index.increment();
@@ -892,6 +892,286 @@ fn main() {
 
     println!(&quot;{}&quot;, sum);
     assert_eq!(sum, 142913828922);
+}
+</code></pre></pre>
+<html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQDTvqnzpaJQNzfnw-BfhpzPoNpZtxrjYAwIp80D7oHaoXxVUEavnSf9FxKxnDLlRgqqaQNZHZZ4Ov9/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let matrix = [
+        [
+            08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08,
+        ],
+        [
+            49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 04, 56, 62, 00,
+        ],
+        [
+            81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 03, 49, 13, 36, 65,
+        ],
+        [
+            52, 70, 95, 23, 04, 60, 11, 42, 69, 24, 68, 56, 01, 32, 56, 71, 37, 02, 36, 91,
+        ],
+        [
+            22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80,
+        ],
+        [
+            24, 47, 32, 60, 99, 03, 45, 02, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50,
+        ],
+        [
+            32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70,
+        ],
+        [
+            67, 26, 20, 68, 02, 62, 12, 20, 95, 63, 94, 39, 63, 08, 40, 91, 66, 49, 94, 21,
+        ],
+        [
+            24, 55, 58, 05, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72,
+        ],
+        [
+            21, 36, 23, 09, 75, 00, 76, 44, 20, 45, 35, 14, 00, 61, 33, 97, 34, 31, 33, 95,
+        ],
+        [
+            78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 03, 80, 04, 62, 16, 14, 09, 53, 56, 92,
+        ],
+        [
+            16, 39, 05, 42, 96, 35, 31, 47, 55, 58, 88, 24, 00, 17, 54, 24, 36, 29, 85, 57,
+        ],
+        [
+            86, 56, 00, 48, 35, 71, 89, 07, 05, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58,
+        ],
+        [
+            19, 80, 81, 68, 05, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 04, 89, 55, 40,
+        ],
+        [
+            04, 52, 08, 83, 97, 35, 99, 16, 07, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66,
+        ],
+        [
+            88, 36, 68, 87, 57, 62, 20, 72, 03, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69,
+        ],
+        [
+            04, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 08, 46, 29, 32, 40, 62, 76, 36,
+        ],
+        [
+            20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 04, 36, 16,
+        ],
+        [
+            20, 73, 35, 29, 78, 31, 90, 01, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 05, 54,
+        ],
+        [
+            01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48,
+        ],
+    ];
+
+    let mut max = 0u32;
+
+    // →
+    for y in matrix.iter() {
+        for x in 3..matrix.len() {
+            if let (Some(a), Some(b), Some(c), Some(d)) =
+                (y.get(x - 3), y.get(x - 2), y.get(x - 1), y.get(x))
+            {
+                max = std::cmp::max(max, a * b * c * d);
+            }
+        }
+    }
+
+    // ↓
+    for x in 0..matrix.len() {
+        for y in 3..matrix.len() {
+            if let (Some(a), Some(b), Some(c), Some(d)) = (
+                matrix.get(y - 3).and_then(|r| r.get(x)),
+                matrix.get(y - 2).and_then(|r| r.get(x)),
+                matrix.get(y - 1).and_then(|r| r.get(x)),
+                matrix.get(y).and_then(|r| r.get(x)),
+            ) {
+                max = std::cmp::max(max, a * b * c * d);
+            }
+        }
+    }
+
+    // ↘
+    for x in 3..matrix.len() {
+        for y in 3..matrix.len() {
+            if let (Some(a), Some(b), Some(c), Some(d)) = (
+                matrix.get(y - 3).and_then(|r| r.get(x - 3)),
+                matrix.get(y - 2).and_then(|r| r.get(x - 2)),
+                matrix.get(y - 1).and_then(|r| r.get(x - 1)),
+                matrix.get(y).and_then(|r| r.get(x)),
+            ) {
+                max = std::cmp::max(max, a * b * c * d);
+            }
+        }
+    }
+
+    // ↙
+    for x in 3..matrix.len() {
+        for y in 0..matrix.len() - 3 {
+            if let (Some(a), Some(b), Some(c), Some(d)) = (
+                matrix.get(y + 3).and_then(|r| r.get(x - 3)),
+                matrix.get(y + 2).and_then(|r| r.get(x - 2)),
+                matrix.get(y + 1).and_then(|r| r.get(x - 1)),
+                matrix.get(y).and_then(|r| r.get(x)),
+            ) {
+                max = std::cmp::max(max, a * b * c * d);
+            }
+        }
+    }
+
+    println!(&quot;{}&quot;, max);
+    assert_eq!(max, 70600674);
+}
+</code></pre></pre>
+<hr />
+<pre><pre class="playground"><code class="language-rust">struct Square {
+    _matrix: [[u32; 20]; 20],
+    _x: usize,
+    _y: usize,
+    _len: usize,
+}
+
+impl Square {
+    fn new(matrix: [[u32; 20]; 20]) -&gt; Self {
+        assert!(matrix.len() == 0 || matrix.len() == matrix[0].len());
+        Square {
+            _x: 0,
+            _y: 0,
+            _matrix: matrix,
+            _len: matrix.len(),
+        }
+    }
+    fn width(&amp;self) -&gt; usize {
+        self._len
+    }
+    fn set_cursor(&amp;mut self, x: usize, y: usize) {
+        self._x = x;
+        self._y = y;
+    }
+    fn east_product(&amp;self, adj_len: usize) -&gt; Result&lt;u32, ()&gt; {
+        if self._x + adj_len &gt; self._matrix.len() {
+            return Err(());
+        }
+        let p = (0..adj_len)
+            .map(|a| self._matrix[self._y][self._x + a])
+            .product::&lt;u32&gt;();
+        Ok(p)
+    }
+    fn south_product(&amp;self, adj_len: usize) -&gt; Result&lt;u32, ()&gt; {
+        if self._y + adj_len &gt; self._matrix.len() {
+            return Err(());
+        }
+        let p = (0..adj_len)
+            .map(|a| self._matrix[self._y + a][self._x])
+            .product::&lt;u32&gt;();
+        Ok(p)
+    }
+    fn south_east_product(&amp;self, adj_len: usize) -&gt; Result&lt;u32, ()&gt; {
+        if self._y + adj_len &gt; self._matrix.len() {
+            return Err(());
+        }
+        if self._x + adj_len &gt; self._matrix.len() {
+            return Err(());
+        }
+        let p = (0..adj_len)
+            .map(|a| self._matrix[self._y + a][self._x + a])
+            .product::&lt;u32&gt;();
+        Ok(p)
+    }
+    fn south_west_product(&amp;self, adj_len: usize) -&gt; Result&lt;u32, ()&gt; {
+        if self._y + adj_len &gt; self._matrix.len() {
+            return Err(());
+        }
+        if self._x &lt; adj_len - 1{
+            return Err(());
+        }
+        let p = (0..adj_len)
+            .map(|a| self._matrix[self._y + a][self._x - a])
+            .product::&lt;u32&gt;();
+        Ok(p)
+    }
+}
+
+fn main() {
+    let mut square = Square::new([
+        [
+            08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08,
+        ],
+        [
+            49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 04, 56, 62, 00,
+        ],
+        [
+            81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 03, 49, 13, 36, 65,
+        ],
+        [
+            52, 70, 95, 23, 04, 60, 11, 42, 69, 24, 68, 56, 01, 32, 56, 71, 37, 02, 36, 91,
+        ],
+        [
+            22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80,
+        ],
+        [
+            24, 47, 32, 60, 99, 03, 45, 02, 44, 75, 33, 53, 78, 36, 84, 20, 35, 17, 12, 50,
+        ],
+        [
+            32, 98, 81, 28, 64, 23, 67, 10, 26, 38, 40, 67, 59, 54, 70, 66, 18, 38, 64, 70,
+        ],
+        [
+            67, 26, 20, 68, 02, 62, 12, 20, 95, 63, 94, 39, 63, 08, 40, 91, 66, 49, 94, 21,
+        ],
+        [
+            24, 55, 58, 05, 66, 73, 99, 26, 97, 17, 78, 78, 96, 83, 14, 88, 34, 89, 63, 72,
+        ],
+        [
+            21, 36, 23, 09, 75, 00, 76, 44, 20, 45, 35, 14, 00, 61, 33, 97, 34, 31, 33, 95,
+        ],
+        [
+            78, 17, 53, 28, 22, 75, 31, 67, 15, 94, 03, 80, 04, 62, 16, 14, 09, 53, 56, 92,
+        ],
+        [
+            16, 39, 05, 42, 96, 35, 31, 47, 55, 58, 88, 24, 00, 17, 54, 24, 36, 29, 85, 57,
+        ],
+        [
+            86, 56, 00, 48, 35, 71, 89, 07, 05, 44, 44, 37, 44, 60, 21, 58, 51, 54, 17, 58,
+        ],
+        [
+            19, 80, 81, 68, 05, 94, 47, 69, 28, 73, 92, 13, 86, 52, 17, 77, 04, 89, 55, 40,
+        ],
+        [
+            04, 52, 08, 83, 97, 35, 99, 16, 07, 97, 57, 32, 16, 26, 26, 79, 33, 27, 98, 66,
+        ],
+        [
+            88, 36, 68, 87, 57, 62, 20, 72, 03, 46, 33, 67, 46, 55, 12, 32, 63, 93, 53, 69,
+        ],
+        [
+            04, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 08, 46, 29, 32, 40, 62, 76, 36,
+        ],
+        [
+            20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 04, 36, 16,
+        ],
+        [
+            20, 73, 35, 29, 78, 31, 90, 01, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 05, 54,
+        ],
+        [
+            01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48,
+        ],
+    ]);
+
+    let mut max = 0u32;
+    for i in 0..square.width() {
+        for j in 0..square.width() {
+            square.set_cursor(i, j);
+            if let Ok(p) = square.east_product(4) {
+                max = std::cmp::max(max, p);
+            }
+            if let Ok(p) = square.south_product(4) {
+                max = std::cmp::max(max, p);
+            }
+            if let Ok(p) = square.south_east_product(4) {
+                max = std::cmp::max(max, p);
+            }
+            if let Ok(p) = square.south_west_product(4) {
+                max = std::cmp::max(max, p);
+            }
+        }
+    }
+
+    println!(&quot;{}&quot;, max);
+    assert_eq!(max, 70600674);
 }
 </code></pre></pre>
 <p>This website is a collection of Ryoji's memos in <a href="https://github.com/growingspaghetti/project-euler">github.com/growingspaghetti/project-euler</a> as the scrapbox.</p>
