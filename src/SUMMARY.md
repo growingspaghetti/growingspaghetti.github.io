@@ -19,6 +19,7 @@
    - [Largest product in a grid](./e11.md)
    - [Highly divisible triangular number](./e12.md)
    - [Large sum](./e13.md)
+   - [Longest Collatz sequence](./e14.md)
 
 ---
 
