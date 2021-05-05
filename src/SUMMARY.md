@@ -18,6 +18,7 @@
    - [Summation of primes](./e10.md)
    - [Largest product in a grid](./e11.md)
    - [Highly divisible triangular number](./e12.md)
+   - [Large sum](./e13.md)
 
 ---
 
