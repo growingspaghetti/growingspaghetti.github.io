@@ -23,6 +23,7 @@
    - [Lattice paths](./e15.md)
    - [Power digit sum](./e16.md)
    - [Number letter counts](./e17.md)
+   - [Maximum path sum I](./e18.md)
 
 ---
 
