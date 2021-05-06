@@ -21,6 +21,7 @@
    - [Large sum](./e13.md)
    - [Longest Collatz sequence](./e14.md)
    - [Lattice paths](./e15.md)
+   - [Power digit sum](./e16.md)
 
 ---
 
