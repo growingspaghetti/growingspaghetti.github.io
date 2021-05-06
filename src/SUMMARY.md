@@ -24,6 +24,7 @@
    - [Power digit sum](./e16.md)
    - [Number letter counts](./e17.md)
    - [Maximum path sum I](./e18.md)
+   - [Counting Sundays](./e19.md)
 
 ---
 
