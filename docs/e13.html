@@ -335,12 +335,12 @@ impl BigNum {
         }
         if let Some(con) = self.a.get_mut(page) {
             *con += n + *carry;
-            if *con &gt;= Self::TEN_MIL {
-                *carry = 1;
-                *con -= Self::TEN_MIL;
-            } else {
+            if *con &lt; Self::TEN_MIL {
                 *carry = 0;
+                return;
             }
+            *carry = 1;
+            *con -= Self::TEN_MIL;
         }
     }
     fn add(&amp;mut self, b: &amp;str) {

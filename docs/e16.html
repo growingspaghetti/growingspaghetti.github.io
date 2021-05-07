@@ -178,12 +178,12 @@ impl BigNum {
         for con in self.v.iter_mut() {
             *con *= 2;
             *con += carry;
-            if *con &gt;= Self::TEN_MIL {
-                carry = 1;
-                *con -= Self::TEN_MIL;
-            } else {
+            if *con &lt; Self::TEN_MIL {
                 carry = 0;
+                continue;
             }
+            carry = 1;
+            *con -= Self::TEN_MIL;
         }
         if carry != 0 {
             self.v.push(1u64);
