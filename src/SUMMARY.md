@@ -25,6 +25,7 @@
    - [Number letter counts](./e17.md)
    - [Maximum path sum I](./e18.md)
    - [Counting Sundays](./e19.md)
+   - [Factorial digit sum](./e20.md)
 
 ---
 
@@ -38,6 +39,13 @@
  - []()
    - [Scoreboard]()
    - [InsertionSort]()
+
+---
+
+# LeetCode with APAS
+
+ - []()
+   - [Square root]()
 
 ---
 
