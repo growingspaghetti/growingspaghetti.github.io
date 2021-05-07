@@ -26,6 +26,7 @@
    - [Maximum path sum I](./e18.md)
    - [Counting Sundays](./e19.md)
    - [Factorial digit sum](./e20.md)
+   - [Amicable numbers](./e21.md)
 
 ---
 
@@ -46,6 +47,21 @@
 
  - []()
    - [Square root]()
+
+---
+
+# Exercism
+
+ - []()
+   - [Armstrong Numbers]()
+   - [Diffie Hellman]()
+   - [ISBN Verifier]()
+   - [Perfect Numbers]()
+   - [All Your Base]()
+   - [Allergies]()
+   - [Clock]()
+   - [Variable Length Quantity]()
+
 
 ---
 

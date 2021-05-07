@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amicable numbers - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="chapter-item expanded "><a href="e11.html"><strong aria-hidden="true">1.11.</strong> Largest product in a grid</a></li><li class="chapter-item expanded "><a href="e12.html"><strong aria-hidden="true">1.12.</strong> Highly divisible triangular number</a></li><li class="chapter-item expanded "><a href="e13.html"><strong aria-hidden="true">1.13.</strong> Large sum</a></li><li class="chapter-item expanded "><a href="e14.html"><strong aria-hidden="true">1.14.</strong> Longest Collatz sequence</a></li><li class="chapter-item expanded "><a href="e15.html"><strong aria-hidden="true">1.15.</strong> Lattice paths</a></li><li class="chapter-item expanded "><a href="e16.html"><strong aria-hidden="true">1.16.</strong> Power digit sum</a></li><li class="chapter-item expanded "><a href="e17.html"><strong aria-hidden="true">1.17.</strong> Number letter counts</a></li><li class="chapter-item expanded "><a href="e18.html"><strong aria-hidden="true">1.18.</strong> Maximum path sum I</a></li><li class="chapter-item expanded "><a href="e19.html"><strong aria-hidden="true">1.19.</strong> Counting Sundays</a></li><li class="chapter-item expanded "><a href="e20.html"><strong aria-hidden="true">1.20.</strong> Factorial digit sum</a></li><li class="chapter-item expanded "><a href="e21.html" class="active"><strong aria-hidden="true">1.21.</strong> Amicable numbers</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">LeetCode with APAS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Square root</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Exercism</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Armstrong Numbers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> Diffie Hellman</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> ISBN Verifier</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> Perfect Numbers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> All Your Base</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> Allergies</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> Clock</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> Variable Length Quantity</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithm notes on the back of used envelopes bound in a ring binder</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTx7-dkY4_Fyf5yNk070DTNnSuvFBIlqMwyQ9a4uwRcALH2UrtUevfvY0aouIPuk1bog2PGtOQ5Tqpt/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<ul>
+<li><a href="./e12.html">Highly divisible triangular number</a></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">struct AmicableNumberScanner {
+    under: u32,
+    _primes: Vec&lt;u32&gt;,
+    _aliquot_sum: Vec&lt;u32&gt;,
+}
+
+impl AmicableNumberScanner {
+    fn new(under: u32) -&gt; Self {
+        AmicableNumberScanner {
+            under: under,
+            _primes: vec![2, 3],
+            _aliquot_sum: vec![0u32; under as usize],
+        }
+    }
+    fn _divide_fully(&amp;self, n: &amp;mut u32, d: u32, side: &amp;mut u32, sum: &amp;mut u32) {
+        if *n % d == 0 {
+            let mut exp = 0u32;
+            while {
+                *n /= d;
+                exp += 1;
+                *n % d == 0
+            } {}
+            *side = (*n as f32).sqrt() as u32;
+            *sum *= (d.pow(exp + 1) - 1) / (d - 1);
+        }
+    }
+    fn _sum_of_divisors(&amp;mut self, mut n: u32) -&gt; u32 {
+        let mut side = (n as f32).sqrt() as u32;
+        let mut sum = 1u32;
+        for &amp;p in self._primes.iter() {
+            if p &gt; side || n == 1 {
+                break;
+            }
+            self._divide_fully(&amp;mut n, p, &amp;mut side, &amp;mut sum);
+        }
+        if n != 1 {
+            sum *= (n * n - 1) / (n - 1);
+            self._primes.push(n);
+        }
+        sum
+    }
+    fn pair_sum(&amp;mut self) -&gt; u32 {
+        for n in 4..self.under {
+            self._aliquot_sum[n as usize] = self._sum_of_divisors(n) - n;
+        }
+        let mut sum = 0u32;
+        for (i, v) in self._aliquot_sum.iter().enumerate() {
+            let vsize = *v as usize;
+            if vsize &gt;= self._aliquot_sum.len() {
+                continue;
+            }
+            if vsize == i {
+                continue;
+            }
+            if self._aliquot_sum[vsize] == i as u32 {
+                sum += *v;
+            }
+        }
+        sum
+    }
+}
+
+fn main() {
+    let sum = AmicableNumberScanner::new(10_000).pair_sum();
+
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 31626);
+}
+</code></pre></pre>
+<hr />
+<ul>
+<li><a href="./e10.html">Summation of primes</a></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust">struct Index {
+    i: usize,
+    _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
+}
+
+impl Index {
+    fn increment(&amp;mut self) {
+        self.i += self._ite.next().unwrap();
+    }
+    fn new() -&gt; Self {
+        Index {
+            i: 5,
+            _ite: Box::new(vec![2usize, 4].into_iter().cycle()),
+        }
+    }
+}
+
+fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
+    for i in (prime * prime..sieve.len()).step_by(prime) {
+        sieve[i] = false;
+    }
+}
+
+fn primes(under: u32) -&gt; Vec&lt;u32&gt; {
+    let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
+    let mut sieve = vec![true; under as usize];
+    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let mut index = Index::new();
+    loop {
+        if index.i &gt; sqrt {
+            break;
+        }
+        if sieve[index.i] {
+            primes.push(index.i as u32);
+            rule_out(&amp;mut sieve, index.i);
+        }
+        index.increment();
+    }
+    loop {
+        if index.i &gt;= sieve.len() {
+            break;
+        }
+        if sieve[index.i] {
+            primes.push(index.i as u32);
+        }
+        index.increment();
+    }
+    primes
+}
+
+struct AmicableNumberScanner {
+    under: u32,
+    _primes: Vec&lt;u32&gt;,
+    _checked: Vec&lt;bool&gt;,
+}
+
+impl AmicableNumberScanner {
+    fn new(under: u32) -&gt; Self {
+        AmicableNumberScanner {
+            under: under,
+            _primes: primes(under),
+            _checked: vec![false; under as usize],
+        }
+    }
+    fn _divide_fully(&amp;self, n: &amp;mut u32, d: u32, side: &amp;mut u32, sum: &amp;mut u32) {
+        if *n % d == 0 {
+            let mut exp = 0u32;
+            while {
+                *n /= d;
+                exp += 1;
+                *n % d == 0
+            } {}
+            *side = (*n as f32).sqrt() as u32;
+            *sum *= (d.pow(exp + 1) - 1) / (d - 1);
+        }
+    }
+    fn _sum_of_divisors(&amp;mut self, mut n: u32) -&gt; u32 {
+        let mut side = (n as f32).sqrt() as u32;
+        let mut sum = 1u32;
+        for &amp;p in self._primes.iter() {
+            if p &gt; side || n == 1 {
+                break;
+            }
+            self._divide_fully(&amp;mut n, p, &amp;mut side, &amp;mut sum);
+        }
+        if n != 1 {
+            sum *= (n * n - 1) / (n - 1);
+        }
+        sum
+    }
+    fn pair_sum(&amp;mut self) -&gt; u32 {
+        let mut pair_sum = 0u32;
+        for a in 4..self.under {
+            if self._checked[a as usize] {
+                continue;
+            }
+            let sum = self._sum_of_divisors(a) - a;
+            if sum &lt;= a {
+                continue;
+            }
+            if sum &gt;= self.under {
+                continue;
+            }
+            let b = self._sum_of_divisors(sum) - sum;
+            self._checked[sum as usize] = true;
+            if a == b {
+                pair_sum += a + sum;
+            }
+        }
+        pair_sum
+    }
+}
+
+fn main() {
+    let sum = AmicableNumberScanner::new(10_000).pair_sum();
+
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 31626);
+}
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="e20.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="e20.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
