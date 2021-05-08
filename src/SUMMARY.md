@@ -27,6 +27,7 @@
    - [Counting Sundays](./e19.md)
    - [Factorial digit sum](./e20.md)
    - [Amicable numbers](./e21.md)
+   - [Names scores](./e22.md)
 
 ---
 
