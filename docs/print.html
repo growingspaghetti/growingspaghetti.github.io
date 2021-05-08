@@ -2405,9 +2405,7 @@ fn main() {
 <p>Because the original name list is very long, these examples have only a part of it.</p>
 <pre><pre class="playground"><code class="language-rust">fn median&lt;'a&gt;(vec: &amp;Vec&lt;&amp;'a str&gt;, a: usize, c: usize) -&gt; &amp;'a str {
     let b = (c - a) / 2;
-    let astr = vec[a];
-    let bstr = vec[b];
-    let cstr = vec[c];
+    let (astr, bstr, cstr) = (vec[a], vec[b], vec[c]);
     if (cstr &lt; astr &amp;&amp; astr &lt; bstr) || (bstr &lt;= astr &amp;&amp; astr &lt; cstr) {
         astr
     } else if (astr &lt; bstr &amp;&amp; bstr &lt; cstr) || (cstr &lt; bstr &amp;&amp; bstr &lt;= astr) {
@@ -2495,6 +2493,95 @@ fn name_score(index: usize, name: &amp;str) -&gt; u32 {
 fn main() {
     let mut names = NAMES.to_vec();
     quick_sort(&amp;mut names);
+    let sum: u32 = names
+        .iter()
+        .enumerate()
+        .map(|(i, &amp;n)| name_score(i, n))
+        .sum();
+
+    println!(&quot;---\n{:#?}&quot;, names);
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 26578);
+}
+
+const NAMES: &amp;[&amp;str] = &amp;[
+    &quot;MARY&quot;,
+    &quot;PATRICIA&quot;,
+    &quot;LINDA&quot;,
+    &quot;BARBARA&quot;,
+    &quot;ELIZABETH&quot;,
+    &quot;JENNIFER&quot;,
+    &quot;MARIA&quot;,
+    &quot;SUSAN&quot;,
+    &quot;MARGARET&quot;,
+    &quot;DOROTHY&quot;,
+    &quot;LISA&quot;,
+    &quot;NANCY&quot;,
+    &quot;KAREN&quot;,
+    &quot;BETTY&quot;,
+    &quot;HELEN&quot;,
+    &quot;SANDRA&quot;,
+    &quot;DONNA&quot;,
+    &quot;CAROL&quot;,
+    &quot;RUTH&quot;,
+    &quot;SHARON&quot;,
+    &quot;MICHELLE&quot;,
+    &quot;LAURA&quot;,
+    &quot;SARAH&quot;,
+    &quot;KIMBERLY&quot;,
+    &quot;DEBORAH&quot;,
+    &quot;JESSICA&quot;,
+    &quot;SHIRLEY&quot;,
+    &quot;CYNTHIA&quot;,
+];
+</code></pre></pre>
+<hr />
+<pre><pre class="playground"><code class="language-rust">fn drain_into&lt;'a&gt;(a: &amp;[&amp;'a str], b: &amp;[&amp;'a str], ab: &amp;mut [&amp;'a str]) {
+    let (mut x, mut y, mut i) = (0, 0, 0);
+    while x &lt; a.len() &amp;&amp; y &lt; b.len() {
+        if a[x] &lt; b[y] {
+            ab[i] = a[x];
+            x += 1;
+        } else {
+            ab[i] = b[y];
+            y += 1;
+        }
+        i += 1;
+    }
+    if x &lt; a.len() {
+        ab[i..].copy_from_slice(&amp;a[x..]);
+    }
+    if y &lt; b.len() {
+        ab[i..].copy_from_slice(&amp;b[y..]);
+    }
+}
+
+fn merge_sort(segment: &amp;mut [&amp;str]) {
+    let n = segment.len();
+    let m = n / 2;
+    if n &lt;= 1 {
+        return;
+    }
+    merge_sort(&amp;mut segment[0..m]);
+    merge_sort(&amp;mut segment[m..n]);
+    println!(&quot;---\n{:#?}&quot;, &amp;segment[0..m]);
+    println!(&quot;{:#?}&quot;, &amp;segment[m..n]);
+
+    let mut tmp: Vec&lt;&amp;str&gt; = segment.to_vec();
+    drain_into(&amp;segment[0..m], &amp;segment[m..n], &amp;mut tmp[..]);
+    segment.copy_from_slice(&amp;tmp);
+    println!(&quot;{:#?}&quot;, &amp;segment);
+}
+
+fn name_score(index: usize, name: &amp;str) -&gt; u32 {
+    let position = index as u32 + 1;
+    let worth = name.chars().map(|c| c as u32 - 'A' as u32 + 1).sum::&lt;u32&gt;();
+    position * worth
+}
+
+fn main() {
+    let mut names = NAMES.to_vec();
+    merge_sort(&amp;mut names);
     let sum: u32 = names
         .iter()
         .enumerate()
