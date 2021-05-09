@@ -2402,8 +2402,11 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vStc3yljpxd5sfgEk-ArIhJFDLxVJham5kt16FnLCrlxS0-6RKTLO-aacD6WrxPyR26UO8S_tdfpteF/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U">mycodeschool - Sorting Algorithms, youtube playlist</a></li>
+</ul>
 <p>Because the original name list is very long, these examples have only a part of it.</p>
-<pre><pre class="playground"><code class="language-rust">fn median&lt;'a&gt;(vec: &amp;Vec&lt;&amp;'a str&gt;, a: usize, c: usize) -&gt; &amp;'a str {
+<pre><pre class="playground"><code class="language-rust">fn median&lt;'a&gt;(vec: &amp;[&amp;'a str], a: usize, c: usize) -&gt; &amp;'a str {
     let b = (c - a) / 2;
     let (astr, bstr, cstr) = (vec[a], vec[b], vec[c]);
     if (cstr &lt; astr &amp;&amp; astr &lt; bstr) || (bstr &lt;= astr &amp;&amp; astr &lt; cstr) {
@@ -2419,25 +2422,25 @@ fn met(sinker_depth: usize, float_depth: usize) -&gt; bool {
     sinker_depth &gt;= float_depth
 }
 
-fn sink_fully(vec: &amp;Vec&lt;&amp;str&gt;, depth: &amp;mut usize, blocker: &amp;str) {
+fn sink_fully(vec: &amp;[&amp;str], depth: &amp;mut usize, blocker: &amp;str) {
     while vec[*depth] &lt; blocker {
         *depth += 1;
     }
 }
 
-fn float_fully(vec: &amp;Vec&lt;&amp;str&gt;, depth: &amp;mut usize, blocker: &amp;str) {
+fn float_fully(vec: &amp;[&amp;str], depth: &amp;mut usize, blocker: &amp;str) {
     while vec[*depth] &gt; blocker {
         *depth -= 1;
     }
 }
 
-fn break_through(vec: &amp;mut Vec&lt;&amp;str&gt;, sinker_depth: &amp;mut usize, float_depth: &amp;mut usize) {
+fn break_through(vec: &amp;mut [&amp;str], sinker_depth: &amp;mut usize, float_depth: &amp;mut usize) {
     vec.swap(*sinker_depth, *float_depth);
     *sinker_depth += 1;
     *float_depth -= 1;
 }
 
-fn release(vec: &amp;mut Vec&lt;&amp;str&gt;, sinker0: usize, float0: usize) {
+fn release(vec: &amp;mut [&amp;str], sinker0: usize, float0: usize) {
     if met(sinker0, float0) {
         return;
     }
@@ -2480,7 +2483,7 @@ fn release(vec: &amp;mut Vec&lt;&amp;str&gt;, sinker0: usize, float0: usize) {
     release(vec, float + 1, float0);
 }
 
-fn quick_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
+fn quick_sort(vec: &amp;mut [&amp;str]) {
     release(vec, 0, vec.len() - 1);
 }
 
@@ -2717,6 +2720,72 @@ fn name_score(index: usize, name: &amp;str) -&gt; u32 {
 fn main() {
     let mut names = NAMES.to_vec();
     selection_sort(&amp;mut names);
+    let sum: u32 = names
+        .iter()
+        .enumerate()
+        .map(|(i, &amp;n)| name_score(i, n))
+        .sum();
+
+    println!(&quot;---\n{:#?}&quot;, names);
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 26578);
+}
+
+const NAMES: &amp;[&amp;str] = &amp;[
+    &quot;MARY&quot;,
+    &quot;PATRICIA&quot;,
+    &quot;LINDA&quot;,
+    &quot;BARBARA&quot;,
+    &quot;ELIZABETH&quot;,
+    &quot;JENNIFER&quot;,
+    &quot;MARIA&quot;,
+    &quot;SUSAN&quot;,
+    &quot;MARGARET&quot;,
+    &quot;DOROTHY&quot;,
+    &quot;LISA&quot;,
+    &quot;NANCY&quot;,
+    &quot;KAREN&quot;,
+    &quot;BETTY&quot;,
+    &quot;HELEN&quot;,
+    &quot;SANDRA&quot;,
+    &quot;DONNA&quot;,
+    &quot;CAROL&quot;,
+    &quot;RUTH&quot;,
+    &quot;SHARON&quot;,
+    &quot;MICHELLE&quot;,
+    &quot;LAURA&quot;,
+    &quot;SARAH&quot;,
+    &quot;KIMBERLY&quot;,
+    &quot;DEBORAH&quot;,
+    &quot;JESSICA&quot;,
+    &quot;SHIRLEY&quot;,
+    &quot;CYNTHIA&quot;,
+];
+</code></pre></pre>
+<hr />
+<pre><pre class="playground"><code class="language-rust">fn insertion_sort(vec: &amp;mut [&amp;str]) {
+    for i in 0..vec.len() {
+        for j in (0..i).rev() {
+            if vec[j] &gt;= vec[j + 1] {
+                vec.swap(j, j + 1);
+            } else {
+                break
+            }
+        }
+        println!(&quot;---\n{:#?}&quot;, &amp;vec[0..=i]);
+        println!(&quot;{:#?}&quot;, &amp;vec[std::cmp::min(i + 1, vec.len())..vec.len()]);
+    }
+}
+
+fn name_score(index: usize, name: &amp;str) -&gt; u32 {
+    let position = index as u32 + 1;
+    let worth = name.chars().map(|c| c as u32 - 'A' as u32 + 1).sum::&lt;u32&gt;();
+    position * worth
+}
+
+fn main() {
+    let mut names = NAMES.to_vec();
+    insertion_sort(&amp;mut names);
     let sum: u32 = names
         .iter()
         .enumerate()
