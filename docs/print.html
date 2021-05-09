@@ -2406,6 +2406,15 @@ fn main() {
 <li><a href="https://www.youtube.com/playlist?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U">mycodeschool - Sorting Algorithms, youtube playlist</a></li>
 </ul>
 <p>Because the original name list is very long, these examples have only a part of it.</p>
+<ul>
+<li><a href="e22.html#quick">1. Go to Quick sort</a></li>
+<li><a href="e22.html#merge">2. Go to Merge sort</a></li>
+<li><a href="e22.html#heap">3. Go to Heap sort</a></li>
+<li><a href="e22.html#bubble">4. Go to Bubble sort</a></li>
+<li><a href="e22.html#selection">5. Go to Selection sort</a></li>
+<li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
+</ul>
+<p><a name="quick"><h2 id="1-quick-sort"><a class="header" href="#1-quick-sort">1. Quick sort</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust">fn median&lt;'a&gt;(vec: &amp;[&amp;'a str], a: usize, c: usize) -&gt; &amp;'a str {
     let b = (c - a) / 2;
     let (astr, bstr, cstr) = (vec[a], vec[b], vec[c]);
@@ -2539,6 +2548,15 @@ const NAMES: &amp;[&amp;str] = &amp;[
 ];
 </code></pre></pre>
 <hr />
+<ul>
+<li><a href="e22.html#quick">1. Go to Quick sort</a></li>
+<li><a href="e22.html#merge">2. Go to Merge sort</a></li>
+<li><a href="e22.html#heap">3. Go to Heap sort</a></li>
+<li><a href="e22.html#bubble">4. Go to Bubble sort</a></li>
+<li><a href="e22.html#selection">5. Go to Selection sort</a></li>
+<li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
+</ul>
+<p><a name="merge"><h2 id="2-merge-sort"><a class="header" href="#2-merge-sort">2. Merge sort</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust">fn drain_into&lt;'a&gt;(a: &amp;[&amp;'a str], b: &amp;[&amp;'a str], ab: &amp;mut [&amp;'a str]) {
     let (mut x, mut y, mut i) = (0, 0, 0);
     while x &lt; a.len() &amp;&amp; y &lt; b.len() {
@@ -2628,6 +2646,158 @@ const NAMES: &amp;[&amp;str] = &amp;[
 ];
 </code></pre></pre>
 <hr />
+<ul>
+<li><a href="e22.html#quick">1. Go to Quick sort</a></li>
+<li><a href="e22.html#merge">2. Go to Merge sort</a></li>
+<li><a href="e22.html#heap">3. Go to Heap sort</a></li>
+<li><a href="e22.html#bubble">4. Go to Bubble sort</a></li>
+<li><a href="e22.html#selection">5. Go to Selection sort</a></li>
+<li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
+</ul>
+<p><a name="heap"><h2 id="3-heap-sort"><a class="header" href="#3-heap-sort">3. Heap sort</a></h2></a></p>
+<pre><pre class="playground"><code class="language-rust">fn heapify(arr: &amp;mut [&amp;str], pi: usize) {
+    let lef = 2 * pi + 1;
+    let rig = lef + 1;
+    if lef &gt;= arr.len() {
+        return;
+    }
+    let max = if rig &gt;= arr.len() {
+        lef
+    } else if arr[lef] &gt;= arr[rig] {
+        lef
+    } else {
+        rig
+    };
+    if arr[pi] &lt; arr[max] {
+        arr.swap(pi, max);
+        println!(&quot;---\n     {}&quot;, &amp;arr[pi]);
+        println!(&quot;{}/\\{}&quot;, &amp;arr.get(lef).unwrap_or(&amp;&quot;{}&quot;), &amp;arr.get(rig).unwrap_or(&amp;&quot;{}&quot;));
+        heapify(arr, max);
+    }
+}
+
+fn build_heap(arr: &amp;mut [&amp;str]) {
+    let parental_indice = 0..arr.len() / 2;
+    for pi in parental_indice.rev() {
+        heapify(arr, pi);
+    }
+}
+
+fn serialize(arr: &amp;mut [&amp;str]) {
+    for edge in (1..arr.len()).rev() {
+        arr.swap(0, edge);
+        println!(&quot;---\n{:#?}&quot;, &amp;arr[edge..]);
+        heapify(&amp;mut arr[..edge], 0);
+    }
+}
+
+fn heap_sort(arr: &amp;mut [&amp;str]) {
+    build_heap(arr);
+    print_heap(arr);
+    serialize(arr);
+}
+
+fn name_score(index: usize, name: &amp;str) -&gt; u32 {
+    let position = index as u32 + 1;
+    let worth = name.chars().map(|c| c as u32 - 'A' as u32 + 1).sum::&lt;u32&gt;();
+    position * worth
+}
+
+fn main() {
+    let mut names = NAMES.to_vec();
+    heap_sort(&amp;mut names);
+    let sum: u32 = names
+        .iter()
+        .enumerate()
+        .map(|(i, &amp;n)| name_score(i, n))
+        .sum();
+
+    println!(&quot;---\n{:#?}&quot;, names);
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 26578);
+}
+
+const NAMES: &amp;[&amp;str] = &amp;[
+    &quot;MARY&quot;,
+    &quot;PATRICIA&quot;,
+    &quot;LINDA&quot;,
+    &quot;BARBARA&quot;,
+    &quot;ELIZABETH&quot;,
+    &quot;JENNIFER&quot;,
+    &quot;MARIA&quot;,
+    &quot;SUSAN&quot;,
+    &quot;MARGARET&quot;,
+    &quot;DOROTHY&quot;,
+    &quot;LISA&quot;,
+    &quot;NANCY&quot;,
+    &quot;KAREN&quot;,
+    &quot;BETTY&quot;,
+    &quot;HELEN&quot;,
+    &quot;SANDRA&quot;,
+    &quot;DONNA&quot;,
+    &quot;CAROL&quot;,
+    &quot;RUTH&quot;,
+    &quot;SHARON&quot;,
+    &quot;MICHELLE&quot;,
+    &quot;LAURA&quot;,
+    &quot;SARAH&quot;,
+    &quot;KIMBERLY&quot;,
+    &quot;DEBORAH&quot;,
+    &quot;JESSICA&quot;,
+    &quot;SHIRLEY&quot;,
+    &quot;CYNTHIA&quot;,
+];
+
+fn print_heap(arr: &amp;[&amp;str]) {
+    fn print_white_space(n: usize) {
+        for _ in 0..n {
+            print!(&quot; &quot;);
+        }
+    }
+    let height = ((arr.len() + 1) as f32).log2() as usize + 1;
+    let cell = arr
+        .iter()
+        .map(|&amp;s| s.len())
+        .reduce(|a, b| std::cmp::max(a, b))
+        .unwrap();
+    let width = cell * 2usize.pow(height as u32);
+    let mut levels: Vec&lt;Vec&lt;String&gt;&gt; = vec![vec![]; height + 1];
+
+    for (i, &amp;v) in arr.iter().enumerate() {
+        let h = ((i + 1) as f32).log2() as usize + 1;
+        let r = levels.get_mut(h).unwrap();
+        r.push(format!(&quot;{}({})&quot;, v, i));
+    }
+    let last = levels.last_mut().unwrap();
+    while last.len() &lt; 2usize.pow(height as u32 - 1) {
+        last.push(String::new());
+    }
+    for r in levels {
+        if r.len() == 0 {
+            continue;
+        }
+        let space = (width) / r.len();
+        print_white_space(space / 2);
+        for (i, c) in r.iter().enumerate() {
+            let arrow1 = if i % 2 == 0 { &quot;&quot; } else { &quot;\\&quot; };
+            let arrow2 = if i % 2 != 0 { &quot;&quot; } else { &quot;/&quot; };
+            print!(&quot;{}{}{}&quot;, arrow1, c, arrow2);
+            print_white_space(space - c.len() - 1);
+        }
+        println!()
+    }
+}
+</code></pre></pre>
+<hr />
+<ul>
+<li><a href="e22.html#quick">1. Go to Quick sort</a></li>
+<li><a href="e22.html#merge">2. Go to Merge sort</a></li>
+<li><a href="e22.html#heap">3. Go to Heap sort</a></li>
+<li><a href="e22.html#bubble">4. Go to Bubble sort</a></li>
+<li><a href="e22.html#selection">5. Go to Selection sort</a></li>
+<li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
+</ul>
+<p><a name="bubble"><h2 id="4-bubble-sort"><a class="header" href="#4-bubble-sort">4. Bubble sort</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust">fn bubble_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
     for i in 0..vec.len() {
         let mut swap_was_required = false;
@@ -2697,6 +2867,15 @@ const NAMES: &amp;[&amp;str] = &amp;[
 ];
 </code></pre></pre>
 <hr />
+<ul>
+<li><a href="e22.html#quick">1. Go to Quick sort</a></li>
+<li><a href="e22.html#merge">2. Go to Merge sort</a></li>
+<li><a href="e22.html#heap">3. Go to Heap sort</a></li>
+<li><a href="e22.html#bubble">4. Go to Bubble sort</a></li>
+<li><a href="e22.html#selection">5. Go to Selection sort</a></li>
+<li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
+</ul>
+<p><a name="selection"><h2 id="5-selection-sort"><a class="header" href="#5-selection-sort">5. Selection sort</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust">fn selection_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
     for i in 0..vec.len() {
         let mut min_index = i;
@@ -2763,6 +2942,15 @@ const NAMES: &amp;[&amp;str] = &amp;[
 ];
 </code></pre></pre>
 <hr />
+<ul>
+<li><a href="e22.html#quick">1. Go to Quick sort</a></li>
+<li><a href="e22.html#merge">2. Go to Merge sort</a></li>
+<li><a href="e22.html#heap">3. Go to Heap sort</a></li>
+<li><a href="e22.html#bubble">4. Go to Bubble sort</a></li>
+<li><a href="e22.html#selection">5. Go to Selection sort</a></li>
+<li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
+</ul>
+<p><a name="insertion"><h2 id="6-insertion-sort"><a class="header" href="#6-insertion-sort">6. Insertion sort</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust">fn insertion_sort(vec: &amp;mut [&amp;str]) {
     for i in 0..vec.len() {
         for j in (0..i).rev() {
@@ -2772,7 +2960,7 @@ const NAMES: &amp;[&amp;str] = &amp;[
             vec.swap(j, j + 1);
         }
         println!(&quot;---\n{:#?}&quot;, &amp;vec[0..=i]);
-        println!(&quot;{:#?}&quot;, &amp;vec[std::cmp::min(i + 1, vec.len())..vec.len()]);
+        println!(&quot;{:#?}&quot;, &amp;vec[i + 1..vec.len()]);
     }
 }
 
