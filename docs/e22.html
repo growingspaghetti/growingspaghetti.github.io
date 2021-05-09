@@ -528,11 +528,10 @@ const NAMES: &amp;[&amp;str] = &amp;[
 <pre><pre class="playground"><code class="language-rust">fn insertion_sort(vec: &amp;mut [&amp;str]) {
     for i in 0..vec.len() {
         for j in (0..i).rev() {
-            if vec[j] &gt;= vec[j + 1] {
-                vec.swap(j, j + 1);
-            } else {
-                break
+            if vec[j] &lt; vec[j + 1] {
+                break;
             }
+            vec.swap(j, j + 1);
         }
         println!(&quot;---\n{:#?}&quot;, &amp;vec[0..=i]);
         println!(&quot;{:#?}&quot;, &amp;vec[std::cmp::min(i + 1, vec.len())..vec.len()]);
