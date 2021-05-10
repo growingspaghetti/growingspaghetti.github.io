@@ -28,6 +28,7 @@
    - [Factorial digit sum](./e20.md)
    - [Amicable numbers](./e21.md)
    - [Names scores](./e22.md)
+   - [Non-abundant sums](./e23.md)
 
 ---
 
