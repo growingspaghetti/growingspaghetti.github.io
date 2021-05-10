@@ -29,6 +29,7 @@
    - [Amicable numbers](./e21.md)
    - [Names scores](./e22.md)
    - [Non-abundant sums](./e23.md)
+   - [Lexicographic permutations](./e24.md)
 
 ---
 
