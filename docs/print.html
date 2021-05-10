@@ -3178,7 +3178,8 @@ fn main() {
     let ratio = (1f64 + 5f64.sqrt()) / 2f64;
     let iteration = 10f64.log(ratio);
     let estimation = iteration * 999f64;
-    let mut n = estimation - iteration; // 1 iteration back
+    println!(&quot;estimation: {} th Fibonacci number&quot;, estimation);
+    let mut n = (estimation - iteration).floor(); // rollback to 999 digits
     while digits_of_nth_fibonacci(n).ceil() &lt; 1000f64 {
         n += 1f64;
     }
