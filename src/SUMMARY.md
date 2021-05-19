@@ -31,6 +31,7 @@
    - [Non-abundant sums](./e23.md)
    - [Lexicographic permutations](./e24.md)
    - [1000-digit Fibonacci number](./e25.md)
+   - [Reciprocal cycles](./e26.md)
 
 ---
 
