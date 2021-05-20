@@ -33,6 +33,7 @@
    - [1000-digit Fibonacci number](./e25.md)
    - [Reciprocal cycles](./e26.md)
    - [Quadratic primes](./e27.md)
+   - [Number spiral diagonals](./e28.md)
 
 ---
 
