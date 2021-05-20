@@ -32,6 +32,7 @@
    - [Lexicographic permutations](./e24.md)
    - [1000-digit Fibonacci number](./e25.md)
    - [Reciprocal cycles](./e26.md)
+   - [Quadratic primes](./e27.md)
 
 ---
 
