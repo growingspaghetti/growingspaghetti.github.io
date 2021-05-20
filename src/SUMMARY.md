@@ -34,6 +34,7 @@
    - [Reciprocal cycles](./e26.md)
    - [Quadratic primes](./e27.md)
    - [Number spiral diagonals](./e28.md)
+   - [Distinct powers](./e29.md)
 
 ---
 
