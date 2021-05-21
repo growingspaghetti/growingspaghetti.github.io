@@ -36,6 +36,7 @@
    - [Number spiral diagonals](./e28.md)
    - [Distinct powers](./e29.md)
    - [Digit fifth powers](./e30.md)
+   - [Coin sums](./e31.md)
 
 ---
 
