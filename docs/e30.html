@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -50,7 +50,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -76,7 +76,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -114,8 +114,8 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -165,7 +165,7 @@
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoiWWblcSHsZfzlRjD8JN9zSxxlT7YkOgkrY06vvNEkkwsxw3YHISIR7ioJsQfNgzC-Yl-6DVieOVN/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20power_digit_sum(mut%20n%3A%20u32%2C%20exp%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20let%20mut%20sum%20%3D%200u32%3B%0A%20%20%20%20while%20n%20%3E%200%20%7B%0A%20%20%20%20%20%20%20%20let%20d%20%3D%20n%20%25%2010%3B%0A%20%20%20%20%20%20%20%20n%20%2F%3D%2010%3B%0A%20%20%20%20%20%20%20%20sum%20%2B%3D%20d.pow(exp)%3B%0A%20%20%20%20%7D%0A%20%20%20%20sum%0A%7D%0A%0Afn%20power_digit_sum_mod(n%3A%20u32%2C%20exp%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20let%20log10%20%3D%20(n%20as%20f32).log10()%20as%20u32%3B%0A%20%20%20%20(0..%3Dlog10)%0A%20%20%20%20%20%20%20%20.map(%7Ci%7C%2010u32.pow(i))%0A%20%20%20%20%20%20%20%20.map(%7Cp%7C%20((n%20%25%20(p%20*%2010)%20-%20n%20%25%20p)%20%2F%20p).pow(exp))%0A%20%20%20%20%20%20%20%20.sum()%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20power_digit_sum(1634%2C%204))%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20power_digit_sum_mod(1634%2C%204))%3B%0A%7D%0A"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn match_pow_sum(target: u32, pow_sum_999_fold: &amp;[u32; 999]) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn match_pow_sum(target: u32, pow_sum_999_fold: &amp;[u32; 999]) -&gt; bool {
     let mut digits = target;
     let mut sum = 0;
     while digits &gt; 0 {

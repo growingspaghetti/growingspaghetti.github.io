@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -52,7 +52,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -78,7 +78,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -116,8 +116,8 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -379,12 +379,12 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 </div>
 <h1 id="ps"><a class="header" href="#ps">PS</a></h1>
 <p>Data structures and algorithms might be easier than the non-pedagogical programming in a sense for its internal perfection and predictability.</p>
-<p>I mean, I can imagine you are using <strong>Postman</strong> to check against a service that was provided by some organisation so that you can confirm the functionalities are implemented as described in their documents after experiencing irregular behaviours; you are collating the version of a <strong>kubernetes'</strong> application in debugging for a runtime error that couldn't be detected with mock tests; or you are in a tunnel to find out idioms unheard of to write a passable <strong>Gradle</strong> script.</p>
+<p>I mean, I can imagine you are using <strong>Postman</strong> to check against a service that was provided by some organisation so that you can confirm the functionalities are implemented as described in their documents after experiencing irregular behaviours; you are collating the version of a <strong>Kubernetes'</strong> application in debugging for a runtime error that couldn't be detected with mock tests; or you are in a tunnel to find out idioms unheard of to write a passable <strong>Gradle</strong> script or an industrial level quality test code with the most up-to-date <strong>Mockito</strong> library with an extention that is also unheard of. A warning says I must not click <strong>the back button in the browser</strong>; or a question form doesn't have the option to choose for my answer. To speak ultimately, these sort of problems occur regardless of using a computer or a sheet of paper.</p>
 <p>As for me, having been stuck in quotidian affairs, I'm poor in certain things to be certified. As you see from this page, I'm so a non-starter literally, which is not what I'm proud of.</p>
 <html>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7HA2byHmvIaxWXOhdLJMXgsyf7M5vx7ZWRU2ZV4qGgIOFrLaehDqONZVPYB_tLZdrCRFmUgMAagf9/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </html>
-<pre><pre class="playground"><code class="language-rust">struct ArithmeticProgression {
+<pre><pre class="playground"><code class="language-rust editable">struct ArithmeticProgression {
     first: i32,
     last: i32,
     diff: i32,
@@ -418,7 +418,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaHP7TcUI71uiwljBVfn6M7yFRxgXos451Bcb_q-y0h__0CLFzDZn916HYRaj-y_hfgcS-MUbDsEh6/embed?start=false&loop=false&delayms=60000" frameborder="0"  width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct TripleBox {
+<pre><pre class="playground"><code class="language-rust editable">struct TripleBox {
     i: u64,
     j: u64,
     k: u64,
@@ -444,7 +444,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">struct LuckyClover {
+<pre><pre class="playground"><code class="language-rust editable">struct LuckyClover {
     a: u64,
     b: u64,
     c: u64,
@@ -498,7 +498,7 @@ fn main() {
 }
 </code></pre></pre>
 <p><htmnl><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSTrpjghGiCjA0R9p38sLYptZYTiHKxk_Xljri6TMzeMCjf7lyjq1WSWaIKIJxBDG_sc7dpzfyhbaqz/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html></p>
-<pre><pre class="playground"><code class="language-rust">fn divide_fully(n: &amp;mut u64, d: u64, side: &amp;mut u64) {
+<pre><pre class="playground"><code class="language-rust editable">fn divide_fully(n: &amp;mut u64, d: u64, side: &amp;mut u64) {
     if *n % d != 0 {
         return;
     }
@@ -552,7 +552,7 @@ fn main() {
 
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">fn largest_prime_factor(mut n: u64) -&gt; u64 {
+<pre><pre class="playground"><code class="language-rust editable">fn largest_prime_factor(mut n: u64) -&gt; u64 {
     assert!(n &gt; 1);
     let mut divisor = 2u64;
     while n != 1 {
@@ -579,7 +579,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTTJxJFxMM7KkbNVNMuhPlLG4EJdhHkaJKgibWTKEeKjuzUlvoNJ-qDBOC9qDxd9FbIS4y-Zf76P5F8/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn is_palindrome(a: u32) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn is_palindrome(a: u32) -&gt; bool {
     let mut t = a;
     let mut b = 0u32;
     while t &gt; 0 {
@@ -623,7 +623,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS0vhb4qKuLM62w4AUrn4DQfhzn9hKKS3NmOkhPK3t30mMhf7wB_KqFh5fz0vmGPZcpjP12FT7tlxZT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn gcd(mut a: u64, mut b: u64) -&gt; u64 {
+<pre><pre class="playground"><code class="language-rust editable">fn gcd(mut a: u64, mut b: u64) -&gt; u64 {
     if b &gt; a {
         std::mem::swap(&amp;mut a, &amp;mut b);
     }
@@ -650,7 +650,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">#[derive(Clone)]
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Clone)]
 struct Factor {
     prime: u32,
     occurrence: u32,
@@ -711,7 +711,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTP9y24LtmU7xc2aa330SN3Ckv41Nhh_Syv8CHEGfe7SsPqUlmIPoXfReOZbVaJWUGS_WXD6L2X7vql/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Sequence {
+<pre><pre class="playground"><code class="language-rust editable">struct Sequence {
     n: u64,
 }
 
@@ -734,7 +734,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSQMS02Bs8MWMfHRChuI3eTMbxC-Anx7tUPAGemmKWugKFVup2d25ipBwcU5OQdcxHluC3wQxY6M9Bp/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
+<pre><pre class="playground"><code class="language-rust editable">fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
     for i in (prime..sieve.len()).step_by(prime) {
         sieve[i] = false;
     }
@@ -775,7 +775,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">fn is_prime(n: u64) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn is_prime(n: u64) -&gt; bool {
     if n &lt; 2 {
         return false;
     }
@@ -818,7 +818,7 @@ fn main() {
 </code></pre></pre>
 <p><a href="./e3.html">3. Largest prime factor</a></p>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTEWTgdLfAldnJUzh6V60O0nKBBOaW7c62PG1N8pI2WPrHzCXCumfBSeJm8BvtmaMQRb7adqd8AtcWJ/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let thousand_digits = &quot;7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450&quot;;
     let zero = '0' as u64;
     let digits = thousand_digits
@@ -836,7 +836,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTgPBoDy_VKs7ueLoACi3jIhlBTjL9t0-YJ9neaBWqF6nRTr-KM_y0l7a1ReHddjGLlDgpArbSzZS_D/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut ans = None;
     'outer: for m in 2..=(998f32.sqrt() as u32) {
         for n in 1..m {
@@ -855,7 +855,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSDrcKWHFjeKXjPU8Imn_bIxq0SFnTdaY00LN6i4LCVPSkAm-zdfUxqIJOYvKLibFpK3WCuqaSmrEQS/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Index {
+<pre><pre class="playground"><code class="language-rust editable">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
 }
@@ -908,7 +908,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQDTvqnzpaJQNzfnw-BfhpzPoNpZtxrjYAwIp80D7oHaoXxVUEavnSf9FxKxnDLlRgqqaQNZHZZ4Ov9/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let matrix = [
         [
             08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08,
@@ -1032,7 +1032,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">struct Square {
+<pre><pre class="playground"><code class="language-rust editable">struct Square {
     _matrix: [[u32; 20]; 20],
     _x: usize,
     _y: usize,
@@ -1192,7 +1192,7 @@ fn main() {
 </blockquote>
 <p><a href="https://stackoverflow.com/questions/60583618/performance-of-rust-vector-vect-versus-array-t-n">Performance of Rust vector (<code>Vec&lt;T&gt;</code>) versus array (<code>[T; n]</code>) [closed]</a></p>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTUzg1DwUVVPjMo47WhaQsHfCnvNIQ7Kkon5Bap_TWFpgsErv3FrrGagF_zJpF0G50ThPSkBoiGvq9B/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct TriangleNumber {
+<pre><pre class="playground"><code class="language-rust editable">struct TriangleNumber {
     _nth: u64,
     _primes: Vec&lt;u64&gt;,
     _num_div_even: u64,
@@ -1273,7 +1273,7 @@ fn main() {
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRdM4jhtEGd0_oHBJKN8jN5IH3S_81tR0DRECcChEHe8lujDyNgnXO7Xi3uiQPYrcV-Spgn90uP52N8/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <p><a href="e13.html#variable-size">Go to 2. Variable-size input solution</a>
 <a name="fixed-size"><h2 id="1-fixed-size-input-solution"><a class="header" href="#1-fixed-size-input-solution">1. Fixed-size input solution</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let input_digits = 50usize;
     let container_digits = 10usize;
     let overflow_threshold = 10u64.pow(container_digits as u32);
@@ -1407,7 +1407,7 @@ const FIFTY_DIGIT_NUMBERS: [&amp;str; 100] = [
 <hr />
 <p><a href="e13.html#fixed-size">Go to 1. Fixed-size input solution</a> 
 <a name="variable-size"><h2 id="2-variable-size-input-solution"><a class="header" href="#2-variable-size-input-solution">2. Variable-size input solution</a></h2></a> </p>
-<pre><pre class="playground"><code class="language-rust">struct BigNum {
+<pre><pre class="playground"><code class="language-rust editable">struct BigNum {
     a: Vec&lt;u64&gt;,
 }
 
@@ -1626,7 +1626,7 @@ const FIFTY_DIGIT_NUMBERS: [&amp;str; 100] = [
 ];
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRlJuIRAfvk9blII2ifNvIHjV_cegQeQnkfxARQjpXdg7F3pvp5pZC8fIWi59jOZ_a7GDxH_bNRYswT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Position {
+<pre><pre class="playground"><code class="language-rust editable">struct Position {
     initial_number: u64,
     number_of_steps: u32,
 }
@@ -1715,7 +1715,7 @@ fn main() {
 
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSD27mp0PbcpszSY1rHZJbt-ys8hKwcyUgZ9AneW1vmTdWXaj_JPXGZoj3Bu9IcwF_zUGunFeLjC-Ed/embed?start=false&loop=false&delayms=3000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Permutation {
+<pre><pre class="playground"><code class="language-rust editable">struct Permutation {
     numerator: u8,
     denominator: u8,
 }
@@ -1766,7 +1766,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut lattice = [[0u64; 22]; 22];
     lattice[1][1] = 1;
     for y in 1..lattice.len() {
@@ -1781,7 +1781,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">struct Combination {
+<pre><pre class="playground"><code class="language-rust editable">struct Combination {
     n: f64,
     k: f64,
 }
@@ -1829,7 +1829,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">struct Combination {
+<pre><pre class="playground"><code class="language-rust editable">struct Combination {
     n: f64,
     k: f64,
 }
@@ -1871,7 +1871,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">struct PermutationWithRepetition {
+<pre><pre class="playground"><code class="language-rust editable">struct PermutationWithRepetition {
     numerator: u8,
     denominator: Vec&lt;u8&gt;,
     _numerator_elem: Vec&lt;u8&gt;,
@@ -1953,7 +1953,7 @@ fn main() {
 <ul>
 <li><a href="./e13.html">13. Large sum</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">struct BigNum {
+<pre><pre class="playground"><code class="language-rust editable">struct BigNum {
     v: Vec&lt;u64&gt;,
 }
 
@@ -2000,7 +2000,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQdYhmZ7heCpVxLZB-8ITBfWPbC88rVQ4QVFaZxRDSnN0eqx2Jn-y6e5yMihOfqKmVS2T7dy1JKxJNl/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></iframe></html>
-<pre><pre class="playground"><code class="language-rust">const ZERO_TO_19: [&amp;str; 20] = [
+<pre><pre class="playground"><code class="language-rust editable">const ZERO_TO_19: [&amp;str; 20] = [
     &quot;&quot;,
     &quot;one&quot;,
     &quot;two&quot;,
@@ -2060,7 +2060,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSXQXOHGlkvP-KTjoOesbw0ATJ6Bia-C5dngFiGl77htYuuV_WMHANOgVkxynxPWBVvWCKipyiQMD35/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut triangle: Vec&lt;Vec&lt;u16&gt;&gt; = vec![
         vec![75],
         vec![95, 64],
@@ -2093,7 +2093,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSqetvNUMza7dxjmu3c00GpZU6zxBjSed22EWzCeH4raDgUznelHgnRjhM4yqPj6Bva6m_ti8MHlTGg/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn length_of_february(year: u16) -&gt; u8 {
+<pre><pre class="playground"><code class="language-rust editable">fn length_of_february(year: u16) -&gt; u8 {
     if (year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0 {
         29
     } else {
@@ -2150,7 +2150,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
-<pre><pre class="playground"><code class="language-rust">#[derive(PartialEq)]
+<pre><pre class="playground"><code class="language-rust editable">#[derive(PartialEq)]
 enum Weekday {
     Mon,
     Tue,
@@ -2200,7 +2200,7 @@ fn main() {
 <li><a href="./e13.html">13. Large sum</a></li>
 <li><a href="./e16.html">Power digit sum</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">struct BigNum {
+<pre><pre class="playground"><code class="language-rust editable">struct BigNum {
     v: Vec&lt;u64&gt;,
 }
 
@@ -2256,7 +2256,7 @@ fn main() {
 <ul>
 <li><a href="./e12.html">Highly divisible triangular number</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">struct AmicableNumberScanner {
+<pre><pre class="playground"><code class="language-rust editable">struct AmicableNumberScanner {
     under: u32,
     _primes: Vec&lt;u32&gt;,
     _aliquot_sum: Vec&lt;u32&gt;,
@@ -2330,7 +2330,7 @@ fn main() {
 <ul>
 <li><a href="./e10.html">Summation of primes</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">struct Index {
+<pre><pre class="playground"><code class="language-rust editable">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
 }
@@ -2465,7 +2465,7 @@ fn main() {
 <li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
 </ul>
 <p><a name="quick"><h2 id="1-quick-sort"><a class="header" href="#1-quick-sort">1. Quick sort</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn median&lt;'a&gt;(vec: &amp;[&amp;'a str], a: usize, c: usize) -&gt; &amp;'a str {
+<pre><pre class="playground"><code class="language-rust editable">fn median&lt;'a&gt;(vec: &amp;[&amp;'a str], a: usize, c: usize) -&gt; &amp;'a str {
     let b = (c - a) / 2;
     let (astr, bstr, cstr) = (vec[a], vec[b], vec[c]);
     if (cstr &lt; astr &amp;&amp; astr &lt; bstr) || (bstr &lt;= astr &amp;&amp; astr &lt; cstr) {
@@ -2607,7 +2607,7 @@ const NAMES: &amp;[&amp;str] = &amp;[
 <li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
 </ul>
 <p><a name="merge"><h2 id="2-merge-sort"><a class="header" href="#2-merge-sort">2. Merge sort</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn drain_into&lt;'a&gt;(a: &amp;[&amp;'a str], b: &amp;[&amp;'a str], ab: &amp;mut [&amp;'a str]) {
+<pre><pre class="playground"><code class="language-rust editable">fn drain_into&lt;'a&gt;(a: &amp;[&amp;'a str], b: &amp;[&amp;'a str], ab: &amp;mut [&amp;'a str]) {
     let (mut x, mut y, mut i) = (0, 0, 0);
     while x &lt; a.len() &amp;&amp; y &lt; b.len() {
         if a[x] &lt; b[y] {
@@ -2705,7 +2705,7 @@ const NAMES: &amp;[&amp;str] = &amp;[
 <li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
 </ul>
 <p><a name="heap"><h2 id="3-heap-sort"><a class="header" href="#3-heap-sort">3. Heap sort</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn heapify(arr: &amp;mut [&amp;str], pi: usize) {
+<pre><pre class="playground"><code class="language-rust editable">fn heapify(arr: &amp;mut [&amp;str], pi: usize) {
     let lef = 2 * pi + 1;
     let rig = lef + 1;
     if lef &gt;= arr.len() {
@@ -2848,7 +2848,7 @@ fn print_heap(arr: &amp;[&amp;str]) {
 <li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
 </ul>
 <p><a name="bubble"><h2 id="4-bubble-sort"><a class="header" href="#4-bubble-sort">4. Bubble sort</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn bubble_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
+<pre><pre class="playground"><code class="language-rust editable">fn bubble_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
     for i in 0..vec.len() {
         let mut swap_was_required = false;
         for j in 0..vec.len() - i - 1 {
@@ -2926,7 +2926,7 @@ const NAMES: &amp;[&amp;str] = &amp;[
 <li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
 </ul>
 <p><a name="selection"><h2 id="5-selection-sort"><a class="header" href="#5-selection-sort">5. Selection sort</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn selection_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
+<pre><pre class="playground"><code class="language-rust editable">fn selection_sort(vec: &amp;mut Vec&lt;&amp;str&gt;) {
     for i in 0..vec.len() {
         let mut min_index = i;
         for j in (i + 1)..vec.len() {
@@ -3001,7 +3001,7 @@ const NAMES: &amp;[&amp;str] = &amp;[
 <li><a href="e22.html#insertion">6. Go to Insertion sort</a></li>
 </ul>
 <p><a name="insertion"><h2 id="6-insertion-sort"><a class="header" href="#6-insertion-sort">6. Insertion sort</a></h2></a></p>
-<pre><pre class="playground"><code class="language-rust">fn insertion_sort(vec: &amp;mut [&amp;str]) {
+<pre><pre class="playground"><code class="language-rust editable">fn insertion_sort(vec: &amp;mut [&amp;str]) {
     for i in 0..vec.len() {
         for j in (0..i).rev() {
             if vec[j] &lt; vec[j + 1] {
@@ -3069,7 +3069,7 @@ const NAMES: &amp;[&amp;str] = &amp;[
 <ul>
 <li><a href="./e21.html">Go to 21. Amicable numbers</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">struct Index {
+<pre><pre class="playground"><code class="language-rust editable">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
 }
@@ -3197,7 +3197,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTRCk13zsn15xDyEFwVuQt7hA8gtwjOUsSsYvIgsQeNSlzOiwTp6lGAUwcpFxVF4s5ZDtVa3B_3wu0s/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn factorial(n: u64) -&gt; u64 {
+<pre><pre class="playground"><code class="language-rust editable">fn factorial(n: u64) -&gt; u64 {
     match n {
         0 | 1 =&gt; 1,
         _ =&gt; factorial(n - 1) * n,
@@ -3221,7 +3221,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2gB5wBnYUkJZkOlkIoW89riXWHCkPTJN8RpNy0UlUyG1XBAa4z9Pa8WTN9pYL1MWrnijESPRqd77h/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let constant_1 = (1f64 + 5f64.sqrt()).log10() - 2f64.log10();
     let constant_2 = 5f64.log10() / 2f64;
     let digits_of_nth_fibonacci = |nth: f64| -&gt; f64 { nth * constant_1 - constant_2 };
@@ -3249,7 +3249,7 @@ fn main() {
 </ul>
 <p><a name="long-division"><h2 id="1-long-division"><a class="header" href="#1-long-division">1. Long division</a></h2></a></p>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20let%20divisor%20%3D%204999%3B%0A%20%20%20%20let%20mut%20dividend%20%3D%201%3B%0A%20%20%20%20let%20mut%20dividend_logs%20%3D%20vec!%5B%5D%3B%0A%20%20%20%20loop%20%7B%0A%20%20%20%20%20%20%20%20dividend%20%25%3D%20divisor%3B%0A%20%20%20%20%20%20%20%20if%20dividend%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20if%20dividend_logs.contains(%26dividend)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20position%20%3D%20dividend_logs%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.iter()%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.position(%7C%26v%7C%20v%20%3D%3D%20dividend)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.unwrap()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20recurring_cycle%20%3D%20dividend_logs.len()%20-%20position%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20println!(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22reciprocal%3A%20%7B%7D%2C%20repeating%20digits%3A%20%7B%7D%2C%20repeats%20with%3A%20%7B%7D%5Cn%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20dividend%20logs%3A%20%7B%3A%3F%7D%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20divisor%2C%20recurring_cycle%2C%20dividend%2C%20dividend_logs%0A%20%20%20%20%20%20%20%20%20%20%20%20)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20dividend_logs.push(dividend)%3B%0A%20%20%20%20%20%20%20%20dividend%20*%3D%2010%3B%0A%20%20%20%20%7D%0A%7D%0A"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct UnitFraction {
+<pre><pre class="playground"><code class="language-rust editable">struct UnitFraction {
     reciprocal: u32,
     repetend_length: u32,
 }
@@ -3333,7 +3333,7 @@ fn main() {
 </ul>
 <p><a name="prime"><h2 id="2-prime-numbers"><a class="header" href="#2-prime-numbers">2. Prime numbers</a></h2></a></p>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20let%20n%20%3D%204999%3B%0A%20%20%20%20if%20is_prime(n)%20%7B%0A%20%20%20%20%20%20%20%20println!(%22%7B%7D%20is%20a%20prime%22%2C%20n)%3B%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20println!(%22%7B%7D%20is%20not%20a%20prime%22%2C%20n)%3B%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20is_prime(n%3A%20u64)%20-%3E%20bool%20%7B%0A%20%20%20%20if%20n%20%3C%202%20%7B%0A%20%20%20%20%20%20%20%20return%20false%3B%0A%20%20%20%20%7D%0A%20%20%20%20if%20n%20%3D%3D%202%20%7C%7C%20n%20%3D%3D%203%20%7C%7C%20n%20%3D%3D%205%20%7B%0A%20%20%20%20%20%20%20%20return%20true%3B%0A%20%20%20%20%7D%0A%20%20%20%20for%20d%20in%20%26%5B2u64%2C%203%2C%205%5D%20%7B%0A%20%20%20%20%20%20%20%20if%20n%20%25%20*d%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20false%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%0A%20%20%20%20let%20side%20%3D%20(n%20as%20f64).sqrt()%20as%20u64%3B%0A%20%20%20%20let%20mut%20d%20%3D%205u64%3B%0A%20%20%20%20for%20i%20in%20%5B2u64%2C%204%5D.iter().cycle()%20%7B%0A%20%20%20%20%20%20%20%20if%20d%20%3E%20side%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20d%20%2B%3D%20*i%3B%0A%20%20%20%20%20%20%20%20if%20n%20%25%20d%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20false%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20true%0A%7D%0A"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Index {
+<pre><pre class="playground"><code class="language-rust editable">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
 }
@@ -3433,7 +3433,7 @@ fn main() {
 </ul>
 <p><a name="mod-pow"><h2 id="3-divisors-of-p-1-and-modular-exponentiation"><a class="header" href="#3-divisors-of-p-1-and-modular-exponentiation">3. Divisors of p-1 and modular exponentiation</a></h2></a></p>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20let%20n%20%3D%209966%3B%0A%20%20%20%20let%20divisors%20%3D%20list_divisors(n)%3B%0A%20%20%20%20println!(%22divisors%20of%20%7B%7D%3A%20%7B%3A%3F%7D%22%2C%20n%2C%20divisors)%3B%0A%7D%0A%0Afn%20list_divisors(n%3A%20u32)%20-%3E%20Vec%3Cu32%3E%20%7B%0A%20%20%20%20let%20side%20%3D%20(n%20as%20f32).sqrt()%20as%20u32%3B%0A%20%20%20%20let%20mut%20vec%20%3D%20vec!%5B%5D%3B%0A%20%20%20%20for%20d%20in%201..%3Dside%20%7B%0A%20%20%20%20%20%20%20%20if%20n%20%25%20d%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20vec.push(d)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20d%20!%3D%20side%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20vec.push(n%20%2F%20d)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20vec.sort()%3B%0A%20%20%20%20vec%0A%7D"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Index {
+<pre><pre class="playground"><code class="language-rust editable">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
 }
@@ -3572,7 +3572,7 @@ fn main() {
 <li><a href="https://blog.dreamshire.com/solutions/project_euler/project-euler-problem-026-solution/">Project Euler &amp; HackerRank Problem 26 Solution</a></li>
 </ul>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRJsGmSGhPtXL0TgyTirOVGVib758YiXCVOGy3OK5Clq4KJmHZJhj8I611KgkLaVYN8aa8ZrtifrH90/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">struct Sieve {
+<pre><pre class="playground"><code class="language-rust editable">struct Sieve {
     _sieve: Vec&lt;bool&gt;,
 }
 
@@ -3664,7 +3664,7 @@ fn main() {
 <ul>
 <li><a href="./e6.html">Go to 6. Sum square difference</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">fn main() {
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
     let width = 1001u64;
     assert!(width % 2 == 1);
     let n = width / 2;
@@ -3677,7 +3677,7 @@ fn main() {
 <ul>
 <li><a href="./e21.html">Go to 21. Amicable numbers</a></li>
 </ul>
-<pre><pre class="playground"><code class="language-rust">struct Index {
+<pre><pre class="playground"><code class="language-rust editable">struct Index {
     i: usize,
     _ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
 }
@@ -3791,7 +3791,7 @@ fn main() {
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoiWWblcSHsZfzlRjD8JN9zSxxlT7YkOgkrY06vvNEkkwsxw3YHISIR7ioJsQfNgzC-Yl-6DVieOVN/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20power_digit_sum(mut%20n%3A%20u32%2C%20exp%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20let%20mut%20sum%20%3D%200u32%3B%0A%20%20%20%20while%20n%20%3E%200%20%7B%0A%20%20%20%20%20%20%20%20let%20d%20%3D%20n%20%25%2010%3B%0A%20%20%20%20%20%20%20%20n%20%2F%3D%2010%3B%0A%20%20%20%20%20%20%20%20sum%20%2B%3D%20d.pow(exp)%3B%0A%20%20%20%20%7D%0A%20%20%20%20sum%0A%7D%0A%0Afn%20power_digit_sum_mod(n%3A%20u32%2C%20exp%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20let%20log10%20%3D%20(n%20as%20f32).log10()%20as%20u32%3B%0A%20%20%20%20(0..%3Dlog10)%0A%20%20%20%20%20%20%20%20.map(%7Ci%7C%2010u32.pow(i))%0A%20%20%20%20%20%20%20%20.map(%7Cp%7C%20((n%20%25%20(p%20*%2010)%20-%20n%20%25%20p)%20%2F%20p).pow(exp))%0A%20%20%20%20%20%20%20%20.sum()%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20power_digit_sum(1634%2C%204))%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20power_digit_sum_mod(1634%2C%204))%3B%0A%7D%0A"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">fn match_pow_sum(target: u32, pow_sum_999_fold: &amp;[u32; 999]) -&gt; bool {
+<pre><pre class="playground"><code class="language-rust editable">fn match_pow_sum(target: u32, pow_sum_999_fold: &amp;[u32; 999]) -&gt; bool {
     let mut digits = target;
     let mut sum = 0;
     while digits &gt; 0 {
@@ -3851,7 +3851,7 @@ fn main() {
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSyWfyHO_sc3vOAf6jxDtUG5NCCgX-P4lTYKM8x16aNOFpU7kOC4ZJX-I5iw3NXY8EmeE4F0AEdDnu3/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20assert_eq!(combination(8%2C%20%26%5B1%2C%203%2C%205%2C%207%5D)%2C%206)%3B%0A%20%20%20%20assert_eq!(combination(3%2C%20%26%5B1%2C%202%5D)%2C%202)%3B%0A%20%20%20%20assert_eq!(combination(2%2C%20%26%5B1%2C%202%5D)%2C%202)%3B%0A%20%20%20%20assert_eq!(combination(1%2C%20%26%5B1%2C%202%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B2%2C%203%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B1%2C%202%2C%203%5D)%2C%205)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B1%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(2%2C%20%26%5B3%5D)%2C%200)%3B%0A%7D%0A%0Afn%20combination(payment%3A%20usize%2C%20coins%3A%20%26%5Busize%5D)%20-%3E%20usize%20%7B%0A%20%20%20%20assert!(payment%20%3E%200)%3B%0A%20%20%20%20println!(%22Payment%20of%20%7B%7D%20with%20coins%20%7B%3A%3F%7D%22%2C%20payment%2C%20%26coins)%3B%0A%20%20%20%20let%20mut%20c%20%3D%200usize%3B%0A%20%20%20%20next_coin(payment%2C%20%26coins%2C%20String%3A%3Anew()%2C%20%26mut%20c)%3B%0A%20%20%20%20println!(%22Number%20of%20combinations%3A%20%7B%7D%5Cn%22%2C%20c)%3B%0A%20%20%20%20c%0A%7D%0A%0Afn%20next_coin(payment%3A%20usize%2C%20coins%3A%20%26%5Busize%5D%2C%20path%3A%20String%2C%20comb%3A%20%26mut%20usize)%20%7B%0A%20%20%20%20if%20let%20Some(co)%20%3D%20coins.first()%20%7B%0A%20%20%20%20%20%20%20%20dig(payment%2C%20*co%2C%20%26coins%5B1..%5D%2C%20path%2C%20comb)%3B%0A%20%20%20%20%7D%20else%20if%20payment%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20println!(%22%7B%7D%20%7C%22%2C%20path)%3B%0A%20%20%20%20%20%20%20%20*comb%20%2B%3D%201%3B%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20dig(payment%3A%20usize%2C%20co%3A%20usize%2C%20coins%3A%20%26%5Busize%5D%2C%20path%3A%20String%2C%20comb%3A%20%26mut%20usize)%20%7B%0A%20%20%20%20let%20num%20%3D%20payment%20%2F%20co%3B%0A%20%20%20%20for%20n%20in%200..%3Dnum%20%7B%0A%20%20%20%20%20%20%20%20let%20mut%20path%20%3D%20path.clone()%3B%0A%20%20%20%20%20%20%20%20if%20n%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20path.push_str(%22%7C%20%20%20%20%20%20%20%20%20%20%20%22)%3B%0A%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20path.push_str(format!(%22%7C%20%7B%3A4%7Dx%7B%3A4%7D%20%22%2C%20n%2C%20co).as_str())%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20next_coin(payment%20-%20co%20*%20n%2C%20coins%2C%20path%2C%20comb)%3B%0A%20%20%20%20%7D%0A%7D%0A"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">use std::cmp::Ordering;
+<pre><pre class="playground"><code class="language-rust editable">use std::cmp::Ordering;
 
 fn coin_change_combination(payment: usize, coins: &amp;[usize]) -&gt; u32 {
     assert!(payment &gt; 0 &amp;&amp; coins.len() &gt; 0);

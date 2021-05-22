@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="sidebar-visible no-js rust">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -50,7 +50,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -76,7 +76,7 @@
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
-            html.classList.remove('light')
+            html.classList.remove('rust')
             html.classList.add(theme);
             html.classList.add('js');
         </script>
@@ -114,8 +114,8 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
@@ -165,7 +165,7 @@
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSyWfyHO_sc3vOAf6jxDtUG5NCCgX-P4lTYKM8x16aNOFpU7kOC4ZJX-I5iw3NXY8EmeE4F0AEdDnu3/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20assert_eq!(combination(8%2C%20%26%5B1%2C%203%2C%205%2C%207%5D)%2C%206)%3B%0A%20%20%20%20assert_eq!(combination(3%2C%20%26%5B1%2C%202%5D)%2C%202)%3B%0A%20%20%20%20assert_eq!(combination(2%2C%20%26%5B1%2C%202%5D)%2C%202)%3B%0A%20%20%20%20assert_eq!(combination(1%2C%20%26%5B1%2C%202%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B2%2C%203%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B1%2C%202%2C%203%5D)%2C%205)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B1%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(2%2C%20%26%5B3%5D)%2C%200)%3B%0A%7D%0A%0Afn%20combination(payment%3A%20usize%2C%20coins%3A%20%26%5Busize%5D)%20-%3E%20usize%20%7B%0A%20%20%20%20assert!(payment%20%3E%200)%3B%0A%20%20%20%20println!(%22Payment%20of%20%7B%7D%20with%20coins%20%7B%3A%3F%7D%22%2C%20payment%2C%20%26coins)%3B%0A%20%20%20%20let%20mut%20c%20%3D%200usize%3B%0A%20%20%20%20next_coin(payment%2C%20%26coins%2C%20String%3A%3Anew()%2C%20%26mut%20c)%3B%0A%20%20%20%20println!(%22Number%20of%20combinations%3A%20%7B%7D%5Cn%22%2C%20c)%3B%0A%20%20%20%20c%0A%7D%0A%0Afn%20next_coin(payment%3A%20usize%2C%20coins%3A%20%26%5Busize%5D%2C%20path%3A%20String%2C%20comb%3A%20%26mut%20usize)%20%7B%0A%20%20%20%20if%20let%20Some(co)%20%3D%20coins.first()%20%7B%0A%20%20%20%20%20%20%20%20dig(payment%2C%20*co%2C%20%26coins%5B1..%5D%2C%20path%2C%20comb)%3B%0A%20%20%20%20%7D%20else%20if%20payment%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20println!(%22%7B%7D%20%7C%22%2C%20path)%3B%0A%20%20%20%20%20%20%20%20*comb%20%2B%3D%201%3B%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20dig(payment%3A%20usize%2C%20co%3A%20usize%2C%20coins%3A%20%26%5Busize%5D%2C%20path%3A%20String%2C%20comb%3A%20%26mut%20usize)%20%7B%0A%20%20%20%20let%20num%20%3D%20payment%20%2F%20co%3B%0A%20%20%20%20for%20n%20in%200..%3Dnum%20%7B%0A%20%20%20%20%20%20%20%20let%20mut%20path%20%3D%20path.clone()%3B%0A%20%20%20%20%20%20%20%20if%20n%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20path.push_str(%22%7C%20%20%20%20%20%20%20%20%20%20%20%22)%3B%0A%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20path.push_str(format!(%22%7C%20%7B%3A4%7Dx%7B%3A4%7D%20%22%2C%20n%2C%20co).as_str())%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20next_coin(payment%20-%20co%20*%20n%2C%20coins%2C%20path%2C%20comb)%3B%0A%20%20%20%20%7D%0A%7D%0A"></iframe></html>
-<pre><pre class="playground"><code class="language-rust">use std::cmp::Ordering;
+<pre><pre class="playground"><code class="language-rust editable">use std::cmp::Ordering;
 
 fn coin_change_combination(payment: usize, coins: &amp;[usize]) -&gt; u32 {
     assert!(payment &gt; 0 &amp;&amp; coins.len() &gt; 0);
