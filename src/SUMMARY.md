@@ -37,6 +37,7 @@
    - [Distinct powers](./e29.md)
    - [Digit fifth powers](./e30.md)
    - [Coin sums](./e31.md)
+   - [Path sum: two ways](./e81.md)
 
 ---
 
