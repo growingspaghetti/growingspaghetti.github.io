@@ -3892,6 +3892,8 @@ fn main() {
 <ul>
 <li><a href="./e31.html">Go to 31. Coin sums</a></li>
 </ul>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/GazC3A4OQTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/EFg3u_E6eHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <p>Since the dataset of the question is too large, it's using a mini set.</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let mut table = vec![
@@ -3907,7 +3909,7 @@ fn main() {
                 (0, 0) =&gt; continue,
                 (0, _) =&gt; table[y][x - 1],
                 (_, 0) =&gt; table[y - 1][x],
-                _ =&gt;  std::cmp::min(table[y][x - 1], table[y - 1][x]),
+                _ =&gt; std::cmp::min(table[y][x - 1], table[y - 1][x]),
             }
         }
     }
