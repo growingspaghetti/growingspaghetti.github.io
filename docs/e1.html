@@ -266,6 +266,42 @@ fn main() {
         .arithmetic_series(),
         5 + 3 + 1 - 1
     );
+    assert_eq!(
+        ArithmeticProgression {
+            first: 6,
+            last: 0,
+            diff: -2
+        }
+        .arithmetic_series(),
+        6 + 4 + 2
+    );
+    assert_eq!(
+        ArithmeticProgression {
+            first: 6,
+            last: 2,
+            diff: -2
+        }
+        .arithmetic_series(),
+        6 + 4 + 2
+    );
+    assert_eq!(
+        ArithmeticProgression {
+            first: -6,
+            last: 0,
+            diff: 2
+        }
+        .arithmetic_series(),
+        -6 + -4 + -2
+    );
+    assert_eq!(
+        ArithmeticProgression {
+            first: -6,
+            last: -2,
+            diff: 2
+        }
+        .arithmetic_series(),
+        -6 + -4 + -2
+    );
 }
 </code></pre></pre>
 

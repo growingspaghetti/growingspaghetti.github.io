@@ -484,6 +484,42 @@ fn main() {
         .arithmetic_series(),
         5 + 3 + 1 - 1
     );
+    assert_eq!(
+        ArithmeticProgression {
+            first: 6,
+            last: 0,
+            diff: -2
+        }
+        .arithmetic_series(),
+        6 + 4 + 2
+    );
+    assert_eq!(
+        ArithmeticProgression {
+            first: 6,
+            last: 2,
+            diff: -2
+        }
+        .arithmetic_series(),
+        6 + 4 + 2
+    );
+    assert_eq!(
+        ArithmeticProgression {
+            first: -6,
+            last: 0,
+            diff: 2
+        }
+        .arithmetic_series(),
+        -6 + -4 + -2
+    );
+    assert_eq!(
+        ArithmeticProgression {
+            first: -6,
+            last: -2,
+            diff: 2
+        }
+        .arithmetic_series(),
+        -6 + -4 + -2
+    );
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaHP7TcUI71uiwljBVfn6M7yFRxgXos451Bcb_q-y0h__0CLFzDZn916HYRaj-y_hfgcS-MUbDsEh6/embed?start=false&loop=false&delayms=60000" frameborder="0"  width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
