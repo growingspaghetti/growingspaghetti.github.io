@@ -395,7 +395,7 @@ impl ArithmeticProgression {
         assert!(self.diff != 0);
         assert!(
             (self.first &gt; self.last) == (0 &gt; self.diff),
-            &quot;The relationship between the first element and the last element\
+            &quot;The relationship between the first element and the last element \
             with the negativity of the common difference is incoherent.&quot;
         );
         let terms = (self.last - self.first) / self.diff + 1;
