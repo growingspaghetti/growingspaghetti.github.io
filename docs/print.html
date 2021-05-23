@@ -628,6 +628,7 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS0vhb4qKuLM62w4AUrn4DQfhzn9hKKS3NmOkhPK3t30mMhf7wB_KqFh5fz0vmGPZcpjP12FT7tlxZT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/h86RzlyHfUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <pre><pre class="playground"><code class="language-rust editable">fn gcd(mut a: u64, mut b: u64) -&gt; u64 {
     if b &gt; a {
         std::mem::swap(&amp;mut a, &amp;mut b);
@@ -655,6 +656,7 @@ fn main() {
 }
 </code></pre></pre>
 <hr />
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/xdzZVpqSUm8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <pre><pre class="playground"><code class="language-rust editable">#[derive(Clone)]
 struct Factor {
     prime: u32,
@@ -739,6 +741,10 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSQMS02Bs8MWMfHRChuI3eTMbxC-Anx7tUPAGemmKWugKFVup2d25ipBwcU5OQdcxHluC3wQxY6M9Bp/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<ul>
+<li><a href="https://www.visnos.com/demos/sieve-of-eratosthenes">Sieve of Eratosthenes, number square, view multiples and prime numbers - visnos.com</a></li>
+</ul>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/2JkpuE_8uaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <pre><pre class="playground"><code class="language-rust editable">fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
     for i in (prime..sieve.len()).step_by(prime) {
         sieve[i] = false;
@@ -759,14 +765,14 @@ fn main() {
     sieve[0] = false;
     sieve[1] = false;
     let mut cursor = 0usize;
-    let n = 'label: loop {
+    let n = 'exploration: loop {
         for i in cursor..sieve.len() {
             if !sieve[i] {
                 continue;
             }
             counter += 1;
             if counter == 10001 {
-                break 'label i as u64;
+                break 'exploration i as u64;
             }
             &amp;primes.push(i);
             rule_out(&amp;mut sieve, i);
@@ -821,7 +827,9 @@ fn main() {
     assert_eq!(n, 104743);
 }
 </code></pre></pre>
-<p><a href="./e3.html">3. Largest prime factor</a></p>
+<ul>
+<li><a href="./e3.html">3. Largest prime factor</a></li>
+</ul>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTEWTgdLfAldnJUzh6V60O0nKBBOaW7c62PG1N8pI2WPrHzCXCumfBSeJm8BvtmaMQRb7adqd8AtcWJ/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let thousand_digits = &quot;7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450&quot;;

@@ -164,6 +164,10 @@
                 <div id="content" class="content">
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSQMS02Bs8MWMfHRChuI3eTMbxC-Anx7tUPAGemmKWugKFVup2d25ipBwcU5OQdcxHluC3wQxY6M9Bp/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<ul>
+<li><a href="https://www.visnos.com/demos/sieve-of-eratosthenes">Sieve of Eratosthenes, number square, view multiples and prime numbers - visnos.com</a></li>
+</ul>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/2JkpuE_8uaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <pre><pre class="playground"><code class="language-rust editable">fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
     for i in (prime..sieve.len()).step_by(prime) {
         sieve[i] = false;
@@ -184,14 +188,14 @@ fn main() {
     sieve[0] = false;
     sieve[1] = false;
     let mut cursor = 0usize;
-    let n = 'label: loop {
+    let n = 'exploration: loop {
         for i in cursor..sieve.len() {
             if !sieve[i] {
                 continue;
             }
             counter += 1;
             if counter == 10001 {
-                break 'label i as u64;
+                break 'exploration i as u64;
             }
             &amp;primes.push(i);
             rule_out(&amp;mut sieve, i);
@@ -246,7 +250,9 @@ fn main() {
     assert_eq!(n, 104743);
 }
 </code></pre></pre>
-<p><a href="./e3.html">3. Largest prime factor</a></p>
+<ul>
+<li><a href="./e3.html">3. Largest prime factor</a></li>
+</ul>
 
                     </main>
 
