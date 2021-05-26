@@ -175,7 +175,7 @@
     col: usize,
     row: usize,
     table: &amp;[[u32; 5]; 5],
-    determineds: &amp;mut Vec&lt;u32&gt;,
+    determineds: &amp;Vec&lt;u32&gt;,
 ) -&gt; u32 {
     let mut min = u32::MAX;
     {
@@ -208,7 +208,7 @@ fn main() {
     let mut estimations = vec![0u32; table.len()];
     for col in 0..table[0].len() {
         for row in 0..table.len() {
-            let min = row_internal_loop(col, row, &amp;table, &amp;mut determineds);
+            let min = row_internal_loop(col, row, &amp;table, &amp;determineds);
             estimations[row] = table[row][col] + min;
         }
         determineds.clone_from(&amp;estimations);
