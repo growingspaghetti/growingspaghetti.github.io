@@ -2,7 +2,7 @@
 
 I haven't ever had a **computer science** class. I'd say I'm behind those people graduated in the field for 48 months. I had to spend some time to understand what is the book shelf like to be for a CS student.
 
-Although it's said that nothing is given so freely as advice, with a wish that what I listed up here is useful not only for me but also for people, here I'm writing this article that is meant to provide a comprehensive map.
+Although it's said that nothing is given so freely as advice, with a wish that what I listed up here is useful not only for myself but also for people, here I'm writing this article that is meant to provide a comprehensive map.
 
 I'd stick to ***OPEN DATA STRUCTURES*** and ***PROJECT EULER*** mentioned at the bottom of this page, and use the rest of them as supplementary resources.
 

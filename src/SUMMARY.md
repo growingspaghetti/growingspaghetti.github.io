@@ -37,6 +37,7 @@
    - [Distinct powers](./e29.md)
    - [Digit fifth powers](./e30.md)
    - [Coin sums](./e31.md)
+   - [Pandigital products](./e32.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
@@ -60,20 +61,6 @@
 
  - []()
    - [Square root]()
-
----
-
-# Exercism
-
- - []()
-   - [Armstrong Numbers]()
-   - [Diffie Hellman]()
-   - [ISBN Verifier]()
-   - [Perfect Numbers]()
-   - [All Your Base]()
-   - [Allergies]()
-   - [Clock]()
-   - [Variable Length Quantity]()
 
 
 ---
