@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Path sum: four ways - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="chapter-item expanded "><a href="e11.html"><strong aria-hidden="true">1.11.</strong> Largest product in a grid</a></li><li class="chapter-item expanded "><a href="e12.html"><strong aria-hidden="true">1.12.</strong> Highly divisible triangular number</a></li><li class="chapter-item expanded "><a href="e13.html"><strong aria-hidden="true">1.13.</strong> Large sum</a></li><li class="chapter-item expanded "><a href="e14.html"><strong aria-hidden="true">1.14.</strong> Longest Collatz sequence</a></li><li class="chapter-item expanded "><a href="e15.html"><strong aria-hidden="true">1.15.</strong> Lattice paths</a></li><li class="chapter-item expanded "><a href="e16.html"><strong aria-hidden="true">1.16.</strong> Power digit sum</a></li><li class="chapter-item expanded "><a href="e17.html"><strong aria-hidden="true">1.17.</strong> Number letter counts</a></li><li class="chapter-item expanded "><a href="e18.html"><strong aria-hidden="true">1.18.</strong> Maximum path sum I</a></li><li class="chapter-item expanded "><a href="e19.html"><strong aria-hidden="true">1.19.</strong> Counting Sundays</a></li><li class="chapter-item expanded "><a href="e20.html"><strong aria-hidden="true">1.20.</strong> Factorial digit sum</a></li><li class="chapter-item expanded "><a href="e21.html"><strong aria-hidden="true">1.21.</strong> Amicable numbers</a></li><li class="chapter-item expanded "><a href="e22.html"><strong aria-hidden="true">1.22.</strong> Names scores</a></li><li class="chapter-item expanded "><a href="e23.html"><strong aria-hidden="true">1.23.</strong> Non-abundant sums</a></li><li class="chapter-item expanded "><a href="e24.html"><strong aria-hidden="true">1.24.</strong> Lexicographic permutations</a></li><li class="chapter-item expanded "><a href="e25.html"><strong aria-hidden="true">1.25.</strong> 1000-digit Fibonacci number</a></li><li class="chapter-item expanded "><a href="e26.html"><strong aria-hidden="true">1.26.</strong> Reciprocal cycles</a></li><li class="chapter-item expanded "><a href="e27.html"><strong aria-hidden="true">1.27.</strong> Quadratic primes</a></li><li class="chapter-item expanded "><a href="e28.html"><strong aria-hidden="true">1.28.</strong> Number spiral diagonals</a></li><li class="chapter-item expanded "><a href="e29.html"><strong aria-hidden="true">1.29.</strong> Distinct powers</a></li><li class="chapter-item expanded "><a href="e30.html"><strong aria-hidden="true">1.30.</strong> Digit fifth powers</a></li><li class="chapter-item expanded "><a href="e31.html"><strong aria-hidden="true">1.31.</strong> Coin sums</a></li><li class="chapter-item expanded "><a href="e81.html"><strong aria-hidden="true">1.32.</strong> Path sum: two ways</a></li><li class="chapter-item expanded "><a href="e82.html"><strong aria-hidden="true">1.33.</strong> Path sum: three ways</a></li><li class="chapter-item expanded "><a href="e83.html" class="active"><strong aria-hidden="true">1.34.</strong> Path sum: four ways</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Data Structures and Algorithms in Java (Michael T. Goodrich)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> Scoreboard</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> InsertionSort</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">LeetCode with APAS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Square root</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Exercism</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> Armstrong Numbers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> Diffie Hellman</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> ISBN Verifier</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> Perfect Numbers</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> All Your Base</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> Allergies</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> Clock</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> Variable Length Quantity</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithm notes on the back of used envelopes bound in a ring binder</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTjDpjdHztvfYfwBJI0Y6AfBvRVJ6puqK5lCzDKJrDvhjSeYBRYkdYz711H1n56riQwOhSHISt2J4ou/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<ul>
+<li><a href="./e31.html">Q.31 Coin sums</a></li>
+<li><a href="./e81.html">Q.81 Path sum: two ways</a></li>
+<li><a href="./e82.html">Q.82 Path sum: three ways</a></li>
+</ul>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/GazC3A4OQTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/EFg3u_E6eHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<p>Since the dataset of the question is too large, it's using a mini set.</p>
+<ul>
+<li><a href="https://growingspaghetti.github.io/e22.html#heap">Q.22 Names scores - Heap sort</a></li>
+<li><a href="https://doc.rust-lang.org/std/collections/binary_heap/index.html">Module std::collections::binary_heap</a></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">use std::{cmp::Ordering, collections::BinaryHeap};
+
+#[derive(Copy, Clone, Eq, PartialEq)]
+struct Vertex {
+    cost: u32,
+    xy: (usize, usize),
+}
+
+impl Ord for Vertex {
+    fn cmp(&amp;self, other: &amp;Self) -&gt; Ordering {
+        other.cost.cmp(&amp;self.cost)
+    }
+}
+
+impl PartialOrd for Vertex {
+    fn partial_cmp(&amp;self, other: &amp;Self) -&gt; Option&lt;Ordering&gt; {
+        Some(self.cmp(other))
+    }
+}
+
+fn update_adjacents(
+    v: Vertex,
+    table: &amp;[[u32; 5]; 5],
+    visited: &amp;Vec&lt;Vec&lt;bool&gt;&gt;,
+    estimations: &amp;mut Vec&lt;Vec&lt;u32&gt;&gt;,
+    pq: &amp;mut BinaryHeap&lt;Vertex&gt;,
+) {
+    let Vertex { xy: (x, y), cost } = v;
+    if y &gt; 0 {
+        let t = y - 1;
+        if !visited[t][x] {
+            let e = &amp;mut estimations[t][x];
+            *e = std::cmp::min(*e, table[t][x] + cost);
+            pq.push(Vertex {
+                cost: *e,
+                xy: (x, t),
+            });
+        }
+    }
+    if x &lt; table[0].len() - 1 {
+        let t = x + 1;
+        if !visited[y][t] {
+            let e = &amp;mut estimations[y][t];
+            *e = std::cmp::min(*e, table[y][t] + cost);
+            pq.push(Vertex {
+                cost: *e,
+                xy: (t, y),
+            });
+        }
+    }
+    if y &lt; table.len() - 1 {
+        let t = y + 1;
+        if !visited[t][x] {
+            let e = &amp;mut estimations[t][x];
+            *e = std::cmp::min(*e, table[t][x] + cost);
+            pq.push(Vertex {
+                cost: *e,
+                xy: (x, t),
+            });
+        }
+    }
+    if x &gt; 0 {
+        let t = x - 1;
+        if !visited[y][t] {
+            let e = &amp;mut estimations[y][t];
+            *e = std::cmp::min(*e, table[y][t] + cost);
+            pq.push(Vertex {
+                cost: *e,
+                xy: (t, y),
+            });
+        }
+    }
+}
+
+fn suggest_next_vertex(pq: &amp;mut BinaryHeap&lt;Vertex&gt;, visited: &amp;Vec&lt;Vec&lt;bool&gt;&gt;) -&gt; Option&lt;Vertex&gt; {
+    loop {
+        match pq.pop() {
+            None =&gt; return None,
+            Some(v) if !visited[v.xy.1][v.xy.0] =&gt; return Some(v),
+            _ =&gt; (),
+        }
+    }
+}
+
+fn main() {
+    let table: [[u32; 5]; 5] = [
+        [131, 673, 234, 103, 18],
+        [201, 96, 342, 965, 150],
+        [630, 803, 746, 422, 111],
+        [537, 699, 497, 121, 956],
+        [805, 732, 524, 37, 331]
+    ];
+    let (w, h) = (table[0].len(), table.len());
+    let mut visited = vec![vec![false; w]; h];
+    let mut estimations = vec![vec![u32::MAX; w]; h];
+
+    estimations[0][0] = table[0][0];
+    let mut pq = std::collections::BinaryHeap::&lt;Vertex&gt;::new();
+    pq.push(Vertex {
+        cost: estimations[0][0],
+        xy: (0, 0),
+    });
+    let is_goal = |x, y| -&gt; bool { x == w - 1 &amp;&amp; y == h - 1 };
+    let min = loop {
+        let vertex = suggest_next_vertex(&amp;mut pq, &amp;visited)
+            .expect(&quot;Goal was unreachable!&quot;);
+        let (x, y) = vertex.xy;
+        if is_goal(x, y) {
+            break vertex.cost;
+        }
+        visited[y][x] = true;
+        update_adjacents(vertex, &amp;table, &amp;visited, &amp;mut estimations, &amp;mut pq);
+    };
+
+    println!(&quot;{}&quot;, min);
+    assert_eq!(min, 2297);
+}
+</code></pre></pre>
+<hr />
+<pre><pre class="playground"><code class="language-rust editable">fn update_adjacents(
+    x: usize,
+    y: usize,
+    table: &amp;[[u32; 5]; 5],
+    visited: &amp;Vec&lt;Vec&lt;bool&gt;&gt;,
+    estimations: &amp;mut Vec&lt;Vec&lt;u32&gt;&gt;,
+) {
+    let cost = estimations[y][x];
+    if y &gt; 0 {
+        let t = y - 1;
+        if !visited[t][x] {
+            let e = &amp;mut estimations[t][x];
+            *e = std::cmp::min(*e, table[t][x] + cost);
+        }
+    }
+    if x &lt; table[0].len() - 1 {
+        let t = x + 1;
+        if !visited[y][t] {
+            let e = &amp;mut estimations[y][t];
+            *e = std::cmp::min(*e, table[y][t] + cost);
+        }
+    }
+    if y &lt; table.len() - 1 {
+        let t = y + 1;
+        if !visited[t][x] {
+            let e = &amp;mut estimations[t][x];
+            *e = std::cmp::min(*e, table[t][x] + cost);
+        }
+    }
+    if x &gt; 0 {
+        let t = x - 1;
+        if !visited[y][t] {
+            let e = &amp;mut estimations[y][t];
+            *e = std::cmp::min(*e, table[y][t] + cost);
+        }
+    }
+}
+
+fn suggest_next_vertex(
+    table: &amp;[[u32; 5]; 5],
+    visited: &amp;Vec&lt;Vec&lt;bool&gt;&gt;,
+    estimations: &amp;Vec&lt;Vec&lt;u32&gt;&gt;,
+) -&gt; Option&lt;(usize, usize)&gt; {
+    let mut next: Option&lt;(usize, usize)&gt; = None;
+    let mut minimum_estimation = u32::MAX;
+    for y in 0..table.len() {
+        for x in 0..table[0].len() {
+            if visited[y][x] {
+                continue;
+            }
+            if estimations[y][x] &lt; minimum_estimation {
+                minimum_estimation = estimations[y][x];
+                next = Some((x, y));
+            }
+        }
+    }
+    next
+}
+
+fn main() {
+    let table: [[u32; 5]; 5] = [
+        [131, 673, 234, 103, 18],
+        [201, 96, 342, 965, 150],
+        [630, 803, 746, 422, 111],
+        [537, 699, 497, 121, 956],
+        [805, 732, 524, 37, 331]
+    ];
+    let (w, h) = (table[0].len(), table.len());
+    let mut visited = vec![vec![false; w]; h];
+    let mut estimations = vec![vec![u32::MAX; w]; h];
+
+    estimations[0][0] = table[0][0];
+    let is_goal = |x, y| -&gt; bool { x == w - 1 &amp;&amp; y == h - 1 };
+    let min = loop {
+        let (x, y) = suggest_next_vertex(&amp;table, &amp;visited, &amp;estimations)
+            .expect(&quot;Goal was unreachable!&quot;);
+        if is_goal(x, y) {
+            break estimations[y][x];
+        }
+        visited[y][x] = true;
+        update_adjacents(x, y, &amp;table, &amp;visited, &amp;mut estimations);
+    };
+
+    println!(&quot;{}&quot;, min);
+    assert_eq!(min, 2297);
+}
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="e82.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="e82.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
