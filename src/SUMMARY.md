@@ -38,9 +38,11 @@
    - [Digit fifth powers](./e30.md)
    - [Coin sums](./e31.md)
    - [Pandigital products](./e32.md)
+   - [Digit cancelling fractions](./e33.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
+
 
 ---
 
