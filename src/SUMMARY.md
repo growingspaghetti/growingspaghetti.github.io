@@ -40,6 +40,7 @@
    - [Pandigital products](./e32.md)
    - [Digit cancelling fractions](./e33.md)
    - [Digit factorials](./e34.md)
+   - [Circular primes](./e35.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
