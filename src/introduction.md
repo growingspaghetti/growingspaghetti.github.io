@@ -230,6 +230,8 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 
  * <a href="https://euler.stephan-brumme.com/" target="_blank">https://euler.stephan-brumme.com/</a>
  * <a href="https://www.nayuki.io/page/project-euler-solutions" target="_blank">https://www.nayuki.io/page/project-euler-solutions</a>
+ * <a href="https://www.mathblog.dk/project-euler-solutions/" target="_blank">https://www.mathblog.dk/project-euler-solutions/</a>
+ * <a href="https://www.xarg.org/puzzles/" target="_blank">https://www.xarg.org/puzzles/</a>
 
 <div class="thumbnail">
 <a href="https://projecteuler.net/" target="_blank"><img src="./imgs/eu.png"></a>
