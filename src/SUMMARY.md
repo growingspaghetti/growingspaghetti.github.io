@@ -42,6 +42,7 @@
    - [Digit factorials](./e34.md)
    - [Circular primes](./e35.md)
    - [Double-base palindromes](./e36.md)
+   - [Truncatable primes](./e37.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
