@@ -994,7 +994,7 @@ impl Index {
     }
 }
 
-fn rule_out_square(sieve: &amp;mut [bool; 2_000_001], prime: usize) {
+fn rule_out(sieve: &amp;mut [bool; 2_000_001], prime: usize) {
     for i in (prime * prime..sieve.len()).step_by(prime) {
         sieve[i] = false;
     }
@@ -1002,23 +1002,17 @@ fn rule_out_square(sieve: &amp;mut [bool; 2_000_001], prime: usize) {
 
 fn main() {
     let mut sieve = [true; 2_000_001];
-    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let sqrt = (sieve.len() as f32).sqrt() as usize;
     let mut sum = 2u64 + 3;
     let mut index = Index::new();
-    loop {
-        if index.i &gt; sqrt {
-            break;
-        }
+    while index.i &lt;= sqrt {
         if sieve[index.i] {
             sum += index.i as u64;
-            rule_out_square(&amp;mut sieve, index.i);
+            rule_out(&amp;mut sieve, index.i);
         }
         index.increment();
     }
-    loop {
-        if index.i &gt;= sieve.len() {
-            break;
-        }
+    while index.i &lt; sieve.len() {
         if sieve[index.i] {
             sum += index.i as u64;
         }
@@ -2477,22 +2471,16 @@ fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
 fn primes(under: u32) -&gt; Vec&lt;u32&gt; {
     let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
     let mut sieve = vec![true; under as usize];
-    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let sqrt = (sieve.len() as f32).sqrt() as usize;
     let mut index = Index::new();
-    loop {
-        if index.i &gt; sqrt {
-            break;
-        }
+    while index.i &lt;= sqrt {
         if sieve[index.i] {
             primes.push(index.i as u32);
             rule_out(&amp;mut sieve, index.i);
         }
         index.increment();
     }
-    loop {
-        if index.i &gt;= sieve.len() {
-            break;
-        }
+    while index.i &lt; sieve.len() {
         if sieve[index.i] {
             primes.push(index.i as u32);
         }
@@ -3219,22 +3207,16 @@ fn rule_out_square(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
 fn primes(under: u32) -&gt; Vec&lt;u32&gt; {
     let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
     let mut sieve = vec![true; under as usize];
-    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let sqrt = (sieve.len() as f32).sqrt() as usize;
     let mut index = Index::new();
-    loop {
-        if index.i &gt; sqrt {
-            break;
-        }
+    while index.i &lt;= sqrt {
         if sieve[index.i] {
             primes.push(index.i as u32);
             rule_out_square(&amp;mut sieve, index.i);
         }
         index.increment();
     }
-    loop {
-        if index.i &gt;= sieve.len() {
-            break;
-        }
+    while index.i &lt; sieve.len() {
         if sieve[index.i] {
             primes.push(index.i as u32);
         }
@@ -3485,22 +3467,16 @@ fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
 fn primes(below: u32) -&gt; Vec&lt;u32&gt; {
     let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
     let mut sieve = vec![true; below as usize];
-    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let sqrt = (sieve.len() as f32).sqrt() as usize;
     let mut index = Index::new();
-    loop {
-        if index.i &gt; sqrt {
-            break;
-        }
+    while index.i &lt;= sqrt {
         if sieve[index.i] {
             primes.push(index.i as u32);
             rule_out(&amp;mut sieve, index.i);
         }
         index.increment();
     }
-    loop {
-        if index.i &gt;= sieve.len() {
-            break;
-        }
+    while index.i &lt; sieve.len() {
         if sieve[index.i] {
             primes.push(index.i as u32);
         }
@@ -3586,22 +3562,16 @@ fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
 fn primes(below: u32) -&gt; Vec&lt;u32&gt; {
     let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
     let mut sieve = vec![true; below as usize];
-    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let sqrt = (sieve.len() as f32).sqrt() as usize;
     let mut index = Index::new();
-    loop {
-        if index.i &gt; sqrt {
-            break;
-        }
+    while index.i &lt;= sqrt {
         if sieve[index.i] {
             primes.push(index.i as u32);
             rule_out(&amp;mut sieve, index.i);
         }
         index.increment();
     }
-    loop {
-        if index.i &gt;= sieve.len() {
-            break;
-        }
+    while index.i &lt; sieve.len() {
         if sieve[index.i] {
             primes.push(index.i as u32);
         }
@@ -3830,22 +3800,16 @@ fn rule_out(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize) {
 fn primes(below: u32) -&gt; Vec&lt;u32&gt; {
     let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
     let mut sieve = vec![true; below as usize];
-    let sqrt = (sieve.len() as f64).sqrt() as usize;
+    let sqrt = (sieve.len() as f32).sqrt() as usize;
     let mut index = Index::new();
-    loop {
-        if index.i &gt; sqrt {
-            break;
-        }
+    while index.i &lt;= sqrt {
         if sieve[index.i] {
             primes.push(index.i as u32);
             rule_out(&amp;mut sieve, index.i);
         }
         index.increment();
     }
-    loop {
-        if index.i &gt;= sieve.len() {
-            break;
-        }
+    while index.i &lt; sieve.len() {
         if sieve[index.i] {
             primes.push(index.i as u32);
         }
@@ -4427,6 +4391,7 @@ fn main() {
     assert_eq!(left_truncatable_prime_sum - 2 - 3 - 5 - 7, 748317);
 }
 </code></pre></pre>
+<hr />
 <ul>
 <li><a href="./e7.html">Q.7 10001st prime</a></li>
 </ul>
