@@ -232,7 +232,7 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
  * <a href="https://www.nayuki.io/page/project-euler-solutions" target="_blank">https://www.nayuki.io/page/project-euler-solutions</a>
  * <a href="https://www.mathblog.dk/project-euler-solutions/" target="_blank">https://www.mathblog.dk/project-euler-solutions/</a>
  * <a href="https://www.xarg.org/puzzles/" target="_blank">https://www.xarg.org/puzzles/</a>
-
+ * <a href="https://github.com/XiaoTaoWang/Project-Euler" target="_blank">https://github.com/XiaoTaoWang/Project-Euler</a>
 <div class="thumbnail">
 <a href="https://projecteuler.net/" target="_blank"><img src="./imgs/eu.png"></a>
 </div>
