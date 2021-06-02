@@ -48,6 +48,7 @@
    - [Champernowne's constant](./e40.md)
    - [Pandigital prime](./e41.md)
    - [Coded triangle numbers](./e42.md)
+   - [Sub-string divisibility](./e43.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
