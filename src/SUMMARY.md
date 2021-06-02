@@ -52,6 +52,7 @@
    - [Pentagon numbers](./e44.md)
    - [Triangular, pentagonal, and hexagonal](./e45.md)
    - [Goldbach's other conjecture](./e46.md)
+   - [Distinct primes factors](./e47.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
