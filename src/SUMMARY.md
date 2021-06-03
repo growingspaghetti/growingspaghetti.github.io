@@ -55,6 +55,7 @@
    - [Distinct primes factors](./e47.md)
    - [Self powers](./e48.md)
    - [Prime permutations](./e49.md)
+   - [Consecutive prime sum](./e50.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
