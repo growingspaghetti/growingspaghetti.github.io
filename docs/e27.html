@@ -208,7 +208,7 @@ impl Sieve {
         let mut primes: Vec&lt;u32&gt; = vec![2u32, 3u32];
         let mut index = 5usize;
         for &amp;i in [2usize, 4].iter().cycle() {
-            if index &gt; below as usize {
+            if index &gt;= below as usize {
                 break;
             }
             if self._sieve[index] {
