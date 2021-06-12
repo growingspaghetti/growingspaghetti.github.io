@@ -78,7 +78,7 @@
 # LeetCode with APAS
 
  - []()
-   - [Square root]()
+   - [Square root](./l69.md)
 
 
 ---
