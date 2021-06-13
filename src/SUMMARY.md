@@ -79,7 +79,7 @@
 
  - []()
    - [Square root](./l69.md)
-
+   - [Valid Perfect Square](./l367.md)
 
 ---
 

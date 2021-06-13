@@ -208,6 +208,12 @@ Additionally, it was comprehensive too. But I'd better stick to Open Data Struct
 
  * <a href="https://www.cs.bham.ac.uk/~jxb/DSA/dsa.pdf" target="_blank">Lecture Notes for Data Structures and Algorithms (School of Computer ScienceUniversity of Birmingham)</a>
 
+📖 Introduction to Algorithms, 3rd Edition (The MIT Press) 3rd Edition\
+I couldn't find this book in my shallow previous research. I append this book here on 13 June 2021.
+<div class="thumbnail">
+<a href="https://www.amazon.com/dp/0262033844/" target="_blank"><img src="https://images-na.ssl-images-amazon.com/images/I/41T0iBxY8FL._SX440_BO1,204,203,200_.jpg"></a>
+</div>
+
 ---
 
 📖 WILLEY, Data Structures and Algorithms in Java, 6th Edition\
