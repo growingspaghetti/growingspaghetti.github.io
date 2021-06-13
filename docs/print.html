@@ -6194,6 +6194,7 @@ fn main() {
 <li><a href="l367.html#digit">3. Go to digit-by-digit calculation solutions</a></li>
 <li><a href="l367.html#bisection">4. Go to a bisection method solution</a></li>
 <li><a href="l367.html#number-of-divisors">5. Go to a number of divisor function proposal</a></li>
+<li><a href="l367.html#difference">6. Go to a difference sequence proposal</a></li>
 </ul>
 <p><a name="brute"><h2 id="1-brute-force-1"><a class="header" href="#1-brute-force-1">1. Brute force</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust editable">use std::time::Instant;
@@ -6234,6 +6235,7 @@ fn main() {
 <li><a href="l367.html#digit">3. Go to digit-by-digit calculation solutions</a></li>
 <li><a href="l367.html#bisection">4. Go to a bisection method solution</a></li>
 <li><a href="l367.html#number-of-divisors">5. Go to a number of divisor function proposal</a></li>
+<li><a href="l367.html#difference">6. Go to a difference sequence proposal</a></li>
 </ul>
 <p><a name="newton"><h2 id="2-newtons-method-1"><a class="header" href="#2-newtons-method-1">2. Newton's method</a></h2></a></p>
 <p><htlm><center><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/NewtonIteration_Ani.gif" alt="https://upload.wikimedia.org/wikipedia/commons/e/e0/NewtonIteration_Ani.gif"/></center></html></p>
@@ -6267,6 +6269,7 @@ fn main() {
 <li><a href="l367.html#digit">3. Go to digit-by-digit calculation solutions</a></li>
 <li><a href="l367.html#bisection">4. Go to a bisection method solution</a></li>
 <li><a href="l367.html#number-of-divisors">5. Go to a number of divisor function proposal</a></li>
+<li><a href="l367.html#difference">6. Go to a difference sequence proposal</a></li>
 </ul>
 <p><a name="digit"><h2 id="3-digit-by-digit-calculation-1"><a class="header" href="#3-digit-by-digit-calculation-1">3. Digit-by-digit calculation</a></h2></a></p>
 <html><center><img src="./imgs/sqrt-digit.gif"></center></html>
@@ -6310,6 +6313,7 @@ fn main() {
 <li><a href="l367.html#digit">3. Go to digit-by-digit calculation solutions</a></li>
 <li><a href="l367.html#bisection">4. Go to a bisection method solution</a></li>
 <li><a href="l367.html#number-of-divisors">5. Go to a number of divisor function proposal</a></li>
+<li><a href="l367.html#difference">6. Go to a difference sequence proposal</a></li>
 </ul>
 <p><a name="bisection"><h2 id="4-bisection-method-1"><a class="header" href="#4-bisection-method-1">4. Bisection method</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust editable">use std::time::Instant;
@@ -6351,6 +6355,7 @@ fn main() {
 <li><a href="l367.html#digit">3. Go to digit-by-digit calculation solutions</a></li>
 <li><a href="l367.html#bisection">4. Go to a bisection method solution</a></li>
 <li><a href="l367.html#number-of-divisors">5. Go to a number of divisor function proposal</a></li>
+<li><a href="l367.html#difference">6. Go to a difference sequence proposal</a></li>
 </ul>
 <p><a name="number-of-divisors"><h2 id="5-number-of-divisors"><a class="header" href="#5-number-of-divisors">5. Number of divisors</a></h2></a></p>
 <ul>
@@ -6416,6 +6421,41 @@ fn main() {
     for i in 0u32..1_000 {
         let sqrt = (i as f64).sqrt() as u32;
         assert_eq!(sqrt * sqrt == i, is_perfect_square_prime(i), &quot;{}&quot;, i);
+    }
+    println!(&quot;Time elapsed {:?}&quot;, timer.elapsed());
+}
+</code></pre></pre>
+<hr />
+<ul>
+<li><a href="l367.html#brute">1. Go to a brute force solution</a></li>
+<li><a href="l367.html#newton">2. Go to Newton's method aka. Babylonian method solutions</a></li>
+<li><a href="l367.html#digit">3. Go to digit-by-digit calculation solutions</a></li>
+<li><a href="l367.html#bisection">4. Go to a bisection method solution</a></li>
+<li><a href="l367.html#number-of-divisors">5. Go to a number of divisor function proposal</a></li>
+<li><a href="l367.html#difference">6. Go to a difference sequence proposal</a></li>
+</ul>
+<p><a name="difference"><h2 id="6-difference-sequence"><a class="header" href="#6-difference-sequence">6. Difference sequence</a></h2></a></p>
+<pre><pre class="playground"><code class="language-rust editable">use std::time::Instant;
+
+fn is_perfect_square_difference_sequence(a: u32) -&gt; bool {
+    let mut sum = 0u32;
+    for i in (1..).step_by(2) {
+        if sum == a {
+            return true;
+        }
+        sum += i;
+        if sum &gt; a {
+            break;
+        }
+    }
+    false
+}
+
+fn main() {
+    let timer = Instant::now();
+    for i in 0u32..10_000 {
+        let sqrt = (i as f64).sqrt() as u32;
+        assert_eq!(sqrt * sqrt == i, is_perfect_square_difference_sequence(i), &quot;{}&quot;, i);
     }
     println!(&quot;Time elapsed {:?}&quot;, timer.elapsed());
 }
