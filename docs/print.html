@@ -6240,15 +6240,11 @@ fn main() {
 <pre><pre class="playground"><code class="language-rust editable">use std::time::Instant;
 
 fn is_perfect_square_newton(a: u32) -&gt; bool {
-    let mut x = 1f64;
-    let mut x_next: f64;
-    loop {
-        x_next = (x + a as f64 / x) / 2f64;
-        if (x - x_next).abs() &lt; 0.1 {
-            break x_next as u32 * x_next as u32 == a;
-        }
-        x = x_next;
+    let mut x = a / 2 + 1;
+    while x as u64 * x as u64 &gt; a as u64 {
+        x = (a / x + x) / 2;
     }
+    x * x == a
 }
 
 fn main() {
