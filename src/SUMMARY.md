@@ -69,6 +69,13 @@
 
 ---
 
+# Introduction to Algorithms (MIT)
+ - [I Foundations]()
+   - [1. The Role of Algorithms in Computing]()
+     - [1.1. Algorithms]()
+
+---
+
 # Data Structures and Algorithms in Java (Michael T. Goodrich)
  - []()
    - [Scoreboard]()
