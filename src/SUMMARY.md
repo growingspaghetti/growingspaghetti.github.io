@@ -58,6 +58,7 @@
    - [Consecutive prime sum](./e50.md)
    - [Prime digit replacements](./e51.md)
    - [Permuted multiples](./e52.md)
+   - [Combinatoric selections](./e53.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
