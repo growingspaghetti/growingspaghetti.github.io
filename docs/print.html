@@ -5953,7 +5953,7 @@ enum Symbol {
 }
 
 impl Symbol {
-    pub fn iterator() -&gt; Iter&lt;'static, Symbol&gt; {
+    fn iterator() -&gt; Iter&lt;'static, Symbol&gt; {
         use self::Symbol::*;
         static SYMBOLS: [Symbol; 4] = [Spade, Diamond, Club, Heart];
         SYMBOLS.iter()
