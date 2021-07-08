@@ -7393,22 +7393,23 @@ const GAMES: [&amp;str; 1000] = [
         .for_each(|(&amp;d, r)| *r = d);
 }
 
-fn symmetric_digit_vector_pair(mut n: u32) -&gt; (Vec&lt;u8&gt;, Vec&lt;u8&gt;) {
-    let mut rev = Vec::with_capacity(56);
+fn symmetric_digit_vector_pair(mut n: u32, num: &amp;mut Vec&lt;u8&gt;, rev: &amp;mut Vec&lt;u8&gt;) {
+    num.clear();
+    rev.clear();
     while n &gt; 0 {
         let d = (n % 10) as u8;
         rev.push(d);
         n /= 10;
     }
-    let mut num = Vec::with_capacity(56);
     rev.iter().rev().for_each(|&amp;d| num.push(d));
-    (num, rev)
 }
 
 fn main() {
     let mut count = 0u32;
+    let mut num = Vec::with_capacity(56);
+    let mut rev = Vec::with_capacity(56);
     'next_num: for n in 10u32..10_000 {
-        let (mut num, mut rev) = symmetric_digit_vector_pair(n);
+        symmetric_digit_vector_pair(n, &amp;mut num, &amp;mut rev);
         for _ in 0..50 {
             merge_each_other(&amp;mut num, &amp;mut rev);
             if rev == num {
