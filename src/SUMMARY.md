@@ -62,6 +62,7 @@
    - [Poker hands](./e54.md)
    - [Lychrel numbers](./e55.md)
    - [Powerful digit sum](./e56.md)
+   - [Square root convergents](./e57.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
