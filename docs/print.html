@@ -7674,6 +7674,116 @@ fn main() {
     assert_eq!(count, 153);
 }
 </code></pre></pre>
+<hr />
+<ul>
+<li><a href="./e13.html">Q.13 Large sum</a></li>
+<li><a href="./e16.html">Q.16 Power digit sum</a></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Clone)]
+struct BigNum {
+    v: Vec&lt;u64&gt;,
+}
+
+impl BigNum {
+    const TEN_MIL: u64 = 10_000_000_000;
+    fn new(n: u8) -&gt; Self {
+        Self { v: vec![n as u64] }
+    }
+    fn merge(&amp;mut self, page: usize, n: u64, carry: &amp;mut u64) {
+        if self.v.get(page).is_none() {
+            self.v.push(0u64)
+        }
+        if let Some(con) = self.v.get_mut(page) {
+            *con += n + *carry;
+            if *con &lt; Self::TEN_MIL {
+                *carry = 0;
+                return;
+            }
+            *carry = 1;
+            *con -= Self::TEN_MIL;
+        }
+    }
+    fn double(&amp;mut self) -&gt; &amp;Self {
+        let mut carry = 0u64;
+        for con in self.v.iter_mut() {
+            *con *= 2;
+            *con += carry;
+            if *con &lt; Self::TEN_MIL {
+                carry = 0;
+                continue;
+            }
+            carry = 1;
+            *con -= Self::TEN_MIL;
+        }
+        if carry != 0 {
+            self.v.push(1u64);
+        }
+        self
+    }
+    fn add(&amp;mut self, b: &amp;BigNum) {
+        let mut p = 0usize;
+        let mut carry = 0u64;
+        let mut ite = b.v.iter();
+        while let Some(n) = ite.next() {
+            self.merge(p, *n, &amp;mut carry);
+            p += 1;
+        }
+        while carry != 0 {
+            self.merge(p, 0, &amp;mut carry);
+            p += 1;
+        }
+    }
+}
+
+struct Fraction {
+    deno: BigNum,
+    nume: BigNum,
+    n: u32,
+}
+
+impl Fraction {
+    fn new() -&gt; Self {
+        Self {
+            deno: BigNum::new(5),
+            nume: BigNum::new(7),
+            n: 2,
+        }
+    }
+    fn increment(&amp;mut self) {
+        self.n += 1;
+        let t = self.nume.clone();
+        self.nume.add(self.deno.clone().double());
+        self.deno.add(&amp;t);
+    }
+    fn has_numerator_more_digits(&amp;self) -&gt; bool {
+        if self.nume.v.len() != self.deno.v.len() {
+            return self.nume.v.len() &gt; self.deno.v.len();
+        }
+        let mut n = *self.nume.v.last().expect(&quot;BigNum must have a container&quot;);
+        let mut d = *self.deno.v.last().expect(&quot;BigNum must have a container&quot;);
+        while n &gt; 0 &amp;&amp; d &gt; 0 {
+            n /= 10;
+            d /= 10;
+        }
+        n &gt; d
+    }
+}
+
+fn main() {
+    let mut count = 0u32;
+    let mut frac = Fraction::new();
+    while {
+        if frac.has_numerator_more_digits() {
+            count += 1;
+        }
+        frac.increment();
+        frac.n &lt;= 1000
+    } {}
+
+    println!(&quot;{}&quot;, count);
+    assert_eq!(count, 153);
+}
+</code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQJm3mT1CLx-9YH3ybCQqasFGWoM9_qCueUJbgrZNbWy4Ax0WwFAWN61iZwuqXY1DcxacaVL0in0AHh/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <ul>
 <li><a href="./e31.html">Q.31 Coin sums</a></li>
