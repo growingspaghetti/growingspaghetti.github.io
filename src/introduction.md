@@ -312,7 +312,7 @@ I haven't read them but it seems there are some chapters about data structures.
   <li><a href="https://www.amazon.co.jp/%E3%82%B0%E3%83%A9%E3%83%95%E7%90%86%E8%AB%96%E5%85%A5%E9%96%80-R-J-%E3%82%A6%E3%82%A3%E3%83%AB%E3%82%BD%E3%83%B3/dp/4764902966" target="_blank">グラフ理論入門 (品川区図書館所蔵)</a></li>
 </ul>
 
-📖 アルゴリズム辞典 1994\(世田谷区図書館所蔵)
+📖 アルゴリズム辞典 1994 (世田谷区図書館所蔵)
 <div class="thumbnail">
     <a href="https://www.amazon.co.jp/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%E8%BE%9E%E5%85%B8-%E5%B3%B6%E5%86%85-%E5%89%9B%E4%B8%80/dp/4320027094/" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/519fEuKdDkL._SX368_BO1,204,203,200_.jpg"></a>
 </div>
@@ -322,7 +322,7 @@ I haven't read them but it seems there are some chapters about data structures.
     <a href="https://www.amazon.co.jp/dp/4874084141/ref=cm_sw_em_r_mt_dp_WNWQR01Z26FYRKD7NWR3" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51ZXNYW1EDL._SX356_BO1,204,203,200_.jpg"></a>
 </div>
 
-📖 最短経路の本\(世田谷区図書館所蔵)
+📖 最短経路の本 (世田谷区図書館所蔵)
 <div class="thumbnail">
     <a href="https://www.amazon.co.jp/%E6%9C%80%E7%9F%AD%E7%B5%8C%E8%B7%AF%E3%81%AE%E6%9C%AC-%E3%83%AC%E3%83%8A%E3%81%AE%E3%81%B5%E3%81%97%E3%81%8E%E3%81%AA%E6%95%B0%E5%AD%A6%E3%81%AE%E6%97%85-P-%E3%82%B0%E3%83%AA%E3%83%83%E3%83%84%E3%83%9E%E3%83%B3/dp/4621061364" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51-AeNQ2LdL._SX353_BO1,204,203,200_.jpg"></a>
 </div>
