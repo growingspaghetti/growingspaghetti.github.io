@@ -1,0 +1,21 @@
+[book]
+authors = ["Ryoji"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Algorithm notes on the back of used envelopes bound in a ring binder"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+theme = "Rust"
+default-theme = "Rust"
+mathjax-support = true
+git-repository-url = "https://github.com/growingspaghetti/growingspaghetti.github.io"
+additional-css = ["custom.css"]
+additional-js = ["custom.js"]
+
+[output.html.playground]
+line-numbers = true
+editable = true
