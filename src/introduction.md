@@ -196,7 +196,7 @@ As the area overlaps with the 8h video, of course, it was great to see words I r
 </div>
 
 📖 Princeton University, Algorithms (4th Edition)\
-I haven't read it but it seems Algorithms in a Nutshell and this book are famous ones for programmers (not for mathematicians).
+I haven't read it but it seems Algorithms in a Nutshell and this book are famous ones for programmers (not for mathematicians). It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
 
  * <a href="https://algs4.cs.princeton.edu/24pq/" target="_blank">2.4 Priority Queues</a>
 
@@ -271,6 +271,101 @@ I haven't read them but it seems there are some chapters about data structures.
 <div class="thumbnail">
 <a href="https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811" target="_blank"><img loading="lazy" src="./imgs/cmp.png"></a>
 </div>
+
+## Further reading...
+<html>
+<style>
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    overflow: hidden;
+}
+.w3-hide {
+    display: none;
+}
+.w3-show {
+    display: block;
+}
+</style>
+<button class="accordion" onclick="toggle('the-accordion');">+</button>
+<div id="the-accordion" class="panel w3-hide">
+    
+📖 Algorithms and Data Structures, Niklaus Wirth
+<div class="thumbnail">
+    <a href="https://www.amazon.com/dp/0130220051/ref=cm_sw_em_r_mt_dp_Y3TV5H58K4PG6VBEDMD0?_encoding=UTF8&psc=1" target="_blank"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/9/90/Algorithms_%2B_Data_Structures.jpg"></a>
+</div>
+<ul>
+  <li><a href="https://people.inf.ethz.ch/wirth/AD.pdf" target="_blank">Algorithms and Data Structures (1985)</a></li>
+  <li><a href="https://doc.lagout.org/science/0_Computer%20Science/2_Algorithms/Algorithms%20%20%20Data%20Structures%20%3D%20Programs%20%5BWirth%201976-02%5D.pdf" target="_blank">Algorithms and Data Structures = Programs (1976)</a></li>
+</ul>
+
+📖 Mathematics Dictionary (5th ed) James & James
+<div class="thumbnail">
+    <a href="https://www.amazon.co.jp/Mathematics-Dictionary-5th-Robert-James/dp/0442007418" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/518awRK01LL._SX258_BO1,204,203,200_.jpg"></a>
+</div>
+<ul>
+  <li><a href="https://archive.org/details/in.ernet.dli.2015.146873/mode/2up" target="_blank">archive.org (1949)</a></li>
+  <li><a href="http://www.asakura.co.jp/books/isbn/978-4-254-11131-6/" target="_blank">朝倉書店 数学辞典 (世田谷区図書館所蔵)</a></li>
+</ul>
+
+📖 Algorithms in C, Robert Sedgewick
+<div class="thumbnail">
+    <a href="https://www.amazon.com/dp/0201514257/ref=cm_sw_em_r_mt_dp_DPKEG7J8RF2QHKBD5ZR2?_encoding=UTF8&psc=1" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51vuTxM226L._SX340_BO1,204,203,200_.jpg"></a>
+</div>
+<ul>
+  <li><a href="https://www.amazon.co.jp/E3-82-BB-E3-82-B8-E3-82-A6-E3-82-A3-E3-83-83-E3-82-AF-E3-82-A2-E3-83-AB-E3-82-B4-E3-83-AA-E3-82-B/dp/4764905604/ref=dp_ob_title_bk" target="_blank">セジウィック:アルゴリズムC 第1~4部 ―基礎・データ構造・整列・探索 (世田谷区図書館所蔵)</a></li>
+</ul>
+
+📖 Introduction to Graph Theory (5th Edition) Robin J. Wilson
+<div class="thumbnail">
+    <a href="https://www.amazon.co.jp/Introduction-Graph-Theory-Robin-Wilson/dp/027372889X" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/41yEGcT795L._SX331_BO1,204,203,200_.jpg"></a>
+</div>
+<ul>
+  <li><a href="https://www.maths.ed.ac.uk/~v1ranick/papers/wilsongraph.pdf" target="_blank">maths.ed.ac.uk (1996)</a></li>
+  <li><a href="https://www.amazon.co.jp/%E3%82%B0%E3%83%A9%E3%83%95%E7%90%86%E8%AB%96%E5%85%A5%E9%96%80-R-J-%E3%82%A6%E3%82%A3%E3%83%AB%E3%82%BD%E3%83%B3/dp/4764902966" target="_blank">グラフ理論入門 (品川区図書館所蔵)</a></li>
+</ul>
+
+📖 アルゴリズム辞典 1994\(世田谷区図書館所蔵)
+<div class="thumbnail">
+    <a href="https://www.amazon.co.jp/%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0%E8%BE%9E%E5%85%B8-%E5%B3%B6%E5%86%85-%E5%89%9B%E4%B8%80/dp/4320027094/" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/519fEuKdDkL._SX368_BO1,204,203,200_.jpg"></a>
+</div>
+
+📖 C言語による最新アルゴリズム事典 (ソフトウェアテクノロジー) 奥村 晴彦
+<div class="thumbnail">
+    <a href="https://www.amazon.co.jp/dp/4874084141/ref=cm_sw_em_r_mt_dp_WNWQR01Z26FYRKD7NWR3" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51ZXNYW1EDL._SX356_BO1,204,203,200_.jpg"></a>
+</div>
+
+📖 最短経路の本\(世田谷区図書館所蔵)
+<div class="thumbnail">
+    <a href="https://www.amazon.co.jp/%E6%9C%80%E7%9F%AD%E7%B5%8C%E8%B7%AF%E3%81%AE%E6%9C%AC-%E3%83%AC%E3%83%8A%E3%81%AE%E3%81%B5%E3%81%97%E3%81%8E%E3%81%AA%E6%95%B0%E5%AD%A6%E3%81%AE%E6%97%85-P-%E3%82%B0%E3%83%AA%E3%83%83%E3%83%84%E3%83%9E%E3%83%B3/dp/4621061364" target="_blank"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51-AeNQ2LdL._SX353_BO1,204,203,200_.jpg"></a>
+</div>
+
+</div>
+<script>
+function toggle(id) {
+    let x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+</html>
 
 # PS
 
