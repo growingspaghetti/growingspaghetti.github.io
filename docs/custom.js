@@ -6,22 +6,3 @@ function toggle(id) {
     x.className = x.className.replace(" w3-show", "");
   }
 }
-var myiframe = document.getElementById('ts-1');
-if (true) {
-    myiframe.onload = function () { iframeIsLoaded(); };
-} else {
-    alert('testing 1'); // this fires for IE
-    myiframe.onreadystatechange = function() {
-        alert('testing 2'); // this fires for IE
-        if (myiframe.readyState == 'complete') {
-            alert('testing 3'); // this never fires
-            iframeIsLoaded();
-        }
-    }
-}
- 
-function iframeIsLoaded() {
-    // re-enable the button
-    //document.getElementById('downloadReport').disabled = '';
-  alert("hey");
-  }

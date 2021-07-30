@@ -330,7 +330,7 @@ import (
 	&quot;fmt&quot;
 )
 
-func arithmeticSeries(n int32) int32 {
+func arithmeticSeries(n uint32) uint32 {
 	d := 999 / n
 	return n * d * (d + 1) / 2
 }
@@ -341,7 +341,7 @@ func Example() {
 	// Output: 233168
 }
 </code></pre>
-<html><a href="https://play.golang.org/p/SD1GKYNU2GW" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<html><a href="https://play.golang.org/p/kHnpq8RYd5L" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
 <pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
   if (!condition) {
     throw new Error(msg)
@@ -349,6 +349,8 @@ func Example() {
 }
 
 function arithmeticSeries(n: number): number {
+  n |= 0;
+  assert(Math.sign(n) == 1, &quot;Tried a negative n or division by zero.&quot;);
   const d = 999 / n | 0;
   return n * d * (d + 1) / 2 | 0;
 }
@@ -357,7 +359,7 @@ const ans = arithmeticSeries(3) + arithmeticSeries(5) - arithmeticSeries(15);
 console.log(ans);
 assert(ans === 233168);
 </code></pre>
-<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz5zEAXxluZoSJJRdD9DFgIAGVsGAxUXDAKMBB6ACNsfnM4xKwdZzEOREJEAF5EAE5ixAB6c0QAH0QABgBuZyxAkCwkJAAqHMRO3FyAakQARm1ygCYq2oaPLKhKEQLkPwMAoNCuCNwAZm0BxZJlwJgQsI2AVm0AWl99laO18MjB84asuAAbDAA6N7gmXGQwKheA1BNg8AD5nkCqNNptBgA2AAcwKAA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz5zEAXxluZoSJJRdD9DFgIAGVsGAxUXDAKMBB6ACNsfnM4xKwdZyQAHwBeRAAGAG5nQWw8AFlkQwA6VBgmMCjtHLyARjoAIgAVLgxCFHMMJiqYADcMc0Q4dOJRmDqERHiqRAAvbDhqjt5i+TEORH68gE5TxAB6SayC3cQsQJAsJCQAKkPEN9x+gGpEVu1LgAmRDXIruGQyfZQSgiPLIPwGAJBUK9SIAZm0v3hJERgRgITCEVwAFZtABaXw4pH4lHhSKtUnFfZwAA2GGqLLgTFwyDAqB2MlKOB5fMQLTygLRaNaADYABw7IA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 
                     </main>
 
