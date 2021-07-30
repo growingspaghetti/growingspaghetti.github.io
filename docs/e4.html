@@ -173,6 +173,17 @@
                 <div id="content" class="content">
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTTJxJFxMM7KkbNVNMuhPlLG4EJdhHkaJKgibWTKEeKjuzUlvoNJ-qDBOC9qDxd9FbIS4y-Zf76P5F8/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 4 "Largest palindrome product"
+<p>A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.</p>
+<p>Find the largest palindrome made from the product of two 3-digit numbers.</p>
+<p>問 4 「最大の回文積」</p>
+<p>左右どちらから読んでも同じ値になる数を回文数という. 2桁の数の積で表される回文数のうち, 最大のものは 9009 = 91 × 99 である.</p>
+<p>では, 3桁の数の積で表される回文数の最大値を求めよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">fn is_palindrome(a: u32) -&gt; bool {
     let mut t = a;
     let mut b = 0u32;
