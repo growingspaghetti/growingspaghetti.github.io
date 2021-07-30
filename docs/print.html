@@ -625,8 +625,8 @@ func Example() {
 }
 
 function arithmeticSeries(n: number): number {
-  n |= 0;
-  assert(Math.sign(n) == 1, &quot;Tried a negative n or division by zero.&quot;);
+  assert(Number.isInteger(n));
+  assert(Math.sign(n) === 1, &quot;Tried a negative n or division by zero.&quot;);
   const d = 999 / n | 0;
   return n * d * (d + 1) / 2 | 0;
 }
@@ -635,7 +635,7 @@ const ans = arithmeticSeries(3) + arithmeticSeries(5) - arithmeticSeries(15);
 console.log(ans);
 assert(ans === 233168);
 </code></pre>
-<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz5zEAXxluZoSJJRdD9DFgIAGVsGAxUXDAKMBB6ACNsfnM4xKwdZyQAHwBeRAAGAG5nQWw8AFlkQwA6VBgmMCjtHLyARjoAIgAVLgxCFHMMJiqYADcMc0Q4dOJRmDqERHiqRAAvbDhqjt5i+TEORH68gE5TxAB6SayC3cQsQJAsJCQAKkPEN9x+gGpEVu1LgAmRDXIruGQyfZQSgiPLIPwGAJBUK9SIAZm0v3hJERgRgITCEVwAFZtABaXw4pH4lHhSKtUnFfZwAA2GGqLLgTFwyDAqB2MlKOB5fMQLTygLRaNaADYABw7IA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz5zEAXxluZoSJJRdD9DFgIAGVsGAxUXDAKMBB6ACNsfnM4xKwdZ0FsPAA5VOwAOhhUAEkwKAwmbCjeXgBuTPRs3ABZZEMC1BgmMBrEAF5BxABGOgAiABUuDEIUc0r2mAA3DHNEOHTiJeLNRHiqRAAvbDgCsfrnMQ5EWf7EAE5HxAB6NYAfRAAGBvksQJAsEgkAAqG6IUG4WYAahG2leACZEB9vu4ZDIrlBKCI7sg-AYAkFQtNIgBmbQw3EkfGBGAhMIRXAAVm0AFpfFSCbSieFIsNmQ0rnAADYYApCuBMXDIMCoC5ZHBSmUDIbwkkk4YANgAHBcgA">→ TypeScript playground</a></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSaHP7TcUI71uiwljBVfn6M7yFRxgXos451Bcb_q-y0h__0CLFzDZn916HYRaj-y_hfgcS-MUbDsEh6/embed?start=false&loop=false&delayms=60000" frameborder="0"  width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <html>
 <button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
@@ -734,6 +734,100 @@ fn main() {
 <li><a href="https://cp-algorithms.com/algebra/binary-exp.html#toc-tgt-1">Binary Exponentiation - CP-Algorithms</a></li>
 </ul>
 <html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/L-Wzglnm4dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Matrix struct {
+	a, b, c, d uint64
+}
+
+func (m *Matrix) multiply(o Matrix) {
+	m.a, m.b, m.c, m.d =
+		m.a*o.a+m.b*o.c,
+		m.a*o.b+m.b*o.d,
+		m.c*o.a+m.d*o.c,
+		m.c*o.b+m.d*o.d
+}
+
+func identityMatrix() Matrix {
+	return Matrix{a: 1, b: 0, c: 0, d: 1}
+}
+
+func cube() Matrix {
+	i := identityMatrix()
+	fib := Matrix{a: 1, b: 1, c: 1, d: 0}
+	i.multiply(fib)
+	i.multiply(fib)
+	i.multiply(fib)
+	return i
+}
+
+func Example() {
+	i := identityMatrix()
+	c := cube()
+	sum := uint64(0)
+	for i.b &lt;= 4_000_000 {
+		sum += i.b
+		i.multiply(c)
+	}
+	fmt.Println(sum)
+	// Output: 4613732
+}
+</code></pre>
+<html><a href="https://play.golang.org/p/cEhkSMH5dvE" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg)
+  }
+}
+
+class Matrix {
+  a: number;
+  b: number;
+  c: number;
+  d: number;
+  constructor() {
+    this.a = 1;
+    this.b = 0;
+    this.c = 0;
+    this.d = 1;
+  }
+  multiplyLiteral(o: { a: number; b: number; c: number; d: number }) {
+    const a = this.a * o.a + this.b * o.c;
+    const b = this.a * o.b + this.b * o.d;
+    const c = this.c * o.a + this.d * o.c;
+    const d = this.c * o.b + this.d * o.d;
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.d = d;
+  }
+  multiplyMatrix(o: Matrix) {
+    this.multiplyLiteral(o);
+  }
+}
+
+function cube(): Matrix {
+  let i = new Matrix();
+  const fib = { a: 1, b: 1, c: 1, d: 0 };
+  i.multiplyLiteral(fib);
+  i.multiplyLiteral(fib);
+  i.multiplyLiteral(fib);
+  return i;
+}
+
+let i = new Matrix();
+const c = cube();
+let sum = 0;
+while (i.b &lt;= 4_000_000) {
+  sum += i.b;
+  i.multiplyMatrix(c);
+} 
+console.log(sum);
+assert(sum == 4613732);
+</code></pre>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz5zEAXxluZEADaDEAWWROGAAPHWdkCjAQegAjbABuZxjI6LisRPkIFNiE50JstIzRBA4sEGg4e21dPUMYVAA6ZEQAXkQARiL9A3qGmNbEAAYuxDrGiAHh527ewgHO5zd5ehAvWAAHLyoAGRJsZC9cOAopFAKExGTzVIus65z0xHz7tNdq6eKwDhQBsabEABUiDg-wA1KMeo1+kCQRARmJvv02n9mjC+ohwX9ocCGoR4SUoKJfpCGhM0c1MSS5mi4R8EYS5siSWScf1KbNATi8R8UQNkCMsQMYgLmQNaXoIRy2tz5EsGKsNlsAkFgkcKMquMF3hK-is1jBNjs9lgDkdeEU3B5QJBJKIQHFcPx-IFNWF5F4MISYAMLGYNSFHUV6YhgDAkTozh06Fd2nQ7rGnhRBq4ijAGnrFUaoPtDqGYubnGmMwatrtsybc2GC-IiwqS1mc7g89XEFhPSAsEgYIkPB6vT7LM6VYHPASiW0IPaMCO+4hUNFJokTD0Pco0-0ADxtAAsAH1Bgf9wftXOF6C2uvU+m64b-aqIAWXIhR184B6Gl44ExcPP6AXBNgeC-q0O4AGztAAzAA7BBABMBZAA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 <p><htmnl><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSTrpjghGiCjA0R9p38sLYptZYTiHKxk_Xljri6TMzeMCjf7lyjq1WSWaIKIJxBDG_sc7dpzfyhbaqz/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html></p>
 <html>
 <button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
@@ -821,6 +915,125 @@ fn main() {
     assert_eq!(largest_prime_factor(13195), 29);
 }
 </code></pre></pre>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;log&quot;
+	&quot;math&quot;
+)
+
+func divideFully(n *uint64, d uint64, side *uint64) {
+	if *n%d != 0 {
+		return
+	}
+	for ok := true; ok; ok = *n%d == 0 {
+		*n /= d
+	}
+	*side = uint64(math.Sqrt(float64(*n)))
+}
+
+type Divisor struct {
+	d uint64
+	f uint8
+}
+
+func (d *Divisor) increment() {
+	d.d += uint64(2) &lt;&lt; d.f
+	d.f ^= 1
+}
+
+func largestPrimeFactor(n uint64) uint64 {
+	if n &lt; 2 {
+		log.Fatal(&quot;n must be &gt; 1.&quot;)
+	}
+	side := uint64(math.Sqrt(float64(n)))
+	for _, d := range []uint64{2, 3, 5} {
+		divideFully(&amp;n, d, &amp;side)
+		if n == 1 {
+			return d
+		}
+	}
+	d := Divisor{d: 5}
+	for {
+		d.increment()
+		if d.d &gt; side {
+			break
+		}
+		divideFully(&amp;n, d.d, &amp;side)
+		if n == 1 {
+			return d.d
+		}
+	}
+	return n
+}
+
+func Example() {
+	ans := largestPrimeFactor(600851475143)
+	fmt.Println(ans)
+	// Output: 6857
+}
+</code></pre>
+<html><a href="https://play.golang.org/p/tICPtloAHf4" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg);
+  }
+}
+
+class Divisor {
+  d: number;
+  #f: number;
+  constructor() {
+    this.d = 5;
+    this.#f = 0;
+  }
+  increment() {
+    this.d += 2 &lt;&lt; this.#f;
+    this.#f ^= 1;
+  }
+}
+
+function divideFully(n: number, d: number, side: number): [number, number] {
+  if (n % d != 0) {
+    return [n, side];
+  }
+  do {
+    n /= d | 0;
+  } while (n % d === 0);
+  return [n, Math.sqrt(n) | 0];
+}
+
+function largestPrimeFactor(n: number): number {
+  assert(Number.isInteger(n));
+  assert(n &gt; 1);
+  let side = Math.sqrt(n) | 0;
+  for (const d of [2, 3, 5]) {
+    [n, side] = divideFully(n, d, side);
+    if (n === 1) {
+      return d;
+    }
+  }
+  const d = new Divisor();
+  while (true) {
+    d.increment();
+    if (d.d &gt; side) {
+      break;
+    }
+    [n, side] = divideFully(n, d.d, side);
+    if (n === 1) {
+      return d.d;
+    }
+    side = Math.sqrt(n) | 0;
+  }
+  return n;
+}
+
+let ans = largestPrimeFactor(600851475143);
+console.log(ans);
+assert(ans == 6857);
+</code></pre>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzIgAbQYgARGAA3GFQ4LB1XQgowEHoAI2wXeQBiYFj4pKwU0QQOLBBoCNxtXT1DMIA6QkQAXkQAVlz9A2r0+sQABlyPeW4ILAx6DDA8MtdW6tqAagaAJkQAHiXEStQq9Ja1to2OgD0GgEZezxkZUEhJRGJQwgwAMRAfHypcMEzE7DoY8yzvxCoGD3T7ZfiIADacS+WDo0OyAF0ov0lO9EABSG6IFQNLoTPSIIZQEBYJBQuhA+4I07yQhwZF6JAAegatQAPt1eogTG0fBhlEhMbU6iLurxckSSWSwHQALLIQxVVAARxw720HK61LOF3A0E0iD8WCYGA4AAUuCMHshivYPn8YeD4dgGYJsHgAHL-LBVMIASTGGBNdt44tcbrVSAAfIgjmH5HyoIDgfyGvLFSrIxrOa5gBFlGIOFi4EoIfM6ABmOiNBH4vTk5NUzq3FNPF5vGU3Ckp+N6RQC+qiuMMgmS0k3bZ9dyuQtJ4XmSyBEJhEq9nkwPnKTggDB12m+yBDEZjUrbfu4Qg1RAxym7kd6BJDZAAa0nk0hndvSNZy-ubde7w-DU3b3L2KIDiKxx7noY5IJehBvgSt6dOmBhKqqeBaIgmo0oSGDEuOYAuF4iaUCIDRGia5qWo8NpQCUABsXRdAAHI0RwACwAOzsRxFZhoWcB8lUPhwEwuDIGAqBhhGeCSeRDQMWxXFhkAA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTTJxJFxMM7KkbNVNMuhPlLG4EJdhHkaJKgibWTKEeKjuzUlvoNJ-qDBOC9qDxd9FbIS4y-Zf76P5F8/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <pre><pre class="playground"><code class="language-rust editable">fn is_palindrome(a: u32) -&gt; bool {
     let mut t = a;

@@ -259,6 +259,125 @@ fn main() {
     assert_eq!(largest_prime_factor(13195), 29);
 }
 </code></pre></pre>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;log&quot;
+	&quot;math&quot;
+)
+
+func divideFully(n *uint64, d uint64, side *uint64) {
+	if *n%d != 0 {
+		return
+	}
+	for ok := true; ok; ok = *n%d == 0 {
+		*n /= d
+	}
+	*side = uint64(math.Sqrt(float64(*n)))
+}
+
+type Divisor struct {
+	d uint64
+	f uint8
+}
+
+func (d *Divisor) increment() {
+	d.d += uint64(2) &lt;&lt; d.f
+	d.f ^= 1
+}
+
+func largestPrimeFactor(n uint64) uint64 {
+	if n &lt; 2 {
+		log.Fatal(&quot;n must be &gt; 1.&quot;)
+	}
+	side := uint64(math.Sqrt(float64(n)))
+	for _, d := range []uint64{2, 3, 5} {
+		divideFully(&amp;n, d, &amp;side)
+		if n == 1 {
+			return d
+		}
+	}
+	d := Divisor{d: 5}
+	for {
+		d.increment()
+		if d.d &gt; side {
+			break
+		}
+		divideFully(&amp;n, d.d, &amp;side)
+		if n == 1 {
+			return d.d
+		}
+	}
+	return n
+}
+
+func Example() {
+	ans := largestPrimeFactor(600851475143)
+	fmt.Println(ans)
+	// Output: 6857
+}
+</code></pre>
+<html><a href="https://play.golang.org/p/tICPtloAHf4" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg);
+  }
+}
+
+class Divisor {
+  d: number;
+  #f: number;
+  constructor() {
+    this.d = 5;
+    this.#f = 0;
+  }
+  increment() {
+    this.d += 2 &lt;&lt; this.#f;
+    this.#f ^= 1;
+  }
+}
+
+function divideFully(n: number, d: number, side: number): [number, number] {
+  if (n % d != 0) {
+    return [n, side];
+  }
+  do {
+    n /= d | 0;
+  } while (n % d === 0);
+  return [n, Math.sqrt(n) | 0];
+}
+
+function largestPrimeFactor(n: number): number {
+  assert(Number.isInteger(n));
+  assert(n &gt; 1);
+  let side = Math.sqrt(n) | 0;
+  for (const d of [2, 3, 5]) {
+    [n, side] = divideFully(n, d, side);
+    if (n === 1) {
+      return d;
+    }
+  }
+  const d = new Divisor();
+  while (true) {
+    d.increment();
+    if (d.d &gt; side) {
+      break;
+    }
+    [n, side] = divideFully(n, d.d, side);
+    if (n === 1) {
+      return d.d;
+    }
+    side = Math.sqrt(n) | 0;
+  }
+  return n;
+}
+
+let ans = largestPrimeFactor(600851475143);
+console.log(ans);
+assert(ans == 6857);
+</code></pre>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzIgAbQYgARGAA3GFQ4LB1XQgowEHoAI2wXeQBiYFj4pKwU0QQOLBBoCNxtXT1DMIA6QkQAXkQAVlz9A2r0+sQABlyPeW4ILAx6DDA8MtdW6tqAagaAJkQAHiXEStQq9Ja1to2OgD0GgEZezxkZUEhJRGJQwgwAMRAfHypcMEzE7DoY8yzvxCoGD3T7ZfiIADacS+WDo0OyAF0ov0lO9EABSG6IFQNLoTPSIIZQEBYJBQuhA+4I07yQhwZF6JAAegatQAPt1eogTG0fBhlEhMbU6iLurxckSSWSwHQALLIQxVVAARxw720HK61LOF3A0E0iD8WCYGA4AAUuCMHshivYPn8YeD4dgGYJsHgAHL-LBVMIASTGGBNdt44tcbrVSAAfIgjmH5HyoIDgfyGvLFSrIxrOa5gBFlGIOFi4EoIfM6ABmOiNBH4vTk5NUzq3FNPF5vGU3Ckp+N6RQC+qiuMMgmS0k3bZ9dyuQtJ4XmSyBEJhEq9nkwPnKTggDB12m+yBDEZjUrbfu4Qg1RAxym7kd6BJDZAAa0nk0hndvSNZy-ubde7w-DU3b3L2KIDiKxx7noY5IJehBvgSt6dOmBhKqqeBaIgmo0oSGDEuOYAuF4iaUCIDRGia5qWo8NpQCUABsXRdAAHI0RwACwAOzsRxFZhoWcB8lUPhwEwuDIGAqBhhGeCSeRDQMWxXFhkAA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 
                     </main>
 
