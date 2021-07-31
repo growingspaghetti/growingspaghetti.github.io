@@ -1545,7 +1545,7 @@ func ruleout(sieve []bool, p int) {
 	}
 }
 
-func ruleout_from_position(sieve []bool, prime, position int) {
+func ruleoutFromPosition(sieve []bool, prime, position int) {
 	pos := (((position - 1) / prime) + 1) * prime
 	sq := prime * prime
 	if pos &lt; sq {
@@ -1560,7 +1560,7 @@ func extend(sieve *[]bool, primes []int) {
 	previousLen := len(*sieve)
 	*sieve = append(*sieve, make([]bool, previousLen)...)
 	for _, p := range primes {
-		ruleout_from_position(*sieve, p, previousLen)
+		ruleoutFromPosition(*sieve, p, previousLen)
 	}
 }
 
@@ -1591,7 +1591,7 @@ Exploration:
 }
 </code></pre>
 <p><a href="https://stackoverflow.com/questions/23304854/how-do-you-determine-if-a-variable-is-a-slice-or-array">https://stackoverflow.com/questions/23304854/how-do-you-determine-if-a-variable-is-a-slice-or-array</a></p>
-<html><a href="https://play.golang.org/p/aVC2BmCNzUi" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<html><a href="https://play.golang.org/p/x1tE6QkTFrg" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
 <pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
   if (!condition) {
     throw new Error(msg);
@@ -1611,7 +1611,7 @@ class Index {
   }
 }
 
-function ruleout_from_position(
+function ruleoutFromPosition(
   sieve: boolean[],
   prime: number,
   position: number,
@@ -1633,7 +1633,7 @@ function extend(sieve: boolean[], primes: number[]) {
   const previousLen = sieve.length;
   sieve.push(...Array(previousLen).fill(true));
   for (const p of primes) {
-    ruleout_from_position(sieve, p, previousLen);
+    ruleoutFromPosition(sieve, p, previousLen);
   }
 }
 
@@ -1661,7 +1661,7 @@ while (true) {
 console.log(i.i);
 assert(i.i === 104743);
 </code></pre>
-<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzIgAbQYgBJcQwADx1XGAowEHoAI2wXeQBiYCiY+KxE0QQOLBBoOHttXT1DGFQAOhhEAF5EAFYs-QNyipTaxAAGLI95bggsDHoMMDxi12bW6oBqOoAmRAAeRcQyypSm1Zb1pQA9OoBGHs8ZGVBISUQ8nww4ECgAfWBjegeABzhUEk1cVy+MABuGAosTgcBuyDAAG0ALo0VxvLjDNJxbDw+QfL6SFEZeHjeRiDiIVAARw6iJgw0QACpEBThllCVBEAYMMhCB1cFzMd8EIgALSIA7aAD0dKRGEQAB8utppkLtLT6RgssBCsobszqnUALLIQwVejIEK4Ul0Vns3hOBRLYkwQEYCo3HiGa0zOrK-F6f5AqEwGEdYDIHyYY5ec7QTRXEA3O54H3AxCg8Fs6Fwuk47BetVYDUYLXkml0t22hNOkZMV022Z0r3yBN+gN1IMhlWuDzh8CRvmhKAjQim+1AkFgiFpujK1CZrCwr1M8WA+AgVAAGRGHTLzsrBiyZbey4MuAqx4AgrZkFRcIjF3dVyNeBVgDAfD5cJwQBheFbXDnlPO3ogcBKJOdbRrG9xPC87yfLyYCDg6E4ToMAJLneWhhqcmrZOAfa5vMLhYQmHRnlgF64AcnSUZ0D5Pi+b55J+BH5uKlIYCIdSwi487auYliBMEJrfqEbw+IU+qaGQMgmC0NzKO+n7hPI0nPpKuAwFUpZDo6W6GKBijKCoDbqf6oF9FUkCDMMoy4N+eh6GIsDRG2dm9PZdyjNg0zTJs+n4O5uG1DUhxUcKil2UmgzIAA1ogwmiaRkibK5GISpU+6oIexm2Xo1y3Pc8FAnQWU+eZAxDCMYzHPIvb9gVGBIaxqDfh4hIpk6cBMGpVTfoI2B4MZgXBQALAA7ENADM35AA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzIgAbQYgBJcQwADx1XGAowEHoAI2wXeQBiYCiY+KxE0QQOLBBoOHttXT1DGFQAOhhEAF5EAFYs-QNyipTaxAAGLI95bggsDHoMMDxi12bW6oBqOoAmRAAeRcQyypSm1Zb1pQA9OoBGHs8ZGVBISUQ8nww4ECgAMWN6AAU4VBJNXFcPjAA3DAUWJwOA3ZBgADaAF0aK4AA5cYZpOLYWHyOHvT7kczpVEycbyMQcRCoACOHQRMGGiAAVIhKcMskSoIgDBhkIQOrhuRiPpcALSIA7aAD09MRGEQAB8utppkLtHSGRgssBCsobizqnUALLIQwVejIEK4Ml0Nkc3hOBRLEkwf4YCo3HiGa0zOrKgl6X4AiEwKEdYDIHyYY5ec7QTRXEA3O54H2AxDA0HsyEw+nIjJetVYDUYLUU2n0t22hNOkZMV022b0r3yBN+gN1IMhlWuDzh8CRhCIUJQEaEU32gFAkFgtN0ZWoTPYaFe5ni-7wECoAAyIw6ZedlYMWTLcJXBlwFRPAEFbMgqLgEUu7muRrwKsAYD4fLhOCAMLwra4c8oF3CiBwEoU51tGsb3E8cCvJikhDg6k6ToMfzLveWhhqcmrZOA-a5vMLhYQmHTnlgl64AcnSUZ0j7Pq+755F+BH5uKVIYCIdTQi4C7auYliBMEJo-qEcI+IU+qaGQMgmC0NzKB+X7hPI0kvpKuAwFUpbDo626GGBijKCoDbqf6YF9FUkCDMMoy4D+eh6GIsDRG2dm9PZdyjNg0zTJs+n4O5uG1DUhxUcKil2UmgzIAA1r2IQiWJkibK56ISpUB6oEexm2Xo1y3Pc8EAnQWU+eZAxDCMYzHPIfYDgVGBIaxqA-h4RIpk6cBMGpVQ-oI2B4MZgXBQALAA7ENADMP5AA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTEWTgdLfAldnJUzh6V60O0nKBBOaW7c62PG1N8pI2WPrHzCXCumfBSeJm8BvtmaMQRb7adqd8AtcWJ/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let thousand_digits = &quot;7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450&quot;;
