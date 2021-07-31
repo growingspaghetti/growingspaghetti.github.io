@@ -173,17 +173,26 @@
                 <div id="content" class="content">
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS0vhb4qKuLM62w4AUrn4DQfhzn9hKKS3NmOkhPK3t30mMhf7wB_KqFh5fz0vmGPZcpjP12FT7tlxZT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
-<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/h86RzlyHfUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 5 "Smallest multiple"
+<p>2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p>
+<p>What is the smallest positive number that is <dfn title="divisible with no remainder">evenly divisible</dfn> by all of the numbers from 1 to 20?</p>
+<p>問 5 「最小の倍数」</p>
+<p>2520 は 1 から 10 の数字の全ての整数で割り切れる数字であり, そのような数字の中では最小の値である.</p>
+<p>では, 1 から 20 までの整数全てで割り切れる数字の中で最小の正の数はいくらになるか.</p>
+</div>
+</html>
+<html><br><center><iframe width="560" height="315" src="https://www.youtube.com/embed/h86RzlyHfUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <pre><pre class="playground"><code class="language-rust editable">fn gcd(mut a: u64, mut b: u64) -&gt; u64 {
-    if b &gt; a {
-        std::mem::swap(&amp;mut a, &amp;mut b);
+    assert!(a != 0 &amp;&amp; b != 0);
+    while b != 0 {
+        let r = a % b;
+        a = b;
+        b = r;
     }
-    assert!(b != 0);
-    let r = a % b;
-    if r == 0 {
-        return b;
-    }
-    gcd(b, r)
+    a
 }
 
 fn lcm(a: u64, b: u64) -&gt; u64 {
@@ -262,6 +271,67 @@ fn main() {
     assert_eq!(acc, 232792560);
 }
 </code></pre></pre>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;log&quot;
+)
+
+func gcd(a, b uint64) uint64 {
+	if a == 0 || b == 0 {
+		log.Fatal(&quot;gcd(0) is undefined.&quot;)
+	}
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
+}
+
+func lcm(a, b uint64) uint64 {
+	return a * b / gcd(a, b)
+}
+
+func Example() {
+	acc := uint64(2)
+	for n := uint64(3); n &lt;= 20; n++ {
+		acc = lcm(acc, n)
+	}
+	fmt.Println(acc)
+	// Output: 232792560
+}
+</code></pre>
+<html><a href="https://play.golang.org/p/rXXUFqrgANL" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg);
+  }
+}
+
+function gcd(a: number, b: number): number {
+  assert(Number.isInteger(a) &amp;&amp; Number.isInteger(b));
+  assert(Math.sign(a) === 1 &amp;&amp; Math.sign(b) === 1);
+  let t: number;
+  while (b != 0) {
+    t = Number(a);
+    a = b;
+    b = t % b;
+  }
+  return a;
+}
+
+function lcm(a: number, b: number): number {
+  return a * b / gcd(a, b);
+}
+
+let acc = 2;
+for (let n = 3; n &lt;= 20; n++) {
+  acc = lcm(acc, n);
+}
+console.log(acc);
+assert(acc === 232792560);
+</code></pre>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzNCRJiJhCEuMgUYCD0AEbYdBGh4VFY-Obx2Dqugth4AHIpWAB0MKgAkmBQGEzYwdoAZNWIOZHYBcWl5ZURvLwu8hk4uACyyIZ5qDBMYFWIALwziACMiLWIg8Oj47gd07NzXa4ANhhQiFBxjVjdiCYGMAfKEYgqU4gADNq6ekdPDQlVFz3TiAif0BAKOAFJARcPPIsIcQFgkMgXF4fNBNIg9hB6MFTgkYrjsEkwmc0jC4QiUIgAFQggD0-kCwRiuy8ByOyAgEABACYXMA4FhlGzzACAMxOEUAHie3OeErAAGoFW90pyAZjsRyIHQtMiZGJUHADnk9nAmMFObtengtVsZaLuQB2ACc3IArAA2V4uIA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 
                     </main>
 
