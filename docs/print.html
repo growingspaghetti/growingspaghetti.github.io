@@ -1417,6 +1417,17 @@ assert(diff === 25164150);
 </code></pre>
 <html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzO5RswZBAYiADKGACOIBiQQbrmFGAg9ABG2C5eoJCSiKiJAPLAwRHIWBiouKgUoRFRgfzmiSlYOq4lUCBYSKgAdEgAVMrdSADUiACM2v24AEyI-YOII+OIAPSIAGxpMjIZ0JrZieWV4ZHRdQnJ2M3yre1IuKML2T0TT0irU5syYhzZR9XRiAAvDo4mMAAxg9wub5QfZA-b0cq8aEIH7EYBKYE5WZwgC0CPyhRAxVKSJRYFQcAANhgulS4ExcOjgMiZIJsHhmUDAcCpgBWUZrAAsoz5YNZQA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSQMS02Bs8MWMfHRChuI3eTMbxC-Anx7tUPAGemmKWugKFVup2d25ipBwcU5OQdcxHluC3wQxY6M9Bp/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 7 "10001st prime"
+<p>By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</p>
+<p>What is the 10 001st prime number?</p>
+<p>問 7 「10001番目の素数」</p>
+<p>素数を小さい方から6つ並べると 2, 3, 5, 7, 11, 13 であり, 6番目の素数は 13 である.</p>
+<p>10 001 番目の素数を求めよ.</p>
+</div>
+</html>
 <ul>
 <li><a href="https://www.visnos.com/demos/sieve-of-eratosthenes">Sieve of Eratosthenes, number square, view multiples and prime numbers - visnos.com</a></li>
 </ul>
@@ -1428,10 +1439,9 @@ assert(diff === 25164150);
 }
 
 fn rule_out_from_previous_position(sieve: &amp;mut Vec&lt;bool&gt;, prime: usize, pp: usize) {
-    for i in (prime * prime..sieve.len()).step_by(prime) {
-        if i &lt; pp {
-            continue;
-        }
+    use std::cmp::max;
+    let begin = max((((pp - 1) / prime) + 1) * prime, prime * prime);
+    for i in (begin..sieve.len()).step_by(prime) {
         sieve[i] = false;
     }
 }
@@ -1449,14 +1459,11 @@ fn main() {
     let mut sieve = vec![true; 10000];
     let mut primes: Vec&lt;usize&gt; = vec![];
     let mut cursor = 5usize;
+    let mut ite = [2usize, 4].iter().cycle();
     let n = 'exploration: loop {
-        let ite = [2usize, 4].iter().cycle();
-        for i in ite {
-            if cursor &gt;= sieve.len() {
-                break;
-            }
+        while cursor &lt; sieve.len() {
             if !sieve[cursor] {
-                cursor += i;
+                cursor += ite.next().unwrap();
                 continue;
             }
             counter += 1;
@@ -1465,7 +1472,7 @@ fn main() {
             }
             &amp;primes.push(cursor);
             rule_out(&amp;mut sieve, cursor);
-            cursor += i;
+            cursor += ite.next().unwrap();
         }
         extend(&amp;mut sieve, &amp;primes);
     };
@@ -1487,14 +1494,13 @@ fn main() {
             return false;
         }
     }
-
     let side = (n as f64).sqrt() as u64;
     let mut d = 5u64;
     for i in [2u64, 4].iter().cycle() {
+        d += *i;
         if d &gt; side {
             break;
         }
-        d += *i;
         if n % d == 0 {
             return false;
         }
@@ -1519,6 +1525,145 @@ fn main() {
 <ul>
 <li><a href="./e3.html">Q.3 Largest prime factor</a></li>
 </ul>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+type Index struct {
+	i int
+	f uint8
+}
+
+func (i *Index) increment() {
+	i.i += 2 &lt;&lt; i.f
+	i.f ^= 1
+}
+
+func ruleout(sieve []bool, p int) {
+	for i := p * p; i &lt; len(sieve); i += p {
+		sieve[i] = true
+	}
+}
+
+func ruleout_from_position(sieve []bool, prime, position int) {
+	pos := (((position - 1) / prime) + 1) * prime
+	sq := prime * prime
+	if pos &lt; sq {
+		pos = sq
+	}
+	for i := pos; i &lt; len(sieve); i += prime {
+		sieve[i] = true
+	}
+}
+
+func extend(sieve *[]bool, primes []int) {
+	previousLen := len(*sieve)
+	*sieve = append(*sieve, make([]bool, previousLen)...)
+	for _, p := range primes {
+		ruleout_from_position(*sieve, p, previousLen)
+	}
+}
+
+func Example() {
+	counter := 2
+	sieve := make([]bool, 10000)
+	primes := []int{}
+	i := Index{i: 5}
+Exploration:
+	for {
+		for i.i &lt; len(sieve) {
+			if sieve[i.i] {
+				i.increment()
+				continue
+			}
+			counter++
+			if counter == 10001 {
+				break Exploration
+			}
+			primes = append(primes, i.i)
+			ruleout(sieve, i.i)
+			i.increment()
+		}
+		extend(&amp;sieve, primes)
+	}
+	fmt.Println(i.i)
+	// Output: 104743
+}
+</code></pre>
+<html><a href="https://play.golang.org/p/aVC2BmCNzUi" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<ul>
+<li>https://stackoverflow.com/questions/23304854/how-do-you-determine-if-a-variable-is-a-slice-or-array</li>
+</ul>
+<pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg);
+  }
+}
+
+class Index {
+  i: number;
+  #f: number;
+  constructor() {
+    this.i = 5;
+    this.#f = 0;
+  }
+  increment() {
+    this.i += 2 &lt;&lt; this.#f;
+    this.#f ^= 1;
+  }
+}
+
+function ruleout_from_position(
+  sieve: boolean[],
+  prime: number,
+  position: number,
+) {
+  const sq = prime * prime;
+  const head = (((position - 1) / prime | 0) + 1) * prime;
+  for (let i = Math.max(sq, head); i &lt; sieve.length; i += prime) {
+    sieve[i] = false;
+  }
+}
+
+function ruleout(sieve: boolean[], p: number) {
+  for (let i = p * p; i &lt; sieve.length; i += p) {
+    sieve[i] = false;
+  }
+}
+
+function extend(sieve: boolean[], primes: number[]) {
+  const previousLen = sieve.length;
+  sieve.push(...Array(previousLen).fill(true));
+  for (const p of primes) {
+    ruleout_from_position(sieve, p, previousLen);
+  }
+}
+
+let counter = 2;
+let sieve = Array(10000).fill(true);
+let primes = [];
+const i = new Index();
+exploration:
+while (true) {
+  while (i.i &lt; sieve.length) {
+    if (!sieve[i.i]) {
+      i.increment();
+      continue;
+    }
+    counter++;
+    if (counter === 10001) {
+      break exploration;
+    }
+    primes.push(i.i);
+    ruleout(sieve, i.i);
+    i.increment();
+  }
+  extend(sieve, primes);
+}
+console.log(i.i);
+assert(i.i === 104743);
+</code></pre>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzIgAbQYgBJcQwADx1XGAowEHoAI2wXeQBiYCiY+KxE0QQOLBBoOHttXT1DGFQAOhhEAF5EAFYs-QNyipTaxAAGLI95bggsDHoMMDxi12bW6oBqOoAmRAAeRcQyypSm1Zb1pQA9OoBGHs8ZGVBISUQ8nww4ECgAfWBjegeABzhUEk1cVy+MABuGAosTgcBuyDAAG0ALo0VxvLjDNJxbDw+QfL6SFEZeHjeRiDiIVAARw6iJgw0QACpEBThllCVBEAYMMhCB1cFzMd8EIgALSIA7aAD0dKRGEQAB8utppkLtLT6RgssBCsobszqnUALLIQwVejIEK4Ul0Vns3hOBRLYkwQEYCo3HiGa0zOrK-F6f5AqEwGEdYDIHyYY5ec7QTRXEA3O54H3AxCg8Fs6Fwuk47BetVYDUYLXkml0t22hNOkZMV022Z0r3yBN+gN1IMhlWuDzh8CRvmhKAjQim+1AkFgiFpujK1CZrCwr1M8WA+AgVAAGRGHTLzsrBiyZbey4MuAqx4AgrZkFRcIjF3dVyNeBVgDAfD5cJwQBheFbXDnlPO3ogcBKJOdbRrG9xPC87yfLyYCDg6E4ToMAJLneWhhqcmrZOAfa5vMLhYQmHRnlgF64AcnSUZ0D5Pi+b55J+BH5uKlIYCIdSwi487auYliBMEJrfqEbw+IU+qaGQMgmC0NzKO+n7hPI0nPpKuAwFUpZDo6W6GKBijKCoDbqf6oF9FUkCDMMoy4N+eh6GIsDRG2dm9PZdyjNg0zTJs+n4O5uG1DUhxUcKil2UmgzIAA1ogwmiaRkibK5GISpU+6oIexm2Xo1y3Pc8FAnQWU+eZAxDCMYzHPIvb9gVGBIaxqDfh4hIpk6cBMGpVTfoI2B4MZgXBQALAA7ENADM35AA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTEWTgdLfAldnJUzh6V60O0nKBBOaW7c62PG1N8pI2WPrHzCXCumfBSeJm8BvtmaMQRb7adqd8AtcWJ/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let thousand_digits = &quot;7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450&quot;;

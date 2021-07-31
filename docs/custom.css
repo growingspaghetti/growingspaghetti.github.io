@@ -9,7 +9,7 @@
     outline: none;
     transition: 0.4s;
 }
-.active, .accordion:hover {
+.accordion:hover {
     background-color: #ccc;
 }
 .panel {
