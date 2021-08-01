@@ -1,6 +1,6 @@
 26 April 2021
 
-I haven't ever had a **computer science** class. I'd say I'm behind those people graduated in the field for 48 months. I had to spend some time to understand what is the book shelf like to be for a CS student.
+I have never had a **computer science** class. I'd say I'm behind those people who graduated in the field for 48 months. I had to spend some time trying to understand what a CS student's bookshelf is like.
 
 Although it's said that nothing is given so freely as advice, with a wish that what I listed up here is useful not only for myself but also for people, here I'm writing this article that is meant to provide a comprehensive map.
 
@@ -30,7 +30,7 @@ I'd stick to ***OPEN DATA STRUCTURES*** and ***PROJECT EULER*** mentioned at the
 ## Computer architecture
 
 🎞️ MIT, 9.2.3 The von Neumann Model\
-Confirm that CPUs have the dedicated **ADDRESS BUS** in addition to the data bus.
+CPUs have the dedicated **ADDRESS BUS** in addition to the data bus.
 <div class="thumbnail">
 <a href="https://www.youtube.com/watch?v=H0xGKKpKaRE" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/address-bus.png"></a>
 </div>
@@ -42,20 +42,20 @@ Address bus (2)
 </div>
 
 🎞️ Introduction to Von Neuman Architecture (Fetch-Decode-Execute) Cycle\
-Confirm that instructions **LDD**, **ADD**, **STO**, and data **27**, **35** are stored in memory.\
-Addressing is the only way to tell the difference of them.
+Instructions **LDD**, **ADD**, **STO**, and data **27**, **35** are stored in memory.\
+Addressing is the only way to tell the difference between them.
 <div class="thumbnail">
 <a href="https://youtu.be/u9WK73mCD6U" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/addressing.png"></a>
 </div>
 
 🎞️ Tom Scott, The Fetch-Execute Cycle: What's Your Computer Actually Doing?\
-Confirm that there's **JUMP** instruction, which will be described for the genesis of the subroutine later.
+There's **JUMP** instruction, which will be described for the genesis of the subroutine later.
 <div class="thumbnail">
 <a href="https://youtu.be/Z5JC9Ve1sfI" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/jump.png"></a>
 </div>
 
 🎞️ The Calculator Wars: A video history of Japan's electronic industry (Part 3)\
-Confirm that the bit part of the **64bit** and **32bit** CPU describes the addressible memory breadth. What is called `usize` type, unsigned integer, 64bit length in the case of a x86_64 CPU.\
+The bit part of the **64bit** and **32bit** CPU describes the addressible memory breadth. What is called `usize/uintptr` type, unsigned integer, 64bit length in the case of a x86_64 CPU.\
 **<a href="https://en.wikipedia.org/wiki/Intel_4004" target="_blank" rel="noopener noreferrer">Intel 4004</a>** a 4bit processor. The capacity of an address will be mentioned in Open Data Structures as the *word length*.
 <div class="thumbnail">
 <a href="https://youtu.be/ansXGewduN4?t=1613" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/64bit.png"></a>
@@ -68,20 +68,20 @@ The arithmetics with a set of circuits in CPU must be the same mechanism to a se
 </div>
 
 🎞️ Pointers and dynamic memory - stack vs heap\
-Confirm that there are regions called **STACK FRAMES** for each function call.
+There are regions called **STACK FRAMES** for each function call.
 <div class="thumbnail">
 <a href="https://www.youtube.com/watch?v=_8-ht2AKyH4" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/stack-frames.png"></a>
 </div>
 
 🎞️ freeCodeCamp.org, Pointers in C / C++ [Full Course]\
-Confirm that jumping is enabled by means of the technique called function pointers, which allows us to use **LOOP** for example.\
+Jumping is enabled by means of the technique called function pointers, which allows us to use **LOOP** for example.\
 You might prefer to watch CS50 written below first.
 <div class="thumbnail">
 <a href="https://youtu.be/zuegQmMdy8M?t=11198" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/function-pointer.png"></a>
 </div>
 
 🎞️ Wheeler Jump - Computerphile\
-Story behind the **sub-routine**
+Stories behind the **subroutines**
 <div class="thumbnail">
 <a href="https://youtu.be/zR8V0lq029c" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/subroutine.png"></a>
 </div>
@@ -101,7 +101,7 @@ Confirm the **garbage values** in memory and the **undefined behaviour** in C.
 </div>
 
 🎞️ CS50 2020 - Lecture 5 - Data Structures\
-Confirm the physical restriction on the consective allocation extension, for the area is possibly already **claimed** by the other.
+The physical restriction on the consective allocation extension, for the area is possibly already **claimed** by the other.
 <div class="thumbnail">
 <a href="https://www.youtube.com/watch?v=2T-A_GFuoTo" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/ordering.png"></a>
 </div>
@@ -113,13 +113,6 @@ Memory and the **pointer** in summary
 </div>
 
 ## Data structures and algorithms
-
-For your information, the notation **O**, that describes the growth of requirement, is relative and depends on the focus, that is, there's the implicit agreement on what's the base unit when having a discussion about it.
-
-As described in Open Data Structures, the CPU instructions are specific on the devices and compilers, namely, the **Rust** compiler inserts the boundary check to avoid from accessing the garbage values unlike C; and like some CPUs have special circuits designed for the Java byte code execution, it says **ARM** CPUs have optimizations for short condition branching.
-
-It's not about the number of calls. For instance, memory allocation is a heavier operation than the instructions which the **"lenth()"** call produces. For that reason, the concatenation of Strings is faster to scan through all elements to calculate the necessary capacity first than omitting this preparation.\
-When focusing on a heavier operation, like CS50 does, uneffective parts magnitude wise are not considered.
 
 🎞️ Fyi, MIT, Instruction-level Parallelism
 <div class="thumbnail">
@@ -134,7 +127,7 @@ Fyi, ARM architecture - conditional execution - Wikipedia
 ---
 
 🎞️ freeCodeCamp, Data Structures Easy to Advanced Course - Full Tutorial from a Google Engineer\
-Comprehensive step by step tutorial about data structures. This allowed me to be familier to their names and ready to read books about them.
+Comprehensive step by step tutorial about data structures. This allowed me to be familiar with their names and ready to read books about them.
 
  * <a href="https://github.com/williamfiset/data-structures" target="_blank" rel="noopener noreferrer">https://github.com/williamfiset/data-structures</a>
  * <a href="https://github.com/williamfiset/Algorithms" target="_blank" rel="noopener noreferrer">https://github.com/williamfiset/Algorithms</a>
@@ -144,7 +137,7 @@ Comprehensive step by step tutorial about data structures. This allowed me to be
 </div>
 
 🎞️ Spanning Tree, What is Binary Heap\
-There are sort of confusion in nomenclature, and watching these videos by Brian from CS50 at that timing helped me to understand the 8h data structure tutorial.
+There is sort of confusion in nomenclature, and watching these videos by Brian from CS50 at that time helped me to understand the 8h data structure tutorial.
 <div class="thumbnail">
 <a href="https://www.youtube.com/watch?v=AE5I0xACpZs" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/pq.png"></a>
 </div>
@@ -165,7 +158,7 @@ There are sort of confusion in nomenclature, and watching these videos by Brian 
 </div>
 
 🎞️ Junmin Lee, Graph data structure and graph representation (Part 1 of 2)\
-It was helpful to watch this video at that point not to sink in the confusion.
+It was helpful for me to watch this video at that point so as not to sink in the confusion.
 <div class="thumbnail">
 <a href="https://www.youtube.com/watch?v=JDP1OVgoa0Q" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/gra.png"></a>
 </div>
@@ -189,14 +182,14 @@ It took me a while to know there was this book.
 </div>
 
 📖 Algorithms in a Nutshell: A Practical Guide 2nd Edition\
-I flipped through all pages. I'd stick to Open Data Structures.\
-As the area overlaps with the 8h video, of course, it was great to see words I read before, like Open Adressing and Broom Filter.
+I flipped through all the pages. I'd stick to Open Data Structures.\
+As the area overlaps with the 8h video, of course, it was great to see words I read before, like Open Addressing and Broom Filter.
 <div class="thumbnail">
 <a href="https://www.amazon.com/Algorithms-Nutshell-Practical-George-Heineman/dp/1491948922" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/aln.png"></a>
 </div>
 
 📖 Princeton University, Algorithms (4th Edition)\
-I haven't read it but it seems Algorithms in a Nutshell and this book are famous ones for programmers (not for mathematicians). It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
+It seems Algorithms in a Nutshell and this book are famous ones for programmers (not for mathematicians). It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
 
  * <a href="https://algs4.cs.princeton.edu/24pq/" target="_blank" rel="noopener noreferrer">2.4 Priority Queues</a>
 
@@ -217,8 +210,8 @@ I couldn't find this book in my shallow previous research. I append this book he
 ---
 
 📖 WILLEY, Data Structures and Algorithms in Java, 6th Edition\
-In fact I read only 4/15 chapters. But it's worth having at office.\
-It was nice to know about the generics dynamic dispatch and the parameteres in Java are passed by value example, such as `badReset(Counter c) {c = new Counter();} //reassign local name c to a new Counter`.
+In fact I read only 4 out of 15 chapters. But perhaps it's worth having at the office.\
+For example, it was nice to know about the generics dynamic dispatch and the parameters in Java are passed by value, such as `badReset(Counter c) {c = new Counter();} //reassign local name c to a new Counter`.
 <div class="thumbnail">
 <a href="https://www.amazon.com/Data-Structures-Algorithms-Java-6th-ebook/dp/B00JDRQF8C" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/j6.png"></a>
 </div>
@@ -244,12 +237,19 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 <a href="https://projecteuler.net/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/eu.png"></a>
 </div>
 
-As for referring to math handbooks, it looks to me they are the only ones I need to look up.
-
 📖 The Concise Oxford Dictionary of Mathematics
 <div class="thumbnail">
 <a href="https://www.amazon.com/Concise-Oxford-Dictionary-Mathematics-Reference/dp/0199679592/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/om.png"></a>
 </div>
+
+📖 Mathematics Dictionary (5th ed) James & James
+<div class="thumbnail">
+    <a href="https://www.amazon.co.jp/Mathematics-Dictionary-5th-Robert-James/dp/0442007418" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/518awRK01LL._SX258_BO1,204,203,200_.jpg"></a>
+</div>
+<ul>
+  <li><a href="https://archive.org/details/in.ernet.dli.2015.146873/mode/2up" target="_blank" rel="noopener noreferrer">archive.org (1949)</a></li>
+  <li><a href="http://www.asakura.co.jp/books/isbn/978-4-254-11131-6/" target="_blank" rel="noopener noreferrer">朝倉書店 数学辞典 (世田谷区図書館所蔵)</a></li>
+</ul>
 
 📖 Schaum's Outline of Mathematical Handbook of Formulas and Tables, Fifth Edition
 <div class="thumbnail">
@@ -260,7 +260,7 @@ Alternatively,  <a href="https://cambomaths.files.wordpress.com/2010/03/1300_mat
 
 ## Compiler design
 
-I haven't read them but it seems there are some chapters about data structures.
+I haven't read them but it seems there are some chapters for data structures.
 
 📖 Advanced Compiler Design and Implementation
 <div class="thumbnail">
@@ -284,15 +284,6 @@ I haven't read them but it seems there are some chapters about data structures.
 <ul>
   <li><a href="https://people.inf.ethz.ch/wirth/AD.pdf" target="_blank" rel="noopener noreferrer">Algorithms and Data Structures (1985)</a></li>
   <li><a href="https://doc.lagout.org/science/0_Computer%20Science/2_Algorithms/Algorithms%20%20%20Data%20Structures%20%3D%20Programs%20%5BWirth%201976-02%5D.pdf" target="_blank" rel="noopener noreferrer">Algorithms and Data Structures = Programs (1976)</a></li>
-</ul>
-
-📖 Mathematics Dictionary (5th ed) James & James
-<div class="thumbnail">
-    <a href="https://www.amazon.co.jp/Mathematics-Dictionary-5th-Robert-James/dp/0442007418" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/518awRK01LL._SX258_BO1,204,203,200_.jpg"></a>
-</div>
-<ul>
-  <li><a href="https://archive.org/details/in.ernet.dli.2015.146873/mode/2up" target="_blank" rel="noopener noreferrer">archive.org (1949)</a></li>
-  <li><a href="http://www.asakura.co.jp/books/isbn/978-4-254-11131-6/" target="_blank" rel="noopener noreferrer">朝倉書店 数学辞典 (世田谷区図書館所蔵)</a></li>
 </ul>
 
 📖 Algorithms in C, Robert Sedgewick
