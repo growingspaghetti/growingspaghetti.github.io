@@ -82,13 +82,6 @@
 
 ---
 
-# Data Structures and Algorithms in Java (Michael T. Goodrich)
- - []()
-   - [Scoreboard]()
-   - [InsertionSort]()
-
----
-
 # LeetCode with APAS
 
  - []()

@@ -303,6 +303,11 @@ I haven't read them but it seems there are some chapters about data structures.
   <li><a href="https://www.amazon.co.jp/E3-82-BB-E3-82-B8-E3-82-A6-E3-82-A3-E3-83-83-E3-82-AF-E3-82-A2-E3-83-AB-E3-82-B4-E3-83-AA-E3-82-B/dp/4764905604/ref=dp_ob_title_bk" target="_blank" rel="noopener noreferrer">セジウィック:アルゴリズムC 第1~4部 ―基礎・データ構造・整列・探索 (世田谷区図書館所蔵)</a></li>
 </ul>
 
+📖 A Simple Introduction to Graph Theory, Brian Heinold
+<div class="thumbnail">
+    <a href="https://www.brianheinold.net/graph_theory/graph_theory_book.html" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/sg-brian.png"></a>
+</div>
+
 📖 Introduction to Graph Theory (5th Edition) Robin J. Wilson
 <div class="thumbnail">
     <a href="https://www.amazon.co.jp/Introduction-Graph-Theory-Robin-Wilson/dp/027372889X" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/41yEGcT795L._SX331_BO1,204,203,200_.jpg"></a>
