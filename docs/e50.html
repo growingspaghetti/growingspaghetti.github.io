@@ -246,14 +246,11 @@ fn main() {
     let mut sieve = vec![true; 1000];
     let mut primes: Vec&lt;usize&gt; = vec![];
     let mut cursor = 5usize;
+    let mut ite = [2usize, 4].iter().cycle();
     'sum_fill: loop {
-        let ite = [2usize, 4].iter().cycle();
-        for &amp;i in ite {
-            if cursor &gt;= sieve.len() {
-                break;
-            }
+        while cursor &lt; sieve.len() {
             if !sieve[cursor] {
-                cursor += i;
+                cursor += ite.next().unwrap();
                 continue;
             }
             &amp;primes.push(cursor);
@@ -263,7 +260,7 @@ fn main() {
                 sum -= cursor as u32;
                 break 'sum_fill;
             }
-            cursor += i;
+            cursor += ite.next().unwrap();
         }
         extend(&amp;mut sieve, &amp;primes);
     }
