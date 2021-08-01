@@ -181,15 +181,14 @@ It took me a while to know there was this book.
 <a href="http://opendatastructures.org/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/ods.png"></a>
 </div>
 
-📖 Algorithms in a Nutshell: A Practical Guide 2nd Edition\
-I flipped through all the pages. I'd stick to Open Data Structures.\
-As the area overlaps with the 8h video, of course, it was great to see words I read before, like Open Addressing and Broom Filter.
+📖 Introduction to Algorithms, 3rd Edition (The MIT Press)\
+I couldn't find this book in my shallow previous research. I append this book here on 13 June 2021.
 <div class="thumbnail">
-<a href="https://www.amazon.com/Algorithms-Nutshell-Practical-George-Heineman/dp/1491948922" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/aln.png"></a>
+<a href="https://www.amazon.com/dp/0262033844/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/41T0iBxY8FL._SX440_BO1,204,203,200_.jpg"></a>
 </div>
 
 📖 Princeton University, Algorithms (4th Edition)\
-It seems Algorithms in a Nutshell and this book are famous ones for programmers (not for mathematicians). It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
+It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
 
  * <a href="https://algs4.cs.princeton.edu/24pq/" target="_blank" rel="noopener noreferrer">2.4 Priority Queues</a>
 
@@ -197,21 +196,21 @@ It seems Algorithms in a Nutshell and this book are famous ones for programmers 
 <a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/algop.png"></a>
 </div>
 
+📖 Algorithms in a Nutshell: A Practical Guide 2nd Edition\
+I flipped through all the pages. I'd stick to Open Data Structures.\
+It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
+<div class="thumbnail">
+<a href="https://www.amazon.com/Algorithms-Nutshell-Practical-George-Heineman/dp/1491948922" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/aln.png"></a>
+</div>
+
 Additionally, it was comprehensive too. But I'd better stick to Open Data Structures.
 
  * <a href="https://www.cs.bham.ac.uk/~jxb/DSA/dsa.pdf" target="_blank" rel="noopener noreferrer">Lecture Notes for Data Structures and Algorithms (School of Computer ScienceUniversity of Birmingham)</a>
 
-📖 Introduction to Algorithms, 3rd Edition (The MIT Press)\
-I couldn't find this book in my shallow previous research. I append this book here on 13 June 2021.
-<div class="thumbnail">
-<a href="https://www.amazon.com/dp/0262033844/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/41T0iBxY8FL._SX440_BO1,204,203,200_.jpg"></a>
-</div>
-
 ---
 
 📖 WILLEY, Data Structures and Algorithms in Java, 6th Edition\
-In fact I read only 4 out of 15 chapters. But perhaps it's worth having at the office.\
-For example, it was nice to know about the generics dynamic dispatch and the parameters in Java are passed by value, such as `badReset(Counter c) {c = new Counter();} //reassign local name c to a new Counter`.
+In fact I read only 4 out of 15 chapters. But it was nice to know about the generics dynamic dispatch and the parameters in Java are passed by value, such as `badReset(Counter c) {c = new Counter();} //reassign local name c to a new Counter`.
 <div class="thumbnail">
 <a href="https://www.amazon.com/Data-Structures-Algorithms-Java-6th-ebook/dp/B00JDRQF8C" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/j6.png"></a>
 </div>
