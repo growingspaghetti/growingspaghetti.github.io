@@ -173,6 +173,22 @@
                 <div id="content" class="content">
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTgPBoDy_VKs7ueLoACi3jIhlBTjL9t0-YJ9neaBWqF6nRTr-KM_y0l7a1ReHddjGLlDgpArbSzZS_D/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 9 "Special Pythagorean triplet"
+<p>A Pythagorean triplet is a set of three natural numbers, <var>a</var> &lt; <var>b</var> &lt; <var>c</var>, for which,</p>
+<div class="center"> <var>a</var><sup>2</sup> + <var>b</var><sup>2</sup> = <var>c</var><sup>2</sup></div>
+<p>For example, 3<sup>2</sup> + 4<sup>2</sup> = 9 + 16 = 25 = 5<sup>2</sup>.</p>
+<p>There exists exactly one Pythagorean triplet for which <var>a</var> + <var>b</var> + <var>c</var> = 1000.<br />Find the product <var>abc</var>.</p>
+<p>問 9 「特別なピタゴラス数」</p>
+<p>ピタゴラス数(ピタゴラスの定理を満たす自然数)とは <var>a</var> &lt; <var>b</var> &lt; <var>c</var> で以下の式を満たす数の組である.</p>
+<div class="center"> <var>a</var><sup>2</sup> + <var>b</var><sup>2</sup> = <var>c</var><sup>2</sup></div>
+<p>例えば,  3<sup>2</sup> + 4<sup>2</sup> = 9 + 16 = 25 = 5<sup>2</sup> である.</p>
+<p><var>a</var> + <var>b</var> + <var>c</var> = 1000 となるピタゴラスの三つ組が一つだけ存在する.</p>
+<p>これらの積 <var>abc<var> を計算しなさい.</p>
+</div>
+</html>
 <ul>
 <li><a href="./e39.html">Q.39 Integer right triangles</a></li>
 </ul>
@@ -194,6 +210,56 @@
     assert_eq!(ans.unwrap(), 31875000);
 }
 </code></pre></pre>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+	&quot;testing&quot;
+)
+
+func Example() {
+	var ans uint32
+Exploration:
+	for m := uint32(2); m &lt;= uint32(math.Sqrt(float64(499))); m++ {
+		for n := uint32(1); n &lt; m; n++ {
+			a := m*m - n*n
+			b := 2 * m * n
+			c := m*m + n*n
+			if a+b+c == 1000 {
+				ans = a * b * c
+				break Exploration
+			}
+		}
+	}
+	fmt.Println(ans)
+	// Output: 31875000
+}
+</code></pre>
+<html><a href="https://play.golang.org/p/pOJvWNcsUIT" target="_blank" rel="noopener noreferrer">→ Go playground</a></html>
+<pre><code class="language-typescript">function assert(condition: any, msg?: string): asserts condition {
+  if (!condition) {
+    throw new Error(msg);
+  }
+}
+
+let ans = 0;
+exploration:
+for (let m = 2; m &lt;= (Math.sqrt(499) | 0); m++) {
+  for (let n = 1; n &lt; m; n++) {
+    const a = m * m - n * n;
+    const b = 2 * m * n;
+    const c = m * m + n * n;
+    if (a + b + c === 1000) {
+      ans = a * b * c;
+      break exploration;
+    }
+  }
+}
+console.log(ans);
+assert(ans === 31875000);
+</code></pre>
+<html><a href="https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABAQwM6oKYCcoAoIIAmMsCAXCmAJ4A0iAtqgOYD8FqUWMYTAlBWkw5UiAmGKkkAbwBQiRDGCJcAQjET4YXolnz5UABZY4Ad0RgMZgKJZjWXIz4BuOYgC+MjzIA2GKJREAXkQABhcMAA8AB284LGRJMhlgOOVff3pEYIAmJwZEAB5g3ABZBIMAOlQARxxcABYATkbtAB9Q3jz6AGpu7V1EFKw0v3MsxABGPKQChmne-td5MQ4UccyAKnyAWjGtsBc9UQRVgCNx7MQtzfNDvRX-CHWr-O6926WFJVxkRDfzt5PQLAyYhMGLI7yZBgIJrLbnLYQO5HU5YDDIADWiEiMTiCU0yPcrg8HhWcF8FViTB+MM6MkE2Dw0KCIIAzBMABwAdgArGCQnSgA" target="_blank" rel="noopener noreferrer">→ TypeScript playground</a></html>
 
                     </main>
 
