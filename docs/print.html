@@ -8651,8 +8651,32 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQdi9g1mqnCGEthsKRRZ0lWh3bohmWv_7JHtGeTdVq4c0P3LSTPiSvCprfj23XS3mhP_dRp0dn0q1Vm/embed?start=false&loop=false&delayms=60000" frameborder="0" width="760" height="490" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Prombem 57 "Square root convergents"
+<p>It is possible to show that the square root of two can be expressed as an infinite continued fraction.</p>
+<p class="center">$$\sqrt 2 =1+ \frac 1 {2+ \frac 1 {2 +\frac 1 {2+ \dots}}}$$</p>
+<p>By expanding this for the first four iterations, we get:</p>
+<p>$$1 + \frac 1 2 = \frac  32 = 1.5$$<br />
+$$1 + \frac 1 {2 + \frac 1 2} = \frac 7 5 = 1.4$$<br />
+$$1 + \frac 1 {2 + \frac 1 {2+\frac 1 2}} = \frac {17}{12} = 1.41666 \dots$$<br />
+$$1 + \frac 1 {2 + \frac 1 {2+\frac 1 {2+\frac 1 2}}} = \frac {41}{29} = 1.41379 \dots$$<br /></p>
+<p>The next three expansions are \(\frac{99}{70}\), \(\frac {239}{169}\), and \(\frac {577}{408}\), but the eighth expansion, \(\frac {1393}{985}\), is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.</p>
+<p>In the first one-thousand expansions, how many fractions contain a numerator with more digits than the denominator?</p>
+<p>問 57 「平方根の近似分数」</p>
+<p>2の平方根は無限に続く連分数で表すことができる.</p>
+<p class="center">$$\sqrt 2 =1+ \frac 1 {2+ \frac 1 {2 +\frac 1 {2+ \dots}}}$$</p>
+<p>最初の4回の繰り返しを展開すると以下が得られる.</p>
+<p>$$1 + \frac 1 2 = \frac  32 = 1.5$$<br />
+$$1 + \frac 1 {2 + \frac 1 2} = \frac 7 5 = 1.4$$<br />
+$$1 + \frac 1 {2 + \frac 1 {2+\frac 1 2}} = \frac {17}{12} = 1.41666 \dots$$<br />
+$$1 + \frac 1 {2 + \frac 1 {2+\frac 1 {2+\frac 1 2}}} = \frac {41}{29} = 1.41379 \dots$$<br /></p>
+<p>次の3つの項は99/70, 239/169, 577/408である. 第8項は1393/985である. これは分子の桁数が分母の桁数を超える最初の例である.</p>
+<p>最初の1000項を考えたとき, 分子の桁数が分母の桁数を超える項はいくつあるか?</p>
+</div>
+</html>
 <ul>
-<li><a href="./e2.html">Q.2 Even Fibonacci numbers</a></li>
 <li><a href="./e5.html">Q.5 Smallest multiple</a></li>
 <li><a href="./e26.html">Q.26 Reciprocal cycles</a></li>
 </ul>
@@ -8822,6 +8846,64 @@ fn main() {
         frac.increment();
         frac.n &lt;= 1000
     } {}
+
+    println!(&quot;{}&quot;, count);
+    assert_eq!(count, 153);
+}
+</code></pre></pre>
+<hr />
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/7mhvA5L7KqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<ul>
+<li>
+<p><a href="./e2.html">Q.2 Even Fibonacci numbers</a></p>
+</li>
+<li>
+<p><a href="https://math.stackexchange.com/questions/2978802/convergence-to-sqrt2">Convergence to √2, stackexchange</a></p>
+</li>
+<li>
+<p><a href="https://math.stackexchange.com/questions/4205834/how-to-solve-linear-recurrence-relations-with-constant-coefficients">How to solve linear recurrence relations with constant coefficients, stackexchange</a></p>
+</li>
+<li>
+<p><a href="https://projecteuler.net/action=quote;post_id=10616">https://projecteuler.net/action=quote;post_id=10616</a></p>
+</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+    let r1 = 1f64 + 2f64.sqrt();
+    let r2 = 1f64 - 2f64.sqrt();
+    let deno_c = 1.5f64 * 2f64.log10();
+    let nume_c = 2f64.log10();
+    let log10_r1 = r1.log10();
+    let r2_over_r1 = r2 / r1;
+
+    let mut count = 0u32;
+    let mut pow = r2_over_r1.clone();
+    for n in 2u32..=1001 {
+        pow *= r2_over_r1;
+        let deno_digit = (n as f64 * log10_r1 + (1f64 - pow).log10() - deno_c) as u32;
+        let nume_digit = (n as f64 * log10_r1 + (1f64 + pow).log10() - nume_c) as u32;
+        if nume_digit &gt; deno_digit {
+            count += 1;
+        }
+    }
+
+    println!(&quot;{}&quot;, count);
+    assert_eq!(count, 153);
+}
+</code></pre></pre>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+    let r1 = 1f64 + 2f64.sqrt();
+    let deno_c = 1.5f64 * 2f64.log10();
+    let nume_c = 2f64.log10();
+    let log10_r1 = r1.log10();
+
+    let mut count = 0u32;
+    for n in 2u32..=1001 {
+        let deno_digit = (n as f64 * log10_r1 - deno_c) as u32;
+        let nume_digit = (n as f64 * log10_r1 - nume_c) as u32;
+        if nume_digit &gt; deno_digit {
+            count += 1;
+        }
+    }
 
     println!(&quot;{}&quot;, count);
     assert_eq!(count, 153);
