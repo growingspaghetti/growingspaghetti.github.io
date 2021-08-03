@@ -173,6 +173,28 @@
                 <div id="content" class="content">
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRlJuIRAfvk9blII2ifNvIHjV_cegQeQnkfxARQjpXdg7F3pvp5pZC8fIWi59jOZ_a7GDxH_bNRYswT/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 14 "Longest Collatz sequence"
+<p>The following iterative sequence is defined for the set of positive integers:</p>
+<p class="margin_left"><var>n</var> → <var>n</var>/2 (<var>n</var> is even)<br /><var>n</var> → 3<var>n</var> + 1 (<var>n</var> is odd)</p>
+<p>Using the rule above and starting with 13, we generate the following sequence:</p>
+<div class="center">13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1</div>
+<p>It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.</p>
+<p>Which starting number, under one million, produces the longest chain?</p>
+<p class="note"><b>NOTE:</b> Once the chain starts the terms are allowed to go above one million.</p>
+<p>問 14 「最長のコラッツ数列」</p>
+<p>正の整数に以下の式で繰り返し生成する数列を定義する.</p>
+<p class="margin_left"><var>n</var> → <var>n</var>/2 (<var>n</var> が偶数)<br /><var>n</var> → 3<var>n</var> + 1 (<var>n</var> が奇数)</p>
+<p>13からはじめるとこの数列は以下のようになる.</p>
+<p>13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1</p>
+<p>13から1まで10個の項になる.
+この数列はどのような数字からはじめても最終的には 1 になると考えられているが, まだそのことは証明されていない(コラッツ問題)</p>
+<p>さて, 100万未満の数字の中でどの数字からはじめれば最長の数列を生成するか.</p>
+<p>''注意'': 数列の途中で100万以上になってもよい</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">struct Position {
     initial_number: u64,
     number_of_steps: u32,
