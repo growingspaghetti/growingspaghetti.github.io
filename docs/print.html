@@ -1995,6 +1995,54 @@ fn main() {
     assert_eq!(sum, 142913828922);
 }
 </code></pre></pre>
+<pre><pre class="playground"><code class="language-rust editable">mod index {
+    pub struct Index {
+        pub i: usize,
+        ite: Box&lt;dyn Iterator&lt;Item = usize&gt;&gt;,
+    }
+    impl Index {
+        pub fn increment(&amp;mut self) {
+            self.i += self.ite.next().unwrap();
+        }
+        pub fn new() -&gt; Self {
+            Self {
+                i: 5,
+                ite: Box::new(vec![2usize, 4].into_iter().cycle()),
+            }
+        }
+    }
+}
+
+fn rule_out(sieve: &amp;mut [bool; 2_000_001], prime: usize) {
+    for i in (prime * prime..sieve.len()).step_by(prime) {
+        sieve[i] = false;
+    }
+}
+
+fn main() {
+    let mut sieve = [true; 2_000_001];
+    let sqrt = ((sieve.len() - 1) as f64).sqrt() as usize;
+    let mut sum = 2u64 + 3;
+    let mut index = index::Index::new();
+    while index.i &lt;= sqrt {
+        if sieve[index.i] {
+            sum += index.i as u64;
+            rule_out(&amp;mut sieve, index.i);
+        }
+        index.increment();
+    }
+    while index.i &lt; sieve.len() {
+        if sieve[index.i] {
+            sum += index.i as u64;
+        }
+        index.increment();
+    }
+
+    println!(&quot;{}&quot;, sum);
+    assert_eq!(sum, 142913828922);
+}
+</code></pre></pre>
+<hr />
 <pre><code class="language-go">package main
 
 import (
@@ -4449,6 +4497,21 @@ const NAMES: &amp;[&amp;str] = &amp;[
 ];
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSJWw9sxGTBWSwo48Whs-A9PsPpJbGzZjcOqk3VG0LOoHhGn43XN0lTcAgUu2Ht__sLJFrv9XnLo5KU/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 23 "Non-abundant sums"
+<p>A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.</p>
+<p>A number <var>n</var> is called deficient if the sum of its proper divisors is less than <var>n</var> and it is called abundant if this sum exceeds <var>n</var>.</p>
+<p>As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest number that can be written as the sum of two abundant numbers is 24. By mathematical analysis, it can be shown that all integers greater than 28123 can be written as the sum of two abundant numbers. However, this upper limit cannot be reduced any further by analysis even though it is known that the greatest number that cannot be expressed as the sum of two abundant numbers is less than this limit.</p>
+<p>Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.</p>
+<p>問 23 「非過剰数和」</p>
+<p>完全数とは, その数の真の約数の和がそれ自身と一致する数のことである. たとえば, 28の真の約数の和は, 1 + 2 + 4 + 7 + 14 = 28 であるので, 28は完全数である.</p>
+<p>真の約数の和がその数よりも少ないものを不足数といい, 真の約数の和がその数よりも大きいものを過剰数と呼ぶ.</p>
+<p>12は, 1 + 2 + 3 + 4 + 6 = 16 となるので, 最小の過剰数である. よって2つの過剰数の和で書ける最少の数は24である. 数学的な解析により, 28123より大きい任意の整数は2つの過剰数の和で書けることが知られている. 2つの過剰数の和で表せない最大の数がこの上限よりも小さいことは分かっているのだが, この上限を減らすことが出来ていない.</p>
+<p>2つの過剰数の和で書き表せない正の整数の総和を求めよ.</p>
+</div>
+</html>
 <ul>
 <li><a href="./e21.html">Q.21 Amicable numbers</a></li>
 </ul>
@@ -4574,6 +4637,20 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTRCk13zsn15xDyEFwVuQt7hA8gtwjOUsSsYvIgsQeNSlzOiwTp6lGAUwcpFxVF4s5ZDtVa3B_3wu0s/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 24 "Lexicographic permutations"
+<p>A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:</p>
+<p class="center">012   021   102   120   201   210</p>
+<p>What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?</p>
+<p>問 24 「辞書式順列」</p>
+<p>順列とはモノの順番付きの並びのことである. たとえば, 3124は数 1, 2, 3, 4 の一つの順列である. すべての順列を数の大小でまたは辞書式に並べたものを辞書順と呼ぶ. 0と1と2の順列を辞書順に並べると</p>
+<p>012 021 102 120 201 210</p>
+<p>になる.</p>
+<p>0,1,2,3,4,5,6,7,8,9からなる順列を辞書式に並べたときの100万番目はいくつか?</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">fn factorial(n: u64) -&gt; u64 {
     match n {
         0 | 1 =&gt; 1,
@@ -4598,6 +4675,34 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2gB5wBnYUkJZkOlkIoW89riXWHCkPTJN8RpNy0UlUyG1XBAa4z9Pa8WTN9pYL1MWrnijESPRqd77h/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 25 "1000-digit Fibonacci number"
+<p>The Fibonacci sequence is defined by the recurrence relation:</p>
+<blockquote>F<sub><i>n</i></sub> = F<sub><i>n</i>−1</sub> + F<sub><i>n</i>−2</sub>, where F<sub>1</sub> = 1 and F<sub>2</sub> = 1.</blockquote>
+<p>Hence the first 12 terms will be:</p>
+<blockquote>F<sub>1</sub> = 1<br />
+F<sub>2</sub> = 1<br />
+F<sub>3</sub> = 2<br />
+F<sub>4</sub> = 3<br />
+F<sub>5</sub> = 5<br />
+F<sub>6</sub> = 8<br />
+F<sub>7</sub> = 13<br />
+F<sub>8</sub> = 21<br />
+F<sub>9</sub> = 34<br />
+F<sub>10</sub> = 55<br />
+F<sub>11</sub> = 89<br />
+F<sub>12</sub> = 144</blockquote>
+<p>The 12th term, F<sub>12</sub>, is the first term to contain three digits.</p>
+<p>What is the index of the first term in the Fibonacci sequence to contain 1000 digits?</p>
+<p>問 25 「1000桁のフィボナッチ数」</p>
+<p>フィボナッチ数列は以下の漸化式で定義される:</p>
+<p>最初の12項は以下である.</p>
+<p>12番目の項, F<sub>12</sub>が3桁になる最初の項である.</p>
+<p>1000桁になる最初の項の番号を答えよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
     let constant_1 = (1f64 + 5f64.sqrt()).log10() - 2f64.log10();
     let constant_2 = 5f64.log10() / 2f64;
@@ -4618,6 +4723,30 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRMiD__hYXG8wlxsWSnlO9B1TUosCb0623nX6z-GucRUBS06Oswkvc5kx_MkIYeRdP5n1B63A0-p3JA/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 26 "Reciprocal cycles"
+<p>A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:</p>
+<blockquote>
+<table><tr><td><sup>1</sup>/<sub>2</sub></td><td>= </td><td>0.5</td>
+</tr><tr><td><sup>1</sup>/<sub>3</sub></td><td>= </td><td>0.(3)</td>
+</tr><tr><td><sup>1</sup>/<sub>4</sub></td><td>= </td><td>0.25</td>
+</tr><tr><td><sup>1</sup>/<sub>5</sub></td><td>= </td><td>0.2</td>
+</tr><tr><td><sup>1</sup>/<sub>6</sub></td><td>= </td><td>0.1(6)</td>
+</tr><tr><td><sup>1</sup>/<sub>7</sub></td><td>= </td><td>0.(142857)</td>
+</tr><tr><td><sup>1</sup>/<sub>8</sub></td><td>= </td><td>0.125</td>
+</tr><tr><td><sup>1</sup>/<sub>9</sub></td><td>= </td><td>0.(1)</td>
+</tr><tr><td><sup>1</sup>/<sub>10</sub></td><td>= </td><td>0.1</td>
+</tr></table></blockquote>
+<p>Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that <sup>1</sup>/<sub>7</sub> has a 6-digit recurring cycle.</p>
+<p>Find the value of <i>d</i> &lt; 1000 for which <sup>1</sup>/<sub><i>d</i></sub> contains the longest recurring cycle in its decimal fraction part.</p>
+<p>問 26 「逆数の循環節 その1」</p>
+<p>単位分数とは分子が1の分数である. 分母が2から10の単位分数を10進数で表記すると次のようになる.</p>
+<p>0.1(6)は 0.166666... という数字であり, 1桁の循環節を持つ. 1/7 の循環節は6桁ある.</p>
+<p><i>d</i> &lt; 1000 の条件で、 <sup>1</sup>/<sub><i>d</i></sub> の中で小数部の循環節が最も長くなるような d を求めよ.</p>
+</div>
+</html>
 <ul>
 <li><a href="e26.html#long-division">1. Go to a solution using the long division</a></li>
 <li><a href="e26.html#prime">2. Go to a solution using prime numbers</a></li>
@@ -4940,6 +5069,29 @@ fn main() {
 <li><a href="https://cp-algorithms.com/algebra/binary-exp.html#toc-tgt-3">Binary Exponentiation - CP-Algorithms</a></li>
 </ul>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRJsGmSGhPtXL0TgyTirOVGVib758YiXCVOGy3OK5Clq4KJmHZJhj8I611KgkLaVYN8aa8ZrtifrH90/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 27 "Quadratic primes"
+<p>Euler discovered the remarkable quadratic formula:</p>
+<p class="center">\[ n^2 + n + 41 \]</p>
+<p>It turns out that the formula will produce 40 primes for the consecutive integer values \( 0 \le n \le 39 \). However, when \( n = 40, 40^2 + 40 + 41 = 40(40 + 1) + 41 \) is divisible by 41, and certainly when \(n = 41, 41^2 + 41 + 41\) is clearly divisible by 41.</p>
+<p>The incredible formula \( n^2 - 79n + 1601 \) was discovered, which produces 80 primes for the consecutive values \( 0 \le n \le 79\). The product of the coefficients, −79 and 1601, is −126479.</p>
+<p>Considering quadratics of the form:</p>
+<blockquote>
+\( n^2 + an + b \), where \( |a| &lt; 1000 \) and \( |b| \le 1000 \) <br /><br /><div>where \( |n| \) is the modulus/absolute value of \( n \)<br />e.g. \( |11| = 11 \) and \( |-4| = 4 \)</div>
+</blockquote>
+<p>Find the product of the coefficients, \( a \) and \( b \), for the quadratic expression that produces the maximum number of primes for consecutive values of \( n \), starting with \( n = 0 \).</p>
+<p>問 27 「二次式素数」</p>
+<p>オイラーは以下の二次式を考案している:</p>
+<p>\[ n^2 + n + 41 \]</p>
+<p>この式は, n を0から39までの連続する整数としたときに40個の素数を生成する. しかし, n = 40 のとき  \( 40^2 + 40 + 41 = 40(40 + 1) + 41 \) となり41で割り切れる. また, n = 41 のときは \( 41^2 + 41 + 41 \) であり明らかに41で割り切れる.</p>
+<p>計算機を用いて, 二次式 \( n^2 - 79n + 1601 \) という式が発見できた. これは n = 0 から 79 の連続する整数で80個の素数を生成する. 係数の積は, -79 × 1601 で -126479である.</p>
+<p>さて, |a| &lt; 1000, |b| ≤ 1000 として以下の二次式を考える (ここで |a| は絶対値): 例えば |11| = 11 |-4| = 4である.</p>
+<p>\[ n^2 + an + b \]</p>
+<p>n = 0 から始めて連続する整数で素数を生成したときに最長の長さとなる上の二次式の, 係数 a, b の積を答えよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">struct Sieve {
     _sieve: Vec&lt;bool&gt;,
 }
@@ -5029,6 +5181,24 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2w_lw9yEUy3Nq_WdzOBuntYUcmbKuZv-s7RIadF7GqDdrWhB-OY43wvGu1JXwS5gCm6EAeRX_jKJN/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 28 "Number spiral diagonals"
+<p>Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:</p>
+<pre><span class="red"><b>21</b></span> 22 23 24 <span class="red"><b>25</b></span>
+20  <span class="red"><b>7</b></span>  8  <span class="red"><b>9</b></span> 10
+19  6  <span class="red"><b>1</b></span>  2 11
+18  <span class="red"><b>5</b></span>  4  <span class="red"><b>3</b></span> 12
+<span class="red"><b>17</b></span> 16 15 14 <span class="red"><b>13</b></span></pre>
+<p>It can be verified that the sum of the numbers on the diagonals is 101.</p>
+<p>What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?</p>
+<p>問 28 「螺旋状に並んだ数の対角線」</p>
+<p>1から初めて右方向に進み時計回りに数字を増やしていき, 5×5の螺旋が以下のように生成される:</p>
+<p>両対角線上の数字の合計は101であることが確かめられる.</p>
+<p>1001×1001の螺旋を同じ方法で生成したとき, 対角線上の数字の和はいくつか?</p>
+</div>
+</html>
 <ul>
 <li><a href="./e6.html">Q.6 Sum square difference</a></li>
 </ul>
@@ -5042,6 +5212,25 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTKR04aDWsJQgRSIzoEJlLqIZB90EseogdKLAD-7s34_uF8Q38hrSbJlchogh11DdKGDEQ8PC8iwJ1O/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 29 "Distinct powers"
+<p>Consider all integer combinations of <i>a</i><sup><i>b</i></sup> for 2 ≤ <i>a</i> ≤ 5 and 2 ≤ <i>b</i> ≤ 5:</p>
+<blockquote>2<sup>2</sup>=4, 2<sup>3</sup>=8, 2<sup>4</sup>=16, 2<sup>5</sup>=32<br />
+3<sup>2</sup>=9, 3<sup>3</sup>=27, 3<sup>4</sup>=81, 3<sup>5</sup>=243<br />
+4<sup>2</sup>=16, 4<sup>3</sup>=64, 4<sup>4</sup>=256, 4<sup>5</sup>=1024<br />
+5<sup>2</sup>=25, 5<sup>3</sup>=125, 5<sup>4</sup>=625, 5<sup>5</sup>=3125<br /></blockquote>
+<p>If they are then placed in numerical order, with any repeats removed, we get the following sequence of 15 distinct terms:</p>
+<p class="center">4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125</p>
+<p>How many distinct terms are in the sequence generated by <i>a</i><sup><i>b</i></sup> for 2 ≤ <i>a</i> ≤ 100 and 2 ≤ <i>b</i> ≤ 100?</p>
+<p>問 29 「個別のべき乗」</p>
+<p>2 ≤ <i>a</i> ≤ 5 と 2 ≤ <i>b</i> ≤ 5について, \( 2^5 \) を全て考えてみよう:</p>
+<p>これらを小さい順に並べ, 同じ数を除いたとすると, 15個の項を得る:</p>
+<p>4, 8, 9, 16, 25, 27, 32, 64, 81, 125, 243, 256, 625, 1024, 3125</p>
+<p>2 ≤ a ≤ 100, 2 ≤ b ≤ 100 で同じことをしたときいくつの異なる項が存在するか?</p>
+</div>
+</html>
 <ul>
 <li><a href="./e21.html">Q.21 Amicable numbers</a></li>
 </ul>
@@ -5152,6 +5341,24 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRoiWWblcSHsZfzlRjD8JN9zSxxlT7YkOgkrY06vvNEkkwsxw3YHISIR7ioJsQfNgzC-Yl-6DVieOVN/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 30 "Digit fifth powers"
+<p>Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:</p>
+<blockquote>1634 = 1<sup>4</sup> + 6<sup>4</sup> + 3<sup>4</sup> + 4<sup>4</sup><br />
+8208 = 8<sup>4</sup> + 2<sup>4</sup> + 0<sup>4</sup> + 8<sup>4</sup><br />
+9474 = 9<sup>4</sup> + 4<sup>4</sup> + 7<sup>4</sup> + 4<sup>4</sup></blockquote>
+<p class="smaller">As 1 = 1<sup>4</sup> is not a sum it is not included.</p>
+<p>The sum of these numbers is 1634 + 8208 + 9474 = 19316.</p>
+<p>Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.</p>
+<p>問 30 「各桁の5乗」</p>
+<p>驚くべきことに, 各桁を4乗した数の和が元の数と一致する数は3つしかない.</p>
+<p>ただし, \( 1=1^4 \) は含まないものとする.</p>
+<p>この数たちの和は 1634 + 8208 + 9474 = 19316 である.</p>
+<p>各桁を5乗した数の和が元の数と一致するような数の総和を求めよ.</p>
+</div>
+</html>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20power_digit_sum(mut%20n%3A%20u32%2C%20exp%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20let%20mut%20sum%20%3D%200u32%3B%0A%20%20%20%20while%20n%20%3E%200%20%7B%0A%20%20%20%20%20%20%20%20let%20d%20%3D%20n%20%25%2010%3B%0A%20%20%20%20%20%20%20%20n%20%2F%3D%2010%3B%0A%20%20%20%20%20%20%20%20sum%20%2B%3D%20d.pow(exp)%3B%0A%20%20%20%20%7D%0A%20%20%20%20sum%0A%7D%0A%0Afn%20power_digit_sum_mod(n%3A%20u32%2C%20exp%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20let%20log10%20%3D%20(n%20as%20f32).log10()%20as%20u32%3B%0A%20%20%20%20(0..%3Dlog10)%0A%20%20%20%20%20%20%20%20.map(%7Ci%7C%2010u32.pow(i))%0A%20%20%20%20%20%20%20%20.map(%7Cp%7C%20((n%20%25%20(p%20*%2010)%20-%20n%20%25%20p)%20%2F%20p).pow(exp))%0A%20%20%20%20%20%20%20%20.sum()%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20power_digit_sum(1634%2C%204))%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20power_digit_sum_mod(1634%2C%204))%3B%0A%7D%0A"></iframe></html>
 <pre><pre class="playground"><code class="language-rust editable">fn match_pow_sum(target: u32, pow_sum_999_fold: &amp;[u32; 999]) -&gt; bool {
     let mut digits = target;
@@ -5212,6 +5419,23 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSyWfyHO_sc3vOAf6jxDtUG5NCCgX-P4lTYKM8x16aNOFpU7kOC4ZJX-I5iw3NXY8EmeE4F0AEdDnu3/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 31 "Coin sums"
+<p>In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:</p>
+<blockquote>1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), and £2 (200p).</blockquote>
+<p>It is possible to make £2 in the following way:</p>
+<blockquote>1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p</blockquote>
+<p>How many different ways can £2 be made using any number of coins?</p>
+<p>問 31 「硬貨の和」</p>
+<p>イギリスでは硬貨はポンド£とペンスpがあり，一般的に流通している硬貨は以下の8種類である.</p>
+<p>1p, 2p, 5p, 10p, 20p, 50p, £1 (100p) and £2 (200p).</p>
+<p>以下の方法で£2を作ることが可能である．</p>
+<p>1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p</p>
+<p>これらの硬貨を使って£2を作る方法は何通りあるか?</p>
+</div>
+</html>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20assert_eq!(combination(8%2C%20%26%5B1%2C%203%2C%205%2C%207%5D)%2C%206)%3B%0A%20%20%20%20assert_eq!(combination(3%2C%20%26%5B1%2C%202%5D)%2C%202)%3B%0A%20%20%20%20assert_eq!(combination(2%2C%20%26%5B1%2C%202%5D)%2C%202)%3B%0A%20%20%20%20assert_eq!(combination(1%2C%20%26%5B1%2C%202%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B2%2C%203%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B1%2C%202%2C%203%5D)%2C%205)%3B%0A%20%20%20%20assert_eq!(combination(5%2C%20%26%5B1%5D)%2C%201)%3B%0A%20%20%20%20assert_eq!(combination(2%2C%20%26%5B3%5D)%2C%200)%3B%0A%7D%0A%0Afn%20combination(payment%3A%20usize%2C%20coins%3A%20%26%5Busize%5D)%20-%3E%20usize%20%7B%0A%20%20%20%20assert!(payment%20%3E%200)%3B%0A%20%20%20%20println!(%22Payment%20of%20%7B%7D%20with%20coins%20%7B%3A%3F%7D%22%2C%20payment%2C%20%26coins)%3B%0A%20%20%20%20let%20mut%20c%20%3D%200usize%3B%0A%20%20%20%20next_coin(payment%2C%20%26coins%2C%20String%3A%3Anew()%2C%20%26mut%20c)%3B%0A%20%20%20%20println!(%22Number%20of%20combinations%3A%20%7B%7D%5Cn%22%2C%20c)%3B%0A%20%20%20%20c%0A%7D%0A%0Afn%20next_coin(payment%3A%20usize%2C%20coins%3A%20%26%5Busize%5D%2C%20path%3A%20String%2C%20comb%3A%20%26mut%20usize)%20%7B%0A%20%20%20%20if%20let%20Some(co)%20%3D%20coins.first()%20%7B%0A%20%20%20%20%20%20%20%20dig(payment%2C%20*co%2C%20%26coins%5B1..%5D%2C%20path%2C%20comb)%3B%0A%20%20%20%20%7D%20else%20if%20payment%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20println!(%22%7B%7D%20%7C%22%2C%20path)%3B%0A%20%20%20%20%20%20%20%20*comb%20%2B%3D%201%3B%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20dig(payment%3A%20usize%2C%20co%3A%20usize%2C%20coins%3A%20%26%5Busize%5D%2C%20path%3A%20String%2C%20comb%3A%20%26mut%20usize)%20%7B%0A%20%20%20%20let%20num%20%3D%20payment%20%2F%20co%3B%0A%20%20%20%20for%20n%20in%200..%3Dnum%20%7B%0A%20%20%20%20%20%20%20%20let%20mut%20path%20%3D%20path.clone()%3B%0A%20%20%20%20%20%20%20%20if%20n%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20path.push_str(%22%7C%20%20%20%20%20%20%20%20%20%20%20%22)%3B%0A%20%20%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20path.push_str(format!(%22%7C%20%7B%3A4%7Dx%7B%3A4%7D%20%22%2C%20n%2C%20co).as_str())%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20next_coin(payment%20-%20co%20*%20n%2C%20coins%2C%20path%2C%20comb)%3B%0A%20%20%20%20%7D%0A%7D%0A"></iframe></html>
 <pre><pre class="playground"><code class="language-rust editable">use std::cmp::Ordering;
 
@@ -5250,6 +5474,21 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSISDtTZy8I9RqW7-TV-KxFZHPsd8yR4ChTloPvJT0vPE65AruoEFA6FY43PaHGL8uXYPnSr1cy26eP/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 32 "Pandigital products"
+<p>We shall say that an <var>n</var>-digit number is pandigital if it makes use of all the digits 1 to <var>n</var> exactly once; for example, the 5-digit number, 15234, is 1 through 5 pandigital.</p>
+<p>The product 7254 is unusual, as the identity, 39 × 186 = 7254, containing multiplicand, multiplier, and product is 1 through 9 pandigital.</p>
+<p>Find the sum of all products whose multiplicand/multiplier/product identity can be written as a 1 through 9 pandigital.</p>
+<div class="note">HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.</div>
+<p>問 32 「パンデジタル積」</p>
+<p>すべての桁に 1 から n が一度だけ使われている数を n桁の数がパンデジタル (pandigital) であるということにしよう: 例えば5桁の数 15234 は1から5のパンデジタルである.</p>
+<p>7254 は面白い性質を持っている. 39 × 186 = 7254 と書け, 掛けられる数, 掛ける数, 積が1から9のパンデジタルとなる.</p>
+<p>掛けられる数/掛ける数/積が1から9のパンデジタルとなるような積の総和を求めよ.</p>
+<p>HINT: いくつかの積は, 1通り以上の掛けられる数/掛ける数/積の組み合わせを持つが1回だけ数え上げよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">use std::ops::RangeInclusive;
 
 fn is_pandigital(a: u32, b: u32, ab: u32) -&gt; bool {
@@ -5307,16 +5546,30 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv92Dl9tdkwDmsM8mbO5O7zSCXlY4vALTd1xS7UukgX3Wd1d3kJHUQ4BSNdwTviue5IrSb3CpIq399/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 33 "Digit cancelling fractions"
+<p>The fraction <sup>49</sup>/<sub>98</sub> is a curious fraction, as an inexperienced mathematician in attempting to simplify it may incorrectly believe that <sup>49</sup>/<sub>98</sub> = <sup>4</sup>/<sub>8</sub>, which is correct, is obtained by cancelling the 9s.</p>
+<p>We shall consider fractions like, <sup>30</sup>/<sub>50</sub> = <sup>3</sup>/<sub>5</sub>, to be trivial examples.</p>
+<p>There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.</p>
+<p>If the product of these four fractions is given in its lowest common terms, find the value of the denominator.</p>
+<p>問 33 「桁消去分数」</p>
+<p><sup>49</sup>/<sub>98</sub>は面白い分数である.「分子と分母からそれぞれ9を取り除くと, <sup>49</sup>/<sub>98</sub> = <sup>4</sup>/<sub>8</sub> となり, 簡単な形にすることができる」と経験の浅い数学者が誤って思い込んでしまうかもしれないからである.
+(方法は正しくないが，<sup>49</sup>/<sub>98</sub> = <sup>4</sup>/<sub>8</sub>の場合にはたまたま正しい約分になってしまう．)</p>
+<p>我々は<sup>30</sup>/<sub>50</sub> = <sup>3</sup>/<sub>5</sub> のようなタイプは自明な例だとする.</p>
+<p>このような分数のうち, 1より小さく分子・分母がともに2桁の数になるような「自明でない」ものは, 4個ある.</p>
+<p>その4個の分数の積が約分された形で与えられたとき, 分母の値を答えよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">fn gcd(mut a: u32, mut b: u32) -&gt; u32 {
-    if b &gt; a {
-        std::mem::swap(&amp;mut a, &amp;mut b);
+    assert!(a != 0 &amp;&amp; b != 0);
+    while b != 0 {
+        let r = a % b;
+        a = b;
+        b = r;
     }
-    assert!(b != 0);
-    let r = a % b;
-    if r == 0 {
-        return b;
-    }
-    gcd(b, r)
+    a
 }
 
 fn main() {
@@ -5339,7 +5592,7 @@ fn main() {
     assert_eq!(ans, 100);
 }
 </code></pre></pre>
-<html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20for%20c%20in%201u32..%3D9%20%7B%0A%20%20%20%20%20%20%20%20for%20d%20in%201u32..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20b%20in%20d..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(10%20*%20d%20%2B%20b)%20*%20c%20%3D%3D%20(10%20*%20c%20%2B%20d)%20*%20b%20%26%26%20b%20!%3D%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20panic!(%22this%20block%20must%20be%20unreachable!%22)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20for%20c%20in%201u32..%3D99%20%7B%0A%20%20%20%20%20%20%20%20for%20d%20in%201u32..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20b%20in%20d..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20df%20%3D%200.1f32%20*%20d%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20bf%20%3D%200.1f32%20*%20b%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20cf%20%3D%200.1f32%20*%20c%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(10f32%20*%20df%20%2B%20bf)%20*%20cf%20%3D%3D%20(10f32%20*%20cf%20%2B%20df)%20*%20bf%20%26%26%20b%20!%3D%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20println!(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22%7B%3A.1%7D%2F%7B%3A.1%7D%5Ct(%7B%3A.1%7D%20%7B%3A.1%7D%20%2F%20%7B%3A.1%7D%20%7B%3A.1%7D)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bf%2C%20cf%2C%20df%2C%20bf%2C%20cf%2C%20df%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%7D%0A"></iframe></html>
+<html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20for%20c%20in%201u32..%3D9%20%7B%0A%20%20%20%20%20%20%20%20for%20d%20in%201u32..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20b%20in%20d..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(10%20*%20d%20%2B%20b)%20*%20c%20%3D%3D%20(10%20*%20c%20%2B%20d)%20*%20b%20%26%26%20b%20!%3D%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20unreachable!()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20for%20c%20in%201u32..%3D99%20%7B%0A%20%20%20%20%20%20%20%20for%20d%20in%201u32..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20b%20in%20d..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20df%20%3D%200.1f32%20*%20d%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20bf%20%3D%200.1f32%20*%20b%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20cf%20%3D%200.1f32%20*%20c%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(10f32%20*%20df%20%2B%20bf)%20*%20cf%20%3D%3D%20(10f32%20*%20cf%20%2B%20df)%20*%20bf%20%26%26%20b%20!%3D%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20println!(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22%7B%3A.1%7D%2F%7B%3A.1%7D%5Ct(%7B%3A.1%7D%20%7B%3A.1%7D%20%2F%20%7B%3A.1%7D%20%7B%3A.1%7D)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bf%2C%20cf%2C%20df%2C%20bf%2C%20cf%2C%20df%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%7D"></iframe></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTeoLqSi_tW6-cthF65pJrDdZJARY6fKE2jQAD_ZztTx_Q7SaxqQGvFqtQFD8bbdMqM8NFerkul_A57/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
 <ul>
 <li><a href="./e30.html">Q.30 Digit fifth powers</a></li>
