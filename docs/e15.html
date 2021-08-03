@@ -194,7 +194,7 @@ Problem 15 "Lattice paths"
 impl Permutation {
     fn num(&amp;self) -&gt; u128 {
         let mut acc = 1u128;
-        for i in self.denominator + 1..self.numerator + 1 {
+        for i in self.denominator + 1..=self.numerator {
             acc *= i as u128;
         }
         acc
@@ -351,6 +351,14 @@ fn main() {
     for i in 21..=40 {
         ab *= i as f64;
     }
+    println!(&quot;{}&quot;, ab);
+    assert_eq!(ab.ceil() as u64, 137846528820);
+}
+</code></pre></pre>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+    let b = 1f64 / (1..=20).product::&lt;u64&gt;() as f64;
+    let ab = (21..=40).fold(b, |p, i| p * i as f64);
+    println!(&quot;{}&quot;, ab);
     assert_eq!(ab.ceil() as u64, 137846528820);
 }
 </code></pre></pre>
