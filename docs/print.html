@@ -5594,6 +5594,20 @@ fn main() {
 </code></pre></pre>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20for%20c%20in%201u32..%3D9%20%7B%0A%20%20%20%20%20%20%20%20for%20d%20in%201u32..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20b%20in%20d..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(10%20*%20d%20%2B%20b)%20*%20c%20%3D%3D%20(10%20*%20c%20%2B%20d)%20*%20b%20%26%26%20b%20!%3D%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20unreachable!()%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20for%20c%20in%201u32..%3D99%20%7B%0A%20%20%20%20%20%20%20%20for%20d%20in%201u32..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20b%20in%20d..c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20df%20%3D%200.1f32%20*%20d%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20bf%20%3D%200.1f32%20*%20b%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20cf%20%3D%200.1f32%20*%20c%20as%20f32%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(10f32%20*%20df%20%2B%20bf)%20*%20cf%20%3D%3D%20(10f32%20*%20cf%20%2B%20df)%20*%20bf%20%26%26%20b%20!%3D%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20println!(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22%7B%3A.1%7D%2F%7B%3A.1%7D%5Ct(%7B%3A.1%7D%20%7B%3A.1%7D%20%2F%20%7B%3A.1%7D%20%7B%3A.1%7D)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bf%2C%20cf%2C%20df%2C%20bf%2C%20cf%2C%20df%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%7D"></iframe></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTeoLqSi_tW6-cthF65pJrDdZJARY6fKE2jQAD_ZztTx_Q7SaxqQGvFqtQFD8bbdMqM8NFerkul_A57/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 34 "Digit factorials"
+<p>145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.</p>
+<p>Find the sum of all numbers which are equal to the sum of the factorial of their digits.</p>
+<p class="smaller">Note: As 1! = 1 and 2! = 2 are not sums they are not included.</p>
+<p>問 34 「桁の階乗」</p>
+<p>145は面白い数である.
+1! + 4! + 5! = 1 + 24 + 120 = 145となる.</p>
+<p>各桁の数の階乗の和が自分自身と一致するような数の和を求めよ.</p>
+<p>''注:'' 1! = 1 と 2! = 2 は総和に含めてはならない.</p>
+</div>
+</html>
 <ul>
 <li><a href="./e30.html">Q.30 Digit fifth powers</a></li>
 </ul>
@@ -5672,6 +5686,19 @@ fn main() {
 </code></pre></pre>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20factorial_digit_sum(99))%3B%0A%20%20%20%20assert_eq!(factorial_digit_sum(99)%2C%20362880%20*%202)%3B%0A%20%20%20%20assert_eq!(factorial_digit_sum(0)%2C%201)%3B%0A%20%20%20%20assert_eq!(factorial_digit_sum(123)%2C%201%20%2B%202%20%2B%202%20*%203)%3B%0A%7D%0A%0Afn%20factorial(n%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20match%20n%20%7B%0A%20%20%20%20%20%20%20%200%20%7C%201%20%3D%3E%201%2C%0A%20%20%20%20%20%20%20%20_%20%3D%3E%20factorial(n%20-%201)%20*%20n%2C%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20factorial_digit_sum(mut%20n%3A%20u32)%20-%3E%20u32%20%7B%0A%20%20%20%20if%20n%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20return%201%3B%0A%20%20%20%20%7D%0A%20%20%20%20let%20mut%20sum%20%3D%200%3B%0A%20%20%20%20while%20n%20%3E%200%20%7B%0A%20%20%20%20%20%20%20%20let%20d%20%3D%20n%20%25%2010%3B%0A%20%20%20%20%20%20%20%20sum%20%2B%3D%20factorial(d)%3B%0A%20%20%20%20%20%20%20%20n%20%2F%3D%2010%3B%0A%20%20%20%20%7D%0A%20%20%20%20sum%0A%7D"></iframe></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQLeZrSYtP510YH7LfGMCBW4uvSbPXf5DK_l9J6Iqv0WJ28lz1NCES2x7NXZLRtAUHdiFRNNQf4rmxw/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 35 "Circular primes"
+<p>The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.</p>
+<p>There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.</p>
+<p>How many circular primes are there below one million?</p>
+<p>問 35 「巡回素数」</p>
+<p>197は巡回素数と呼ばれる. 桁を回転させたときに得られる数 197, 971, 719 が全て素数だからである.</p>
+<p>100未満には巡回素数が13個ある: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, および97である.</p>
+<p>100万未満の巡回素数はいくつあるか?</p>
+</div>
+</html>
 <ul>
 <li><a href="./e27.html">Q.27 Quadratic primes</a></li>
 <li><a href="./e7.html">Q.7 10001st prime</a></li>
@@ -5759,6 +5786,19 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQ0ZtzCE8VwDEPAGp74UYvs71GuC43mFdzIWDhqMGJg4TYY8jKck_IHVSH_TjqBtA-wb-cpyaufDjh6/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 36 "Double-base palindromes"
+<p>The decimal number, 585 = 1001001001<sub>2</sub> (binary), is palindromic in both bases.</p>
+<p>Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.</p>
+<p class="smaller">(Please note that the palindromic number, in either base, may not include leading zeros.)</p>
+<p>問 36 「二種類の基数による回文数」</p>
+<p>585 = 1001001001<sub>2</sub> (2進) は10進でも2進でも回文数である.</p>
+<p>100万未満で10進でも2進でも回文数になるような数の総和を求めよ.</p>
+<p>(注: 先頭に0を含めて回文にすることは許されない.)</p>
+</div>
+</html>
 <ul>
 <li><a href="./e4.html">Q.4 Largest palindrome product</a></li>
 </ul>
@@ -5848,6 +5888,19 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRQ1EPSJX1kXQGs_PRvaEtOIxtFA4Q9rccZ9K5mXQ5LFJXjMeTwCTjctMo1mKPERQOsJGvNFYrw4t2a/embed?start=false&loop=false&delayms=3000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 37 "Truncatable primes"
+<p>The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.</p>
+<p>Find the sum of the only eleven primes that are both truncatable from left to right and right to left.</p>
+<p class="smaller">NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.</p>
+<p>問 37 「切り詰め可能素数」</p>
+<p>3797は面白い性質を持っている. まずそれ自身が素数であり, 左から右に桁を除いたときに全て素数になっている (3797, 797, 97, 7). 同様に右から左に桁を除いたときも全て素数である (3797, 379, 37, 3).</p>
+<p>右から切り詰めても左から切り詰めても素数になるような素数は11個しかない. 総和を求めよ.</p>
+<p>注: 2, 3, 5, 7を切り詰め可能な素数とは考えない.</p>
+</div>
+</html>
 <ul>
 <li><a href="https://oeis.org/A020994">A020994 Primes that are both left-truncatable and right-truncatable.</a></li>
 <li><a href="./e36.html">Q.36 Double-base palindromes</a></li>
@@ -5868,10 +5921,10 @@ fn main() {
     let side = (n as f32).sqrt() as u32;
     let mut d = 5u32;
     for i in [2u32, 4].iter().cycle() {
+        d += *i;
         if d &gt; side {
             break;
         }
-        d += *i;
         if n % d == 0 {
             return false;
         }
@@ -6052,6 +6105,28 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTsLG85pV1UgRu7c9aeIxtiMFDiBVU6OiofSCYJGnL_q7vuRy9oA1b5lKcO21bBiHoeIde5m7q0hYIy/embed?start=false&loop=false&delayms=3000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 38 "Pandigital multiples"
+<p>Take the number 192 and multiply it by each of 1, 2, and 3:</p>
+<blockquote>192 × 1 = 192<br />
+192 × 2 = 384<br />
+192 × 3 = 576</blockquote>
+<p>By concatenating each product we get the 1 to 9 pandigital, 192384576. We will call 192384576 the concatenated product of 192 and (1,2,3)</p>
+<p>The same can be achieved by starting with 9 and multiplying by 1, 2, 3, 4, and 5, giving the pandigital, 918273645, which is the concatenated product of 9 and (1,2,3,4,5).</p>
+<p>What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with (1,2, ... , <var>n</var>) where <var>n</var> &gt; 1?</p>
+<p>問 38 「パンデジタル倍数」</p>
+<p>192 に 1, 2, 3 を掛けてみよう.</p>
+<p>192 × 1 = 192
+192 × 2 = 384
+192 × 3 = 576</p>
+<p>積を連結することで1から9の パンデジタル数 192384576 が得られる. </p>
+<p>192384576 を 192 と (1,2,3) の連結積と呼ぶ.</p>
+<p>同じようにして, 9 を 1,2,3,4,5 と掛け連結することでパンデジタル数 918273645 が得られる. これは 9 と (1,2,3,4,5) との連結積である.</p>
+<p>整数と (1,2,..., n) (n; &gt; 1) との連結積として得られる9桁のパンデジタル数の中で最大のものはいくつか?</p>
+</div>
+</html>
 <ul>
 <li><a href="./e32.html">Q.32 Pandigital products</a></li>
 </ul>
@@ -6084,6 +6159,20 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSnRa1g-1SUbqgs74KSCrAsB9mbj2BjTEPx1xiIw-NV3cQ3E_imRbW1-g6zmggkv25T1dgqgzYbsvjc/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 39 "Integer right triangles"
+<p>If <i>p</i> is the perimeter of a right angle triangle with integral length sides, {<i>a</i>,<i>b</i>,<i>c</i>}, there are exactly three solutions for <i>p</i> = 120.</p>
+<p>{20,48,52}, {24,45,51}, {30,40,50}</p>
+<p>For which value of <i>p</i> ≤ 1000, is the number of solutions maximised?</p>
+<p>問 39 「整数の直角三角形」</p>
+<p>辺の長さが \( {a,b,c} \) と整数の3つ組である直角三角形を考え, その周囲の長さを p とする.
+p = 120のときには3つの解が存在する:</p>
+<p>{20,48,52}, {24,45,51}, {30,40,50}</p>
+<p>p ≤ 1000 のとき解の数が最大になる p はいくつか?</p>
+</div>
+</html>
 <html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/QJYmyhnaaek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <ul>
 <li><a href="./e9.html">Q.9 Special Pythagorean triplet</a></li>
@@ -6154,6 +6243,24 @@ fn main() {
 </code></pre></pre>
 <html><iframe frameborder="0" width="750" height="600" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20assert_eq!(count_brute()%2C%20count_euclid())%3B%0A%7D%0A%0Afn%20count_brute()%20-%3E%20%5Bu8%3B%201001%5D%20%7B%0A%20%20%20%20println!(%22%5CnBrute%20force%22)%3B%0A%20%20%20%20let%20mut%20counts%20%3D%20%5B0u8%3B%201001%5D%3B%0A%20%20%20%20for%20c%20in%203..%3D997%20%7B%0A%20%20%20%20%20%20%20%20let%20mut%20b%20%3D%202%3B%0A%20%20%20%20%20%20%20%20while%20b%20%3C%201000%20-%20c%20%26%26%20b%20%3C%20c%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20mut%20a%20%3D%201%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20while%20a%20%3C%3D%201000%20-%20c%20-%20b%20%26%26%20a%20%3C%20b%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20c%20*%20c%20%3D%3D%20b%20*%20b%20%2B%20a%20*%20a%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20println!(%22p%3A%7B%7D%5Cta%3A%7B%7D%5Ctb%3A%7B%7D%5Ctc%3A%7B%7D%22%2C%20a%20%2B%20b%20%2B%20c%2C%20a%2C%20b%2C%20c)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20counts%5Bc%20%2B%20b%20%2B%20a%5D%20%2B%3D%201%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%20%2B%3D%201%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20b%20%2B%3D%201%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20counts%0A%7D%0A%0Afn%20count_euclid()%20-%3E%20%5Bu8%3B%201001%5D%20%7B%0A%20%20%20%20println!(%22%5CnEuclid%22)%3B%0A%20%20%20%20let%20mut%20counts%20%3D%20%5B0u8%3B%201001%5D%3B%0A%20%20%20%20for%20p%20in%20(12..%3D1000).step_by(2)%20%7B%0A%20%20%20%20%20%20%20%20for%20m%20in%202..%3D(((p%20-%202)%20%2F%202)%20as%20f32).sqrt()%20as%20usize%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20for%20n%20in%20((if%20m%20%25%202%20%3D%3D%200%20%7B%201%20%7D%20else%20%7B%202%20%7D)..m).step_by(2)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20a%20%3D%20m%20*%20m%20-%20n%20*%20n%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20b%20%3D%202%20*%20m%20*%20n%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20c%20%3D%20m%20*%20m%20%2B%20n%20*%20n%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20a%20%2B%20b%20%2B%20c%20%3D%3D%20p%20%26%26%20gcd(m%2C%20n)%20%3D%3D%201%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20for%20k%20in%20(p..%3D1000).step_by(p)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20println!(%22kp%3A%7B%7D%5Cta%3A%7B%7D%5Ctb%3A%7B%7D%5Ctc%3A%7B%7D%22%2C%20k%2C%20a%2C%20b%2C%20c)%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20counts%5Bk%5D%20%2B%3D%201%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20counts%0A%7D%0A%0Afn%20gcd(mut%20a%3A%20usize%2C%20mut%20b%3A%20usize)%20-%3E%20usize%20%7B%0A%20%20%20%20if%20b%20%3E%20a%20%7B%0A%20%20%20%20%20%20%20%20std%3A%3Amem%3A%3Aswap(%26mut%20a%2C%20%26mut%20b)%3B%0A%20%20%20%20%7D%0A%20%20%20%20assert!(b%20!%3D%200)%3B%0A%20%20%20%20let%20r%20%3D%20a%20%25%20b%3B%0A%20%20%20%20if%20r%20%3D%3D%200%20%7B%0A%20%20%20%20%20%20%20%20return%20b%3B%0A%20%20%20%20%7D%0A%20%20%20%20gcd(b%2C%20r)%0A%7D%0A"></iframe></html>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQIUKRup3lhAHlPAyjntYoH31NebqP83YZx2ypaHvrwMwszPfip41PqpJagbB9kOGzdTdOxI7ryyY90/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 40 "Champernowne's constant"
+<p>An irrational decimal fraction is created by concatenating the positive integers:</p>
+<p class="center">0.12345678910<span class="red strong">1</span>112131415161718192021...</p>
+<p>It can be seen that the 12<sup>th</sup> digit of the fractional part is 1.</p>
+<p>If <i>d</i><sub><i>n</i></sub> represents the <i>n</i><sup>th</sup> digit of the fractional part, find the value of the following expression.</p>
+<p class="center"><i>d</i><sub>1</sub> × <i>d</i><sub>10</sub> × <i>d</i><sub>100</sub> × <i>d</i><sub>1000</sub> × <i>d</i><sub>10000</sub> × <i>d</i><sub>100000</sub> × <i>d</i><sub>1000000</sub></p>
+<p>問 40 「チャンパーノウン定数」</p>
+<p>正の整数を順に連結して得られる以下の10進の無理数を考える:</p>
+<p class="center">0.12345678910<span class="red strong">1</span>112131415161718192021...</p>
+<p>小数第12位は1である.</p>
+<p><i>d</i><sub><i>n</i></sub>で小数第n位の数を表す.
+\( d_{1} × d_{10} × d_{100} × d_{1000} × d_{10000} × d_{100000} × d_{1000000} \)
+を求めよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">struct Container {
     capacity: u32,
     elements: u32,
@@ -6204,6 +6311,19 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS-EtnNcNcQBTQdtQW9zwrHht5UudgLZJu3r8A7a_JYngby1XpZuUx1oECisxLVw44-WRT0It7u9NkY/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 41 "Pandigital prime"
+<p>We shall say that an <i>n</i>-digit number is pandigital if it makes use of all the digits 1 to <i>n</i> exactly once. For example, 2143 is a 4-digit pandigital and is also prime.</p>
+<p>What is the largest <i>n</i>-digit pandigital prime that exists?</p>
+<p>問 41 「パンデジタル素数」</p>
+<p>n桁パンデジタルであるとは, 1からnまでの数を各桁に1つずつ持つこととする.
+#下のリンク先にあるような数学的定義とは異なる</p>
+<p>例えば2143は4桁 <a href="http://ja.wikipedia.org/wiki/%E3%83%91%E3%83%B3%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E6%95%B0">パンデジタル数</a> であり, かつ素数である.</p>
+<p>n桁（この問題の定義では9桁以下）パンデジタルな素数の中で最大の数を答えよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">fn consume(usable_items: &amp;Vec&lt;u32&gt;, accumulated_num: u32, drain: &amp;mut Vec&lt;u32&gt;) {
     if usable_items.len() == 0 {
         drain.push(accumulated_num);
@@ -6242,10 +6362,10 @@ fn is_prime(n: u32) -&gt; bool {
     let side = (n as f32).sqrt() as u32;
     let mut d = 5u32;
     for i in [2u32, 4].iter().cycle() {
+        d += *i;
         if d &gt; side {
             break;
         }
-        d += *i;
         if n % d == 0 {
             return false;
         }
@@ -6269,6 +6389,22 @@ fn main() {
 }
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQ2FQxQcLA2fMTFCiUCLPH12QHPuOO1XRo--NMwlMM617EX2VSjOQ4ws3CE2pUtiTdZNfvA1H-Q3K5o/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 42 "Coded triangle numbers"
+<p>The <i>n</i><sup>th</sup> term of the sequence of triangle numbers is given by, <i>t<sub>n</sub></i> = ½<i>n</i>(<i>n</i>+1); so the first ten triangle numbers are:</p>
+<p class="center">1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...</p>
+<p>By converting each letter in a word to a number corresponding to its alphabetical position and adding these values we form a word value. For example, the word value for SKY is 19 + 11 + 25 = 55 = <i>t</i><sub>10</sub>. If the word value is a triangle number then we shall call the word a triangle word.</p>
+<p>Using words.txt, a 16K text file containing nearly two-thousand common English words, how many are triangle words?</p>
+<p>問 42 「符号化三角数」</p>
+<p>三角数のn項は \( t_{n} = n(n+1)/2 \) で与えられる. 最初の10項は</p>
+<p>1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...</p>
+<p>である.</p>
+<p>単語中のアルファベットを数値に変換した後に和をとる. この和を「単語の値」と呼ぶことにする. 例えば SKY は 19 + 11 + 25 = 55 = \( t_{10} \) である. 単語の値が三角数であるとき, その単語を三角語と呼ぶ.</p>
+<p>16Kのテキストファイル <a href="https://projecteuler.net/project/resources/p042_words.txt">words.txt</a> 中に約2000語の英単語が記されている. 三角語はいくつあるか?</p>
+</div>
+</html>
 <ul>
 <li><a href="./e12.html">Q.12 Highly divisible triangular number</a></li>
 <li><a href="./e8.html">Q.8 Largest product in a series</a></li>
@@ -6316,6 +6452,34 @@ const WORDS: &amp;[&amp;str] = &amp;[
 ];
 </code></pre></pre>
 <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSYdejgkeaE4x3PSVZJ-bFyVAOrRNPau82VTV0-rplstTig2AcYW2cHVX0u8ogr-OZZbr3Mwr9IpgTk/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 43 "Sub-string divisibility"
+<p>The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.</p>
+<p>Let <i>d</i><sub>1</sub> be the 1<sup>st</sup> digit, <i>d</i><sub>2</sub> be the 2<sup>nd</sup> digit, and so on. In this way, we note the following:</p>
+<ul><li><i>d</i><sub>2</sub><i>d</i><sub>3</sub><i>d</i><sub>4</sub>=406 is divisible by 2</li>
+<li><i>d</i><sub>3</sub><i>d</i><sub>4</sub><i>d</i><sub>5</sub>=063 is divisible by 3</li>
+<li><i>d</i><sub>4</sub><i>d</i><sub>5</sub><i>d</i><sub>6</sub>=635 is divisible by 5</li>
+<li><i>d</i><sub>5</sub><i>d</i><sub>6</sub><i>d</i><sub>7</sub>=357 is divisible by 7</li>
+<li><i>d</i><sub>6</sub><i>d</i><sub>7</sub><i>d</i><sub>8</sub>=572 is divisible by 11</li>
+<li><i>d</i><sub>7</sub><i>d</i><sub>8</sub><i>d</i><sub>9</sub>=728 is divisible by 13</li>
+<li><i>d</i><sub>8</sub><i>d</i><sub>9</sub><i>d</i><sub>10</sub>=289 is divisible by 17</li>
+</ul><p>Find the sum of all 0 to 9 pandigital numbers with this property.</p>
+<p>問 43 「部分文字列被整除性」</p>
+<p>数1406357289は0から9のパンデジタル数である (0から9が1度ずつ現れるので). この数は部分文字列が面白い性質を持っている.</p>
+<p>\( d_{1} \) を上位1桁目, \( d_{2} \)を上位2桁目の数とし, 以下順に \( d_{n} \) を定義する. この記法を用いると次のことが分かる.</p>
+<ul><li><i>d</i><sub>2</sub><i>d</i><sub>3</sub><i>d</i><sub>4</sub>=406 は 2で割り切れる</li>
+<li><i>d</i><sub>3</sub><i>d</i><sub>4</sub><i>d</i><sub>5</sub>=063 は 3で割り切れる</li>
+<li><i>d</i><sub>4</sub><i>d</i><sub>5</sub><i>d</i><sub>6</sub>=635 は 5で割り切れる</li>
+<li><i>d</i><sub>5</sub><i>d</i><sub>6</sub><i>d</i><sub>7</sub>=357 は 7で割り切れる</li>
+<li><i>d</i><sub>6</sub><i>d</i><sub>7</sub><i>d</i><sub>8</sub>=572 は 11で割り切れる</li>
+<li><i>d</i><sub>7</sub><i>d</i><sub>8</sub><i>d</i><sub>9</sub>=728 は 13で割り切れる</li>
+<li><i>d</i><sub>8</sub><i>d</i><sub>9</sub><i>d</i><sub>10</sub>=289 は 17で割り切れる</li>
+</ul>
+<p>このような性質をもつ0から9のパンデジタル数の総和を求めよ.</p>
+</div>
+</html>
 <ul>
 <li><a href="./e41.html">Q.41 Pandigital prime</a></li>
 </ul>

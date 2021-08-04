@@ -173,6 +173,19 @@
                 <div id="content" class="content">
                     <main>
                         <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS-EtnNcNcQBTQdtQW9zwrHht5UudgLZJu3r8A7a_JYngby1XpZuUx1oECisxLVw44-WRT0It7u9NkY/embed?start=false&loop=false&delayms=60000" frameborder="0" width="750" height="460" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 41 "Pandigital prime"
+<p>We shall say that an <i>n</i>-digit number is pandigital if it makes use of all the digits 1 to <i>n</i> exactly once. For example, 2143 is a 4-digit pandigital and is also prime.</p>
+<p>What is the largest <i>n</i>-digit pandigital prime that exists?</p>
+<p>問 41 「パンデジタル素数」</p>
+<p>n桁パンデジタルであるとは, 1からnまでの数を各桁に1つずつ持つこととする.
+#下のリンク先にあるような数学的定義とは異なる</p>
+<p>例えば2143は4桁 <a href="http://ja.wikipedia.org/wiki/%E3%83%91%E3%83%B3%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E6%95%B0">パンデジタル数</a> であり, かつ素数である.</p>
+<p>n桁（この問題の定義では9桁以下）パンデジタルな素数の中で最大の数を答えよ.</p>
+</div>
+</html>
 <pre><pre class="playground"><code class="language-rust editable">fn consume(usable_items: &amp;Vec&lt;u32&gt;, accumulated_num: u32, drain: &amp;mut Vec&lt;u32&gt;) {
     if usable_items.len() == 0 {
         drain.push(accumulated_num);
@@ -211,10 +224,10 @@ fn is_prime(n: u32) -&gt; bool {
     let side = (n as f32).sqrt() as u32;
     let mut d = 5u32;
     for i in [2u32, 4].iter().cycle() {
+        d += *i;
         if d &gt; side {
             break;
         }
-        d += *i;
         if n % d == 0 {
             return false;
         }
