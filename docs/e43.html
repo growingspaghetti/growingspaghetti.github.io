@@ -216,7 +216,7 @@ Problem 43 "Sub-string divisibility"
         6 =&gt; 5,
         7 =&gt; 3,
         8 =&gt; 2,
-        _ =&gt; panic!(),
+        _ =&gt; unreachable!(),
     };
     (n / 10u64.pow(depth as u32 - 2)) % p == 0
 }
@@ -274,7 +274,7 @@ fn main() {
         7 =&gt; 11,
         8 =&gt; 13,
         9 =&gt; 17,
-        _ =&gt; panic!(),
+        _ =&gt; unreachable!(),
     };
     (n % 1000) % p == 0
 }
