@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>XOR decryption - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="chapter-item expanded "><a href="e11.html"><strong aria-hidden="true">1.11.</strong> Largest product in a grid</a></li><li class="chapter-item expanded "><a href="e12.html"><strong aria-hidden="true">1.12.</strong> Highly divisible triangular number</a></li><li class="chapter-item expanded "><a href="e13.html"><strong aria-hidden="true">1.13.</strong> Large sum</a></li><li class="chapter-item expanded "><a href="e14.html"><strong aria-hidden="true">1.14.</strong> Longest Collatz sequence</a></li><li class="chapter-item expanded "><a href="e15.html"><strong aria-hidden="true">1.15.</strong> Lattice paths</a></li><li class="chapter-item expanded "><a href="e16.html"><strong aria-hidden="true">1.16.</strong> Power digit sum</a></li><li class="chapter-item expanded "><a href="e17.html"><strong aria-hidden="true">1.17.</strong> Number letter counts</a></li><li class="chapter-item expanded "><a href="e18.html"><strong aria-hidden="true">1.18.</strong> Maximum path sum I</a></li><li class="chapter-item expanded "><a href="e19.html"><strong aria-hidden="true">1.19.</strong> Counting Sundays</a></li><li class="chapter-item expanded "><a href="e20.html"><strong aria-hidden="true">1.20.</strong> Factorial digit sum</a></li><li class="chapter-item expanded "><a href="e21.html"><strong aria-hidden="true">1.21.</strong> Amicable numbers</a></li><li class="chapter-item expanded "><a href="e22.html"><strong aria-hidden="true">1.22.</strong> Names scores</a></li><li class="chapter-item expanded "><a href="e23.html"><strong aria-hidden="true">1.23.</strong> Non-abundant sums</a></li><li class="chapter-item expanded "><a href="e24.html"><strong aria-hidden="true">1.24.</strong> Lexicographic permutations</a></li><li class="chapter-item expanded "><a href="e25.html"><strong aria-hidden="true">1.25.</strong> 1000-digit Fibonacci number</a></li><li class="chapter-item expanded "><a href="e26.html"><strong aria-hidden="true">1.26.</strong> Reciprocal cycles</a></li><li class="chapter-item expanded "><a href="e27.html"><strong aria-hidden="true">1.27.</strong> Quadratic primes</a></li><li class="chapter-item expanded "><a href="e28.html"><strong aria-hidden="true">1.28.</strong> Number spiral diagonals</a></li><li class="chapter-item expanded "><a href="e29.html"><strong aria-hidden="true">1.29.</strong> Distinct powers</a></li><li class="chapter-item expanded "><a href="e30.html"><strong aria-hidden="true">1.30.</strong> Digit fifth powers</a></li><li class="chapter-item expanded "><a href="e31.html"><strong aria-hidden="true">1.31.</strong> Coin sums</a></li><li class="chapter-item expanded "><a href="e32.html"><strong aria-hidden="true">1.32.</strong> Pandigital products</a></li><li class="chapter-item expanded "><a href="e33.html"><strong aria-hidden="true">1.33.</strong> Digit cancelling fractions</a></li><li class="chapter-item expanded "><a href="e34.html"><strong aria-hidden="true">1.34.</strong> Digit factorials</a></li><li class="chapter-item expanded "><a href="e35.html"><strong aria-hidden="true">1.35.</strong> Circular primes</a></li><li class="chapter-item expanded "><a href="e36.html"><strong aria-hidden="true">1.36.</strong> Double-base palindromes</a></li><li class="chapter-item expanded "><a href="e37.html"><strong aria-hidden="true">1.37.</strong> Truncatable primes</a></li><li class="chapter-item expanded "><a href="e38.html"><strong aria-hidden="true">1.38.</strong> Pandigital multiples</a></li><li class="chapter-item expanded "><a href="e39.html"><strong aria-hidden="true">1.39.</strong> Integer right triangles</a></li><li class="chapter-item expanded "><a href="e40.html"><strong aria-hidden="true">1.40.</strong> Champernowne's constant</a></li><li class="chapter-item expanded "><a href="e41.html"><strong aria-hidden="true">1.41.</strong> Pandigital prime</a></li><li class="chapter-item expanded "><a href="e42.html"><strong aria-hidden="true">1.42.</strong> Coded triangle numbers</a></li><li class="chapter-item expanded "><a href="e43.html"><strong aria-hidden="true">1.43.</strong> Sub-string divisibility</a></li><li class="chapter-item expanded "><a href="e44.html"><strong aria-hidden="true">1.44.</strong> Pentagon numbers</a></li><li class="chapter-item expanded "><a href="e45.html"><strong aria-hidden="true">1.45.</strong> Triangular, pentagonal, and hexagonal</a></li><li class="chapter-item expanded "><a href="e46.html"><strong aria-hidden="true">1.46.</strong> Goldbach's other conjecture</a></li><li class="chapter-item expanded "><a href="e47.html"><strong aria-hidden="true">1.47.</strong> Distinct primes factors</a></li><li class="chapter-item expanded "><a href="e48.html"><strong aria-hidden="true">1.48.</strong> Self powers</a></li><li class="chapter-item expanded "><a href="e49.html"><strong aria-hidden="true">1.49.</strong> Prime permutations</a></li><li class="chapter-item expanded "><a href="e50.html"><strong aria-hidden="true">1.50.</strong> Consecutive prime sum</a></li><li class="chapter-item expanded "><a href="e51.html"><strong aria-hidden="true">1.51.</strong> Prime digit replacements</a></li><li class="chapter-item expanded "><a href="e52.html"><strong aria-hidden="true">1.52.</strong> Permuted multiples</a></li><li class="chapter-item expanded "><a href="e53.html"><strong aria-hidden="true">1.53.</strong> Combinatoric selections</a></li><li class="chapter-item expanded "><a href="e54.html"><strong aria-hidden="true">1.54.</strong> Poker hands</a></li><li class="chapter-item expanded "><a href="e55.html"><strong aria-hidden="true">1.55.</strong> Lychrel numbers</a></li><li class="chapter-item expanded "><a href="e56.html"><strong aria-hidden="true">1.56.</strong> Powerful digit sum</a></li><li class="chapter-item expanded "><a href="e57.html"><strong aria-hidden="true">1.57.</strong> Square root convergents</a></li><li class="chapter-item expanded "><a href="e58.html"><strong aria-hidden="true">1.58.</strong> Spiral primes</a></li><li class="chapter-item expanded "><a href="e59.html" class="active"><strong aria-hidden="true">1.59.</strong> XOR decryption</a></li><li class="chapter-item expanded "><a href="e81.html"><strong aria-hidden="true">1.60.</strong> Path sum: two ways</a></li><li class="chapter-item expanded "><a href="e82.html"><strong aria-hidden="true">1.61.</strong> Path sum: three ways</a></li><li class="chapter-item expanded "><a href="e83.html"><strong aria-hidden="true">1.62.</strong> Path sum: four ways</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Introduction to Algorithms (MIT)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> I Foundations</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> The Role of Algorithms in Computing</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.1.</strong> 1.1. Algorithms</div></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">LeetCode with APAS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="l69.html"><strong aria-hidden="true">4.1.</strong> Square root</a></li><li class="chapter-item expanded "><a href="l367.html"><strong aria-hidden="true">4.2.</strong> Valid Perfect Square</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithm notes on the back of used envelopes bound in a ring binder</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/growingspaghetti/growingspaghetti.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <html><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTcBjU7hHWOMmqUtzC7rzk4xq6yd98P8wWt9NPG72UpY_1kpr0_kwyHHrn58whi-AGU7Sd1xy5I1pJL/embed?start=false&loop=false&delayms=60000" frameborder="0" width="760" height="490" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></html>
+<html>
+<button class="accordion" onclick="toggle('the-accordion');">Problem / 問</button>
+<div id="the-accordion" class="panel w3-hide">
+Problem 59 "XOR decryption"
+<p>Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange). For example, uppercase A = 65, asterisk (*) = 42, and lowercase k = 107.</p>
+<p>A modern encryption method is to take a text file, convert the bytes to ASCII, then XOR each byte with a given value, taken from a secret key. The advantage with the XOR function is that using the same encryption key on the cipher text, restores the plain text; for example, 65 XOR 42 = 107, then 107 XOR 42 = 65.</p>
+<p>For unbreakable encryption, the key is the same length as the plain text message, and the key is made up of random bytes. The user would keep the encrypted message and the encryption key in different locations, and without both "halves", it is impossible to decrypt the message.</p>
+<p>Unfortunately, this method is impractical for most users, so the modified method is to use a password as a key. If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message. The balance for this method is using a sufficiently long password key for security, but short enough to be memorable.</p>
+<p>Your task has been made easy, as the encryption key consists of three lower case characters. Using p059_cipher.txt, a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.</p>
+<p>問 59 「XOR暗号解読」</p>
+<p>各文字はそれぞれ一意のコードに割り当てられている.
+よく使われる標準としてASCII (American Standard Code for Information Interchange) がある.
+ASCIIでは, 大文字A = 65, アスタリスク (*) = 42, 小文字k = 107というふうに割り当てられている.</p>
+<p>モダンな暗号化の方法として, テキストファイルの各バイトをASCIIに変換し, 秘密鍵から計算された値とXORを取るという手法がある.
+XOR関数の良い点は, 暗号化に用いたのと同じ暗号化鍵でXORを取ると平文を復号できる点である. 65 XOR 42 = 107であり, 107 XOR 42 = 65である.</p>
+<p>破られない暗号化のためには, 鍵は平文と同じ長さのランダムなバイト列でなければならない.
+ユーザーは暗号文と暗号化鍵を別々の場所に保存する必要がある.
+また, もし一方が失われると, 暗号文を復号することは不可能になる.</p>
+<p>悲しいかな, この手法はほとんどのユーザーにとって非現実的である.
+そこで, 鍵の変わりにパスワードを用いる手法が用いられる.
+パスワードが平文より短ければ (よくあることだが), パスワードは鍵として繰り返し用いられる.
+この手法では, 安全性を保つために十分長いパスワードを用いる必要があるが, 記憶するためにはある程度短くないといけない.</p>
+<p>この問題での課題は簡単になっている.
+暗号化鍵は3文字の小文字である.
+cipher1.txtは暗号化されたASCIIのコードを含んでいる.
+また, 平文はよく用いられる英単語を含んでいる.
+この暗号文を復号し, 平文のASCIIでの値の和を求めよ.</p>
+</div>
+</html>
+<pre><pre class="playground"><code class="language-rust editable">fn get_most_frequent_value(position: usize) -&gt; u8 {
+    let mut freq = [0u8; 256];
+    for i in (position..).step_by(3) {
+        if i &gt; ENC.len() - 1 {
+            break;
+        }
+        freq[ENC[i] as usize] += 1;
+    }
+    freq.iter()
+        .enumerate()
+        .reduce(|a, b| if a.1 &gt; b.1 { a } else { b })
+        .map(|(i, _)| i as u8)
+        .expect(&quot;freq array's length must be &gt; 0.&quot;)
+}
+
+fn get_key_from_space(enc: u8) -&gt; u8 {
+    let space = ' ' as u8;
+    for c in 'a'..='z' {
+        if c as u8 ^ enc == space {
+            return c as u8;
+        }
+    }
+    unreachable!();
+}
+
+fn decrypt(dec: &amp;mut [u8], position: usize, key: u8) {
+    for i in (position..).step_by(3) {
+        if i &gt; ENC.len() - 1 {
+            break;
+        }
+        dec[i] = ENC[i] ^ key;
+    }
+}
+
+fn main() {
+    let mut dec = vec![0; ENC.len()];
+    for i in 0usize..3 {
+        let enc = get_most_frequent_value(i);
+        let key = get_key_from_space(enc);
+        decrypt(&amp;mut dec, i, key);
+    }
+    let ans = dec.iter().map(|&amp;v| v as u32).sum::&lt;u32&gt;();
+    println!(&quot;{}&quot;, ans);
+    assert_eq!(ans, 129448);
+    println!(&quot;{}&quot;, String::from_utf8(dec).unwrap());
+}
+
+const ENC: [u8; 1455] = [
+    36, 22, 80, 0, 0, 4, 23, 25, 19, 17, 88, 4, 4, 19, 21, 11, 88, 22, 23, 23, 29, 69, 12, 24, 0,
+    88, 25, 11, 12, 2, 10, 28, 5, 6, 12, 25, 10, 22, 80, 10, 30, 80, 10, 22, 21, 69, 23, 22, 69,
+    61, 5, 9, 29, 2, 66, 11, 80, 8, 23, 3, 17, 88, 19, 0, 20, 21, 7, 10, 17, 17, 29, 20, 69, 8, 17,
+    21, 29, 2, 22, 84, 80, 71, 60, 21, 69, 11, 5, 8, 21, 25, 22, 88, 3, 0, 10, 25, 0, 10, 5, 8, 88,
+    2, 0, 27, 25, 21, 10, 31, 6, 25, 2, 16, 21, 82, 69, 35, 63, 11, 88, 4, 13, 29, 80, 22, 13, 29,
+    22, 88, 31, 3, 88, 3, 0, 10, 25, 0, 11, 80, 10, 30, 80, 23, 29, 19, 12, 8, 2, 10, 27, 17, 9,
+    11, 45, 95, 88, 57, 69, 16, 17, 19, 29, 80, 23, 29, 19, 0, 22, 4, 9, 1, 80, 3, 23, 5, 11, 28,
+    92, 69, 9, 5, 12, 12, 21, 69, 13, 30, 0, 0, 0, 0, 27, 4, 0, 28, 28, 28, 84, 80, 4, 22, 80, 0,
+    20, 21, 2, 25, 30, 17, 88, 21, 29, 8, 2, 0, 11, 3, 12, 23, 30, 69, 30, 31, 23, 88, 4, 13, 29,
+    80, 0, 22, 4, 12, 10, 21, 69, 11, 5, 8, 88, 31, 3, 88, 4, 13, 17, 3, 69, 11, 21, 23, 17, 21,
+    22, 88, 65, 69, 83, 80, 84, 87, 68, 69, 83, 80, 84, 87, 73, 69, 83, 80, 84, 87, 65, 83, 88, 91,
+    69, 29, 4, 6, 86, 92, 69, 15, 24, 12, 27, 24, 69, 28, 21, 21, 29, 30, 1, 11, 80, 10, 22, 80,
+    17, 16, 21, 69, 9, 5, 4, 28, 2, 4, 12, 5, 23, 29, 80, 10, 30, 80, 17, 16, 21, 69, 27, 25, 23,
+    27, 28, 0, 84, 80, 22, 23, 80, 17, 16, 17, 17, 88, 25, 3, 88, 4, 13, 29, 80, 17, 10, 5, 0, 88,
+    3, 16, 21, 80, 10, 30, 80, 17, 16, 25, 22, 88, 3, 0, 10, 25, 0, 11, 80, 12, 11, 80, 10, 26, 4,
+    4, 17, 30, 0, 28, 92, 69, 30, 2, 10, 21, 80, 12, 12, 80, 4, 12, 80, 10, 22, 19, 0, 88, 4, 13,
+    29, 80, 20, 13, 17, 1, 10, 17, 17, 13, 2, 0, 88, 31, 3, 88, 4, 13, 29, 80, 6, 17, 2, 6, 20, 21,
+    69, 30, 31, 9, 20, 31, 18, 11, 94, 69, 54, 17, 8, 29, 28, 28, 84, 80, 44, 88, 24, 4, 14, 21,
+    69, 30, 31, 16, 22, 20, 69, 12, 24, 4, 12, 80, 17, 16, 21, 69, 11, 5, 8, 88, 31, 3, 88, 4, 13,
+    17, 3, 69, 11, 21, 23, 17, 21, 22, 88, 25, 22, 88, 17, 69, 11, 25, 29, 12, 24, 69, 8, 17, 23,
+    12, 80, 10, 30, 80, 17, 16, 21, 69, 11, 1, 16, 25, 2, 0, 88, 31, 3, 88, 4, 13, 29, 80, 21, 29,
+    2, 12, 21, 21, 17, 29, 2, 69, 23, 22, 69, 12, 24, 0, 88, 19, 12, 10, 19, 9, 29, 80, 18, 16, 31,
+    22, 29, 80, 1, 17, 17, 8, 29, 4, 0, 10, 80, 12, 11, 80, 84, 67, 80, 10, 10, 80, 7, 1, 80, 21,
+    13, 4, 17, 17, 30, 2, 88, 4, 13, 29, 80, 22, 13, 29, 69, 23, 22, 69, 12, 24, 12, 11, 80, 22,
+    29, 2, 12, 29, 3, 69, 29, 1, 16, 25, 28, 69, 12, 31, 69, 11, 92, 69, 17, 4, 69, 16, 17, 22, 88,
+    4, 13, 29, 80, 23, 25, 4, 12, 23, 80, 22, 9, 2, 17, 80, 70, 76, 88, 29, 16, 20, 4, 12, 8, 28,
+    12, 29, 20, 69, 26, 9, 69, 11, 80, 17, 23, 80, 84, 88, 31, 3, 88, 4, 13, 29, 80, 21, 29, 2, 12,
+    21, 21, 17, 29, 2, 69, 12, 31, 69, 12, 24, 0, 88, 20, 12, 25, 29, 0, 12, 21, 23, 86, 80, 44,
+    88, 7, 12, 20, 28, 69, 11, 31, 10, 22, 80, 22, 16, 31, 18, 88, 4, 13, 25, 4, 69, 12, 24, 0, 88,
+    3, 16, 21, 80, 10, 30, 80, 17, 16, 25, 22, 88, 3, 0, 10, 25, 0, 11, 80, 17, 23, 80, 7, 29, 80,
+    4, 8, 0, 23, 23, 8, 12, 21, 17, 17, 29, 28, 28, 88, 65, 75, 78, 68, 81, 65, 67, 81, 72, 70, 83,
+    64, 68, 87, 74, 70, 81, 75, 70, 81, 67, 80, 4, 22, 20, 69, 30, 2, 10, 21, 80, 8, 13, 28, 17,
+    17, 0, 9, 1, 25, 11, 31, 80, 17, 16, 25, 22, 88, 30, 16, 21, 18, 0, 10, 80, 7, 1, 80, 22, 17,
+    8, 73, 88, 17, 11, 28, 80, 17, 16, 21, 11, 88, 4, 4, 19, 25, 11, 31, 80, 17, 16, 21, 69, 11, 1,
+    16, 25, 2, 0, 88, 2, 10, 23, 4, 73, 88, 4, 13, 29, 80, 11, 13, 29, 7, 29, 2, 69, 75, 94, 84,
+    76, 65, 80, 65, 66, 83, 77, 67, 80, 64, 73, 82, 65, 67, 87, 75, 72, 69, 17, 3, 69, 17, 30, 1,
+    29, 21, 1, 88, 0, 23, 23, 20, 16, 27, 21, 1, 84, 80, 18, 16, 25, 6, 16, 80, 0, 0, 0, 23, 29, 3,
+    22, 29, 3, 69, 12, 24, 0, 88, 0, 0, 10, 25, 8, 29, 4, 0, 10, 80, 10, 30, 80, 4, 88, 19, 12, 10,
+    19, 9, 29, 80, 18, 16, 31, 22, 29, 80, 1, 17, 17, 8, 29, 4, 0, 10, 80, 12, 11, 80, 84, 86, 80,
+    35, 23, 28, 9, 23, 7, 12, 22, 23, 69, 25, 23, 4, 17, 30, 69, 12, 24, 0, 88, 3, 4, 21, 21, 69,
+    11, 4, 0, 8, 3, 69, 26, 9, 69, 15, 24, 12, 27, 24, 69, 49, 80, 13, 25, 20, 69, 25, 2, 23, 17,
+    6, 0, 28, 80, 4, 12, 80, 17, 16, 25, 22, 88, 3, 16, 21, 92, 69, 49, 80, 13, 25, 6, 0, 88, 20,
+    12, 11, 19, 10, 14, 21, 23, 29, 20, 69, 12, 24, 4, 12, 80, 17, 16, 21, 69, 11, 5, 8, 88, 31, 3,
+    88, 4, 13, 29, 80, 22, 29, 2, 12, 29, 3, 69, 73, 80, 78, 88, 65, 74, 73, 70, 69, 83, 80, 84,
+    87, 72, 84, 88, 91, 69, 73, 95, 87, 77, 70, 69, 83, 80, 84, 87, 70, 87, 77, 80, 78, 88, 21, 17,
+    27, 94, 69, 25, 28, 22, 23, 80, 1, 29, 0, 0, 22, 20, 22, 88, 31, 11, 88, 4, 13, 29, 80, 20, 13,
+    17, 1, 10, 17, 17, 13, 2, 0, 88, 31, 3, 88, 4, 13, 29, 80, 6, 17, 2, 6, 20, 21, 75, 88, 62, 4,
+    21, 21, 9, 1, 92, 69, 12, 24, 0, 88, 3, 16, 21, 80, 10, 30, 80, 17, 16, 25, 22, 88, 29, 16, 20,
+    4, 12, 8, 28, 12, 29, 20, 69, 26, 9, 69, 65, 64, 69, 31, 25, 19, 29, 3, 69, 12, 24, 0, 88, 18,
+    12, 9, 5, 4, 28, 2, 4, 12, 21, 69, 80, 22, 10, 13, 2, 17, 16, 80, 21, 23, 7, 0, 10, 89, 69, 23,
+    22, 69, 12, 24, 0, 88, 19, 12, 10, 19, 16, 21, 22, 0, 10, 21, 11, 27, 21, 69, 23, 22, 69, 12,
+    24, 0, 88, 0, 0, 10, 25, 8, 29, 4, 0, 10, 80, 10, 30, 80, 4, 88, 19, 12, 10, 19, 9, 29, 80, 18,
+    16, 31, 22, 29, 80, 1, 17, 17, 8, 29, 4, 0, 10, 80, 12, 11, 80, 84, 86, 80, 36, 22, 20, 69, 26,
+    9, 69, 11, 25, 8, 17, 28, 4, 10, 80, 23, 29, 17, 22, 23, 30, 12, 22, 23, 69, 49, 80, 13, 25, 6,
+    0, 88, 28, 12, 19, 21, 18, 17, 3, 0, 88, 18, 0, 29, 30, 69, 25, 18, 9, 29, 80, 17, 23, 80, 1,
+    29, 4, 0, 10, 29, 12, 22, 21, 69, 12, 24, 0, 88, 3, 16, 21, 3, 69, 23, 22, 69, 12, 24, 0, 88,
+    3, 16, 26, 3, 0, 9, 5, 0, 22, 4, 69, 11, 21, 23, 17, 21, 22, 88, 25, 11, 88, 7, 13, 17, 19, 13,
+    88, 4, 13, 29, 80, 0, 0, 0, 10, 22, 21, 11, 12, 3, 69, 25, 2, 0, 88, 21, 19, 29, 30, 69, 22, 5,
+    8, 26, 21, 23, 11, 94,
+];
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="e58.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="e81.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="e58.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="e81.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="custom.js"></script>
+        
+
+        
+
+    </body>
+</html>
