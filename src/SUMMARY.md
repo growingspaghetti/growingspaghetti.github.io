@@ -67,6 +67,7 @@
    - [XOR decryption](./e59.md) 
    - [Prime pair sets](./e60.md) 
    - [Cyclical figurate numbers](./e61.md) 
+   - [Cubic permutations](./e62.md) 
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
