@@ -69,6 +69,7 @@
    - [Cyclical figurate numbers](./e61.md) 
    - [Cubic permutations](./e62.md)
    - [Powerful digit counts](./e63.md)
+   - [Odd period square roots](./e64.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
@@ -93,6 +94,14 @@
  - []()
    - [Square root](./l69.md)
    - [Valid Perfect Square](./l367.md)
+
+---
+
+# Constants
+
+ - []()
+   - [CORDIC, tangent and Pi]()
+   - [e]()
 
 ---
 
