@@ -221,7 +221,7 @@ I haven't read it and probably it's not required if you have Open Data Structure
 <a href="https://www.amazon.com/Data-Structures-Algorithms-Java-2nd/dp/0672324539" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/j2.png"></a>
 </div>
 
----
+## Mathematics
 
 🖊️ Project Euler\
 I solved 33 questions so far and it helped me to remember mathematics and to know algorithms.
