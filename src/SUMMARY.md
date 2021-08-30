@@ -71,6 +71,7 @@
    - [Powerful digit counts](./e63.md)
    - [Odd period square roots](./e64.md)
    - [Convergents of e](./e65.md)
+   - [Diophantine equation](./e66.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
@@ -102,7 +103,7 @@
 
  - []()
    - [CORDIC, tangent and Pi]()
-   - [e]()
+   - [Calculus and E]()
 
 ---
 

@@ -257,6 +257,11 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 
 Alternatively,  <a href="https://cambomaths.files.wordpress.com/2010/03/1300_math_formulas.pdf" target="_blank" rel="noopener noreferrer">1300 Math Formulas PDF</a>
 
+📖 Collins Dictionary of Mathematics, by E. J. Borowski and J.M. Borwein
+<div class="thumbnail">
+<a href="https://www.amazon.com/Mathematics-Collins-Dictionary-J-Borowski/dp/0007207107" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/9780007102952-uk.jpg"></a>
+</div>
+
 ## Compiler design
 
 I haven't read them but it seems there are some chapters for data structures.
@@ -320,6 +325,11 @@ I haven't read them but it seems there are some chapters for data structures.
 📖 最短経路の本 (世田谷区図書館所蔵)
 <div class="thumbnail">
     <a href="https://www.amazon.co.jp/%E6%9C%80%E7%9F%AD%E7%B5%8C%E8%B7%AF%E3%81%AE%E6%9C%AC-%E3%83%AC%E3%83%8A%E3%81%AE%E3%81%B5%E3%81%97%E3%81%8E%E3%81%AA%E6%95%B0%E5%AD%A6%E3%81%AE%E6%97%85-P-%E3%82%B0%E3%83%AA%E3%83%83%E3%83%84%E3%83%9E%E3%83%B3/dp/4621061364" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51-AeNQ2LdL._SX353_BO1,204,203,200_.jpg"></a>
+</div>
+
+📖 Cracking the Coding Interview: 189 Programming Questions and Solutions 6th Edition
+<div class="thumbnail">
+    <a href="https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/416DKWnVEfL._SX345_BO1,204,203,200_.jpg"></a>
 </div>
 
 </div>
