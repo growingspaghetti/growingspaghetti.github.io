@@ -72,6 +72,8 @@
    - [Odd period square roots](./e64.md)
    - [Convergents of e](./e65.md)
    - [Diophantine equation](./e66.md)
+   - [Maximum path sum II](./e67.md)
+   - [Magic 5-gon ring](./e68.md)
    - [Path sum: two ways](./e81.md)
    - [Path sum: three ways](./e82.md)
    - [Path sum: four ways](./e83.md)
