@@ -255,8 +255,6 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 <a href="https://www.amazon.com/Schaums-Mathematical-Handbook-Formulas-Outlines/dp/1260010538" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/form.png"></a>
 </div>
 
-Alternatively,  <a href="https://cambomaths.files.wordpress.com/2010/03/1300_math_formulas.pdf" target="_blank" rel="noopener noreferrer">1300 Math Formulas PDF</a>
-
 📖 Collins Dictionary of Mathematics, by E. J. Borowski and J.M. Borwein
 <div class="thumbnail">
 <a href="https://www.amazon.com/Mathematics-Collins-Dictionary-J-Borowski/dp/0007207107" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/9780007102952-uk.jpg"></a>
