@@ -43,7 +43,8 @@ Address bus (2)
 
 🎞️ Introduction to Von Neuman Architecture (Fetch-Decode-Execute) Cycle\
 Instructions **LDD**, **ADD**, **STO**, and data **27**, **35** are stored in memory.\
-Addressing is the only way to tell the difference between them.
+Addressing is the only way to tell the difference between them.\
+It's quite less than Javascripts' `===`, [the type considering equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 <div class="thumbnail">
 <a href="https://youtu.be/u9WK73mCD6U" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/addressing.png"></a>
 </div>
