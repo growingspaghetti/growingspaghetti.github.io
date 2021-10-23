@@ -255,6 +255,10 @@ I solved 33 questions so far and it helped me to remember mathematics and to kno
 <a href="https://www.amazon.com/Schaums-Mathematical-Handbook-Formulas-Outlines/dp/1260010538" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/form.png"></a>
 </div>
 
+<ul><li>
+<a href="https://cambomaths.files.wordpress.com/2010/03/1300_math_formulas.pdf" target="_blank" rel="noopener noreferrer">1300 Math Formulas PDF</a>
+</li></ul>
+
 📖 Collins Dictionary of Mathematics, by E. J. Borowski and J.M. Borwein
 <div class="thumbnail">
 <a href="https://www.amazon.com/Mathematics-Collins-Dictionary-J-Borowski/dp/0007207107" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/9780007102952-uk.jpg"></a>
@@ -329,6 +333,28 @@ I haven't read them but it seems there are some chapters for data structures.
 <div class="thumbnail">
     <a href="https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/416DKWnVEfL._SX345_BO1,204,203,200_.jpg"></a>
 </div>
+
+📖 Brilliant.org Community Wiki
+<div class="thumbnail">
+    <a href="https://brilliant.org/computer-science/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/br-comm.png"></a>
+</div>
+
+Dangling pointers and the alignment of composite data
+<div class="thumbnail">
+    <a href="https://doc.rust-lang.org/nomicon/ownership.html" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/r-dang.png"></a>
+</div>
+<ul>
+  <li><a href="https://doc.rust-lang.org/nomicon/repr-rust.html" target="_blank" rel="noopener noreferrer">doc.rust-lang.org/nomicon/repr-rust.html</a></li>
+</ul>
+
+Network interface controller, subnets and gateways
+<div class="thumbnail">
+    <a href="https://stackoverflow.com/questions/39330823/cant-associate-an-elastic-ip-on-amazon-ec2-instance" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://i.stack.imgur.com/dhsKz.png"></a>
+</div>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Network_interface_controller" target="_blank" rel="noopener noreferrer">en.wikipedia.org/wiki/Network_interface_controller</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/azure/developer/terraform/hub-spoke-on-prem" target="_blank" rel="noopener noreferrer">docs.microsoft.com/en-us/azure/developer/terraform/hub-spoke-on-prem</a></li>
+</ul>
 
 </div>
 </html>

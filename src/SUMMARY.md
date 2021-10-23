@@ -84,6 +84,11 @@
  - []()
    - [ArrayStack]()
 
+
+---
+
+# Cracking the Coding Interview
+
 ---
 
 # Introduction to Algorithms (MIT)
@@ -98,6 +103,7 @@
  - []()
    - [Square root](./l69.md)
    - [Valid Perfect Square](./l367.md)
+   - [Tower of Hanoi]()
 
 ---
 
@@ -105,7 +111,7 @@
 
  - []()
    - [CORDIC, tangent and Pi]()
-   - [Calculus and E]()
+   - [Napier's constant, 0.999 1.001]()
 
 ---
 
@@ -113,6 +119,12 @@
  - []()
    - [Regular polygon of n sides each of length b]()
    - [Standard deviation]()
+
+---
+
+# Miscellaneous math
+ - []()
+   - [Inverse matrix]()
 
 ---
 
