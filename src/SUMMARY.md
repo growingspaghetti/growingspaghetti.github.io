@@ -80,6 +80,13 @@
 
 ---
 
+# JupyterLab
+ - []()
+   - [Unix snippets](./bash.html)
+   - [Java snippets]()
+
+---
+
 # Open Data Structures
  - []()
    - [ArrayStack]()
