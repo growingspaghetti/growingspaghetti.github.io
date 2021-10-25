@@ -346,7 +346,10 @@ Dangling pointers and the alignment of composite data
 </div>
 <ul>
   <li><a href="https://doc.rust-lang.org/nomicon/repr-rust.html" target="_blank" rel="noopener noreferrer">doc.rust-lang.org/nomicon/repr-rust.html</a></li>
+  <li><a href="https://doc.rust-lang.org/reference/type-layout.html" target="_blank" rel="noopener noreferrer">doc.rust-lang.org/reference/type-layout.html</a></li>
+  <li><a href="http://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch04-03-slices.html#string-slices" target="_blank" rel="noopener noreferrer">web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/second-edition/ch04-03-slices.html#string-slices</a></li>
 </ul>
+
 
 Network interface controller, subnets and gateways
 <div class="thumbnail">
