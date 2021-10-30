@@ -274,6 +274,10 @@ fn main() {
     assert_eq!(ans, 76576500);
 }
 </code></pre></pre>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/WzkW3P7HPvs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Highly_composite_number">Highly_composite_number - Wikipedia</a></li>
+</ul>
 
                     </main>
 
@@ -312,6 +316,21 @@ fn main() {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

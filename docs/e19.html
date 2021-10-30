@@ -206,7 +206,7 @@ And on leap years, twenty-nine.</li>
 <p>20世紀（1901年1月1日から2000年12月31日）中に月の初めが日曜日になるのは何回あるか?</p>
 </div>
 </html>
-<html><center><br><iframe width="560" height="315" src="https://www.youtube.com/embed/Kc7lQNIMNO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<html><center><br><img alt="https://drive.google.com/file/d/1nu4YU5BIEr_aZi8Ne0QbwkFOYDg6l6Fd/view" width="400" src="./imgs/8x45_ezgif_com-gif-maker.gif"><br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/Kc7lQNIMNO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <pre><pre class="playground"><code class="language-rust editable">fn length_of_february(year: u16) -&gt; u8 {
     if (year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0 {
         29
@@ -347,6 +347,21 @@ fn main() {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

@@ -283,6 +283,7 @@ Problem 13 "Large sum"
 <p>以下の50桁の数字100個の合計の上から10桁を求めなさい。</p>
 </div>
 </html>
+<html><center><br><iframe width="560" height="315" src="https://www.youtube.com/embed/cCKOl5li6YM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <p><a href="#variable-size">Go to 2. Variable-size input solution</a>
 <a name="fixed-size"><h2 id="1-fixed-size-input-solution"><a class="header" href="#1-fixed-size-input-solution">1. Fixed-size input solution</a></h2></a></p>
 <pre><pre class="playground"><code class="language-rust editable">fn main() {
@@ -675,6 +676,21 @@ const FIFTY_DIGIT_NUMBERS: [&amp;str; 100] = [
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
