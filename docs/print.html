@@ -28374,11 +28374,17 @@ yahoo.co.jp.		163	IN	A	182.22.28.252</p>
 </div>
 </div>
 </div>
-</div>ryoji@ubuntu:~$ sudo iptables -L
-<p>Chain DOCKER (6 references)
-target     prot opt source               destination<br />
-ACCEPT     tcp  --  anywhere             172.22.0.2           tcp dpt:4444
-ACCEPT     tcp  --  anywhere             172.22.0.3           tcp dpt:5900<div class="jp-Cell jp-CodeCell jp-Notebook-cell   "></p>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div class="highlight"><pre><span></span>ryoji@ubuntu:~$ sudo iptables -L
+<p>Chain DOCKER <span class="o">(</span><span class="m">6</span> references<span class="o">)</span>
+target     prot opt <span class="nb">source</span>               destination<br />
+ACCEPT     tcp  --  anywhere             <span class="m">172</span>.22.0.2           tcp dpt:4444
+ACCEPT     tcp  --  anywhere             <span class="m">172</span>.22.0.3           tcp dpt:5900
+</pre></div></p>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
@@ -29184,21 +29190,6 @@ fn main() {
 
         </div>
 
-        
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         
 
         
