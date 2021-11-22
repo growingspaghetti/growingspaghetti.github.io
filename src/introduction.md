@@ -81,6 +81,12 @@ You might prefer to watch CS50 written below first.
 <a href="https://youtu.be/zuegQmMdy8M?t=11198" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/function-pointer.png"></a>
 </div>
 
+-  P.S. 22 November 2021
+   "process is a logical container", "slice of CPU time", "process needs memory'\
+   🎞️ [Processes and threads - Gary explains](https://www.youtube.com/watch?v=h_HwkHobfs0)\
+   "event queue", "callbacks"\
+   🎞️ [What is the JavaScript event loop really all about - Java Brains](https://www.youtube.com/watch?v=EI7sN1dDwcY)
+
 🎞️ Wheeler Jump - Computerphile\
 Stories behind the **subroutines**
 <div class="thumbnail">
