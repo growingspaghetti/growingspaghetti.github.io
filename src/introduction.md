@@ -84,6 +84,10 @@ You might prefer to watch CS50 written below first.
 -  P.S. 22 November 2021\
    "process is a logical container", "slice of CPU time", "process needs memory'\
    🎞️ [Processes and threads - Gary explains](https://www.youtube.com/watch?v=h_HwkHobfs0)\
+   "system calls", "processes must be able to invoke certain routines at fixed addresses in the OS's portion of memory"\
+   🎞️ [Operating System Basics](https://www.youtube.com/watch?v=9GDX-IyZ_C8)\
+   "there is not only one process associated with this chromium browser"\
+   🎞️ [Process Management (Processes and Threads)](https://www.youtube.com/watch?v=OrM7nZcxXZU)\
    "event queue", "callbacks"\
    🎞️ [What is the JavaScript event loop really all about - Java Brains](https://www.youtube.com/watch?v=EI7sN1dDwcY)
 
