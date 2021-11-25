@@ -6,6 +6,14 @@ Although it's said that nothing is given so freely as advice, with a wish that w
 
 I'd stick to ***OPEN DATA STRUCTURES*** and ***PROJECT EULER*** mentioned at the bottom of this page, and use the rest of them as supplementary resources.
 
+P.S. 25 November 2021
+
+All is said and done, just take the ***FREE LECTURES OF PROFESSOR ROBERT SEDGEWICK*** on Coursera.
+
+<div class="thumbnail">
+<a href="https://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/coursera.png"></a>
+</div>
+
 # Useful materials
 
 🎞️🎞️🎞️ <a href="https://www.youtube.com/playlist?list=PLvKZ11Lvt-qnJYP8Ntr-k7rBd6xVq3UhH" target="_blank" rel="noopener noreferrer">Youtube playlist containing all videos listed in this page.</a>
