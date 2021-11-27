@@ -14,6 +14,7 @@ All is said and done, just take the ***FREE LECTURES OF PROFESSOR ROBERT SEDGEWI
 <a href="https://algs4.cs.princeton.edu/home/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/coursera.png"></a>
 </div>
 
+
 # Useful materials
 
 🎞️🎞️🎞️ <a href="https://www.youtube.com/playlist?list=PLvKZ11Lvt-qnJYP8Ntr-k7rBd6xVq3UhH" target="_blank" rel="noopener noreferrer">Youtube playlist containing all videos listed in this page.</a>
@@ -207,9 +208,10 @@ I couldn't find this book in my shallow previous research. I append this book he
 </div>
 
 📖 Princeton University, Algorithms (4th Edition)\
-It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.
+~~It seems to me that you wouldn't want this book if you already have Introduction to Algorithms, 3rd Edition.~~ P.S. there's a complete online course.
 
  * <a href="https://algs4.cs.princeton.edu/24pq/" target="_blank" rel="noopener noreferrer">2.4 Priority Queues</a>
+ * <a href="https://github.com/kevin-wayne/algs4/tree/master/src/main/java/edu/princeton/cs/algs4" target="_blank" rel="noopener noreferrer">github.com/kevin-wayne/algs4</a>
 
 <div class="thumbnail">
 <a href="https://www.amazon.com/Algorithms-4th-Robert-Sedgewick/dp/032157351X" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="./imgs/algop.png"></a>
