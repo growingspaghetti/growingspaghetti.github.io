@@ -91,6 +91,12 @@
  - []()
    - [ArrayStack]()
 
+---
+
+# Princeton algorithms-part1
+ - []()
+   - [Reservoir Sampling]()
+   - [Knuth's algorithm S]()
 
 ---
 

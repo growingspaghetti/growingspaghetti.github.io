@@ -98,7 +98,9 @@ You might prefer to watch CS50 written below first.
    "there is not only one process associated with this chromium browser"\
    🎞️ [Process Management (Processes and Threads)](https://www.youtube.com/watch?v=OrM7nZcxXZU)\
    "event queue", "callbacks"\
-   🎞️ [What is the JavaScript event loop really all about - Java Brains](https://www.youtube.com/watch?v=EI7sN1dDwcY)
+   🎞️ [What is the JavaScript event loop really all about - Java Brains](https://www.youtube.com/watch?v=EI7sN1dDwcY)\
+   "Change the root directory of the current process to the specified path."\
+   [std::os::unix::fs::chroot](https://doc.rust-lang.org/stable/std/os/unix/fs/fn.chroot.html)
 
 🎞️ Wheeler Jump - Computerphile\
 Stories behind the **subroutines**
