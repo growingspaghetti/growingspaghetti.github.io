@@ -246,6 +246,8 @@ I haven't read it and probably it's not required if you have Open Data Structure
 
 ## Mathematics
 
+🎞️🎞️🎞️ <a href="https://www.youtube.com/playlist?list=PLvKZ11Lvt-qldmh8r9kS7H4oIQCXBhNHJ" target="_blank" rel="noopener noreferrer">Youtube playlist</a>
+
 🖊️ Project Euler\
 I solved 33 questions so far and it helped me to remember mathematics and to know algorithms.
 
