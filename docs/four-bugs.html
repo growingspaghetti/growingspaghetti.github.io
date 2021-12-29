@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Four bugs - Algorithm notes on the back of used envelopes bound in a ring binder</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Project Euler</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="e1.html"><strong aria-hidden="true">1.1.</strong> Multiples of 3 and 5</a></li><li class="chapter-item expanded "><a href="e2.html"><strong aria-hidden="true">1.2.</strong> Even Fibonacci numbers</a></li><li class="chapter-item expanded "><a href="e3.html"><strong aria-hidden="true">1.3.</strong> Largest prime factor</a></li><li class="chapter-item expanded "><a href="e4.html"><strong aria-hidden="true">1.4.</strong> Largest palindrome product</a></li><li class="chapter-item expanded "><a href="e5.html"><strong aria-hidden="true">1.5.</strong> Smallest multiple</a></li><li class="chapter-item expanded "><a href="e6.html"><strong aria-hidden="true">1.6.</strong> Sum square difference</a></li><li class="chapter-item expanded "><a href="e7.html"><strong aria-hidden="true">1.7.</strong> 10001st prime</a></li><li class="chapter-item expanded "><a href="e8.html"><strong aria-hidden="true">1.8.</strong> Largest product in a series</a></li><li class="chapter-item expanded "><a href="e9.html"><strong aria-hidden="true">1.9.</strong> Special Pythagorean triplet</a></li><li class="chapter-item expanded "><a href="e10.html"><strong aria-hidden="true">1.10.</strong> Summation of primes</a></li><li class="chapter-item expanded "><a href="e11.html"><strong aria-hidden="true">1.11.</strong> Largest product in a grid</a></li><li class="chapter-item expanded "><a href="e12.html"><strong aria-hidden="true">1.12.</strong> Highly divisible triangular number</a></li><li class="chapter-item expanded "><a href="e13.html"><strong aria-hidden="true">1.13.</strong> Large sum</a></li><li class="chapter-item expanded "><a href="e14.html"><strong aria-hidden="true">1.14.</strong> Longest Collatz sequence</a></li><li class="chapter-item expanded "><a href="e15.html"><strong aria-hidden="true">1.15.</strong> Lattice paths</a></li><li class="chapter-item expanded "><a href="e16.html"><strong aria-hidden="true">1.16.</strong> Power digit sum</a></li><li class="chapter-item expanded "><a href="e17.html"><strong aria-hidden="true">1.17.</strong> Number letter counts</a></li><li class="chapter-item expanded "><a href="e18.html"><strong aria-hidden="true">1.18.</strong> Maximum path sum I</a></li><li class="chapter-item expanded "><a href="e19.html"><strong aria-hidden="true">1.19.</strong> Counting Sundays</a></li><li class="chapter-item expanded "><a href="e20.html"><strong aria-hidden="true">1.20.</strong> Factorial digit sum</a></li><li class="chapter-item expanded "><a href="e21.html"><strong aria-hidden="true">1.21.</strong> Amicable numbers</a></li><li class="chapter-item expanded "><a href="e22.html"><strong aria-hidden="true">1.22.</strong> Names scores</a></li><li class="chapter-item expanded "><a href="e23.html"><strong aria-hidden="true">1.23.</strong> Non-abundant sums</a></li><li class="chapter-item expanded "><a href="e24.html"><strong aria-hidden="true">1.24.</strong> Lexicographic permutations</a></li><li class="chapter-item expanded "><a href="e25.html"><strong aria-hidden="true">1.25.</strong> 1000-digit Fibonacci number</a></li><li class="chapter-item expanded "><a href="e26.html"><strong aria-hidden="true">1.26.</strong> Reciprocal cycles</a></li><li class="chapter-item expanded "><a href="e27.html"><strong aria-hidden="true">1.27.</strong> Quadratic primes</a></li><li class="chapter-item expanded "><a href="e28.html"><strong aria-hidden="true">1.28.</strong> Number spiral diagonals</a></li><li class="chapter-item expanded "><a href="e29.html"><strong aria-hidden="true">1.29.</strong> Distinct powers</a></li><li class="chapter-item expanded "><a href="e30.html"><strong aria-hidden="true">1.30.</strong> Digit fifth powers</a></li><li class="chapter-item expanded "><a href="e31.html"><strong aria-hidden="true">1.31.</strong> Coin sums</a></li><li class="chapter-item expanded "><a href="e32.html"><strong aria-hidden="true">1.32.</strong> Pandigital products</a></li><li class="chapter-item expanded "><a href="e33.html"><strong aria-hidden="true">1.33.</strong> Digit cancelling fractions</a></li><li class="chapter-item expanded "><a href="e34.html"><strong aria-hidden="true">1.34.</strong> Digit factorials</a></li><li class="chapter-item expanded "><a href="e35.html"><strong aria-hidden="true">1.35.</strong> Circular primes</a></li><li class="chapter-item expanded "><a href="e36.html"><strong aria-hidden="true">1.36.</strong> Double-base palindromes</a></li><li class="chapter-item expanded "><a href="e37.html"><strong aria-hidden="true">1.37.</strong> Truncatable primes</a></li><li class="chapter-item expanded "><a href="e38.html"><strong aria-hidden="true">1.38.</strong> Pandigital multiples</a></li><li class="chapter-item expanded "><a href="e39.html"><strong aria-hidden="true">1.39.</strong> Integer right triangles</a></li><li class="chapter-item expanded "><a href="e40.html"><strong aria-hidden="true">1.40.</strong> Champernowne's constant</a></li><li class="chapter-item expanded "><a href="e41.html"><strong aria-hidden="true">1.41.</strong> Pandigital prime</a></li><li class="chapter-item expanded "><a href="e42.html"><strong aria-hidden="true">1.42.</strong> Coded triangle numbers</a></li><li class="chapter-item expanded "><a href="e43.html"><strong aria-hidden="true">1.43.</strong> Sub-string divisibility</a></li><li class="chapter-item expanded "><a href="e44.html"><strong aria-hidden="true">1.44.</strong> Pentagon numbers</a></li><li class="chapter-item expanded "><a href="e45.html"><strong aria-hidden="true">1.45.</strong> Triangular, pentagonal, and hexagonal</a></li><li class="chapter-item expanded "><a href="e46.html"><strong aria-hidden="true">1.46.</strong> Goldbach's other conjecture</a></li><li class="chapter-item expanded "><a href="e47.html"><strong aria-hidden="true">1.47.</strong> Distinct primes factors</a></li><li class="chapter-item expanded "><a href="e48.html"><strong aria-hidden="true">1.48.</strong> Self powers</a></li><li class="chapter-item expanded "><a href="e49.html"><strong aria-hidden="true">1.49.</strong> Prime permutations</a></li><li class="chapter-item expanded "><a href="e50.html"><strong aria-hidden="true">1.50.</strong> Consecutive prime sum</a></li><li class="chapter-item expanded "><a href="e51.html"><strong aria-hidden="true">1.51.</strong> Prime digit replacements</a></li><li class="chapter-item expanded "><a href="e52.html"><strong aria-hidden="true">1.52.</strong> Permuted multiples</a></li><li class="chapter-item expanded "><a href="e53.html"><strong aria-hidden="true">1.53.</strong> Combinatoric selections</a></li><li class="chapter-item expanded "><a href="e54.html"><strong aria-hidden="true">1.54.</strong> Poker hands</a></li><li class="chapter-item expanded "><a href="e55.html"><strong aria-hidden="true">1.55.</strong> Lychrel numbers</a></li><li class="chapter-item expanded "><a href="e56.html"><strong aria-hidden="true">1.56.</strong> Powerful digit sum</a></li><li class="chapter-item expanded "><a href="e57.html"><strong aria-hidden="true">1.57.</strong> Square root convergents</a></li><li class="chapter-item expanded "><a href="e58.html"><strong aria-hidden="true">1.58.</strong> Spiral primes</a></li><li class="chapter-item expanded "><a href="e59.html"><strong aria-hidden="true">1.59.</strong> XOR decryption</a></li><li class="chapter-item expanded "><a href="e60.html"><strong aria-hidden="true">1.60.</strong> Prime pair sets</a></li><li class="chapter-item expanded "><a href="e61.html"><strong aria-hidden="true">1.61.</strong> Cyclical figurate numbers</a></li><li class="chapter-item expanded "><a href="e62.html"><strong aria-hidden="true">1.62.</strong> Cubic permutations</a></li><li class="chapter-item expanded "><a href="e63.html"><strong aria-hidden="true">1.63.</strong> Powerful digit counts</a></li><li class="chapter-item expanded "><a href="e64.html"><strong aria-hidden="true">1.64.</strong> Odd period square roots</a></li><li class="chapter-item expanded "><a href="e65.html"><strong aria-hidden="true">1.65.</strong> Convergents of e</a></li><li class="chapter-item expanded "><a href="e66.html"><strong aria-hidden="true">1.66.</strong> Diophantine equation</a></li><li class="chapter-item expanded "><a href="e67.html"><strong aria-hidden="true">1.67.</strong> Maximum path sum II</a></li><li class="chapter-item expanded "><a href="e68.html"><strong aria-hidden="true">1.68.</strong> Magic 5-gon ring</a></li><li class="chapter-item expanded "><a href="e81.html"><strong aria-hidden="true">1.69.</strong> Path sum: two ways</a></li><li class="chapter-item expanded "><a href="e82.html"><strong aria-hidden="true">1.70.</strong> Path sum: three ways</a></li><li class="chapter-item expanded "><a href="e83.html"><strong aria-hidden="true">1.71.</strong> Path sum: four ways</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">JupyterLab</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="bash.html"><strong aria-hidden="true">2.1.</strong> Unix snippets</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> Java snippets</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Open Data Structures</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> ArrayStack</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Princeton algorithms-part1</li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Reservoir Sampling</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Knuth's algorithm S</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Cracking the Coding Interview</li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Introduction to Algorithms (MIT)</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> I Foundations</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> The Role of Algorithms in Computing</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.1.</strong> 1.1. Algorithms</div></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">LeetCode with APAS</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><a href="l69.html"><strong aria-hidden="true">6.1.</strong> Square root</a></li><li class="chapter-item expanded "><a href="l367.html"><strong aria-hidden="true">6.2.</strong> Valid Perfect Square</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Tower of Hanoi</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Constants</li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> CORDIC, tangent and Pi</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> Napier's constant, 0.999 1.001</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Essays</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Regular polygon of n sides each of length b</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> Standard deviation</div></li><li class="chapter-item expanded "><a href="four-bugs.html" class="active"><strong aria-hidden="true">8.3.</strong> Four bugs</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><li class="part-title">Miscellaneous math</li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> </div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> Inverse matrix</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="about.html">About</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Algorithm notes on the back of used envelopes bound in a ring binder</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/growingspaghetti/growingspaghetti.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>I'd like to pick up four famous bugs that are hard to detect.</p>
+<h2 id="1-lets-encrypt-loop-with-reference"><a class="header" href="#1-lets-encrypt-loop-with-reference">1. Let's Encrypt, loop with reference</a></h2>
+<ul>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1619047">bugzilla.mozilla.org/show_bug.cgi?id=1619047</a></li>
+</ul>
+<p>Something that the compiler should detect. But the compiler can't tell if it's an <code>illegal practice</code> or just a <code>clever hack</code> to update values in place.</p>
+<p><code>&amp;kCopy</code>s converge into one adress.</p>
+<pre><code class="language-go">() {
+	resp := &amp;sapb.Authorizations{}
+	for k, v := range m {
+		// Make a copy of k because it will be reassigned with each loop.
+		kCopy := k
+		authzPB, err := modelToAuthzPB(&amp;v)
+		if err != nil {
+			return nil, err
+		}
+		resp.Authz = append(resp.Authz, &amp;sapb.Authorizations_MapElement{Domain: &amp;kCopy, Authz: authzPB})
+	}
+	return resp, nil
+}
+</code></pre>
+<ul>
+<li><a href="rttps://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable">github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable</a></li>
+</ul>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	var out []*int
+	for i := 0; i &lt; 3; i++ {
+		out = append(out, &amp;i)
+	}
+	fmt.Println(&quot;Values:&quot;, *out[0], *out[1], *out[2])
+	fmt.Println(&quot;Addresses:&quot;, out[0], out[1], out[2])
+	// Values: 3 3 3
+	// Addresses: 0xc000126000 0xc000126000 0xc000126000
+}
+</code></pre>
+<hr />
+<ul>
+<li><a href="https://www.wantedly.com/companies/wantedly/post_articles/290761">wantedly.com/companies/wantedly/post_articles/290761 (Japanese)</a></li>
+</ul>
+<p>In a sense, it's working like the union type of C that enables the sharing of the same memory address between different things.</p>
+<p><img src="./imgs/union.png" alt="union.png" /></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Union_jp.png" alt="https://upload.wikimedia.org/wikipedia/commons/f/f8/Union_jp.png" /></p>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	slice := []int{2, 2, 5, 3, 6, 9, 2}
+	fmt.Println(&quot;original =&quot;, slice)
+	// original = [2 2 5 3 6 9 2]
+	filtered := slice[:0]
+	for _, elem := range slice {
+		if elem%2 == 0 {
+			filtered = append(filtered, elem)
+		}
+	}
+	fmt.Println(&quot;filtered =&quot;, filtered)
+	fmt.Println(&quot;original =&quot;, slice)
+	// filtered = [2 2 6 2]
+	// original = [2 2 6 2 6 9 2]
+}
+</code></pre>
+<p>In some other languages, <code>immutability</code> resolves this difficulty.</p>
+<pre><code class="language-java">public static void main(String[] args) {
+    List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+    list.add(&quot;A&quot;);
+    list.add(&quot;B&quot;);
+    list.add(&quot;C&quot;);
+    for (String str : list) {
+        if (&quot;B&quot;.equals(str)) {
+            // ConcurrentModificationException
+            list.remove(str);
+        }
+    }
+}
+</code></pre>
+<h2 id="2-chrome-os-typo-in-log-in-condition--and"><a class="header" href="#2-chrome-os-typo-in-log-in-condition--and">2. Chrome OS, typo in log-in condition &amp;&amp; and &amp;</a></h2>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=27922545">news.ycombinator.com/item?id=27922545</a></li>
+</ul>
+<pre><code class="language-cpp">if (key_data_.has_value() &amp;&amp; !key_data_-&gt;label().empty()) {}
+if (key_data_.has_value() &amp; !key_data_-&gt;label().empty()) {}
+</code></pre>
+<p>In modern languages, except for javascript, <code>0 1</code> and <code>false true</code> are segregated. It's more dangerous than convenient.</p>
+<h2 id="3-log4j-composition-of-functionalities"><a class="header" href="#3-log4j-composition-of-functionalities">3. log4j, composition of functionalities</a></h2>
+<html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/Opqgwn8TdlM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+<p>Due to the <code>combinatorial explosion</code> and the devil's proof, you can't say there surely won't be a new combination of functionalities in the uncertain future that introduces a critical bug to the ecosystem.</p>
+<p>In software engineering, &quot;the <code>single-responsibility principle</code>&quot; is heuristically known to tackle this difficulty. It's what's called Unix philosophy: 'Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new &quot;features&quot;.'</p>
+<p>A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both <code>flexibility and unpredictability</code>. Integration testing and debugging often become harder.</p>
+<h2 id="4-hewlett-packard-data-loss-incident---backup-ops-with-shell-script"><a class="header" href="#4-hewlett-packard-data-loss-incident---backup-ops-with-shell-script">4. Hewlett-Packard, data loss incident - backup Ops with shell script</a></h2>
+<ul>
+<li><a href="https://bot.rnewshub.com/77tb-of-kyoto-university-supercomputer-information-lacking-because-of-bug-in-hp-japan-pc-watch-software-program/">bot.rnewshub.com/77tb-of-kyoto-university-supercomputer-information-lacking-because-of-bug-in-hp-japan-pc-watch-software-program/</a></li>
+</ul>
+<p>The back-up operation was written in a shell script which contained the <code>find</code> command and some bash functions. It was during the operation. The new version of this shell script was overritten, which caused the hot reloading by the <code>sh</code> process. The Unix shell interpreter returned an empty string '' as one of bash functions became undefined, and the succeeding procedure executed the delete command on the root of directory subtree.</p>
+<p>A direct protective measure was the writing of the code in a compiler language such as C, Rust, and Go but not in Bash. An example is <a href="https://github.com/rust-lang/rustup">rustup</a>. This installer itself is written in Rust. Writing an extensive application in something like Bash or <code>AWK</code> can be abusive. But it's not the nitty-gritty.</p>
+<p>Systematic approach is more conservative, and it's recommended to backup addition-wise with generation info like git keeps the full development history. But it's expensive.</p>
+<p>Another problem is the locking or things like the garbage collector's <code>Stop The World</code>. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with <code>lock</code> as keeping atomicity and consistency.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="l367.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="l367.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="custom.js"></script>
+        
+
+        
+
+    </body>
+</html>

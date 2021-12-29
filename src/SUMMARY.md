@@ -132,6 +132,7 @@
  - []()
    - [Regular polygon of n sides each of length b]()
    - [Standard deviation]()
+   - [Four bugs](./four-bugs.md)
 
 ---
 
