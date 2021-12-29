@@ -111,7 +111,7 @@ Due to the `combinatorial explosion` and the devil's proof, you can't say there 
 
 In software engineering, "the `single-responsibility principle`" is heuristically known to tackle this difficulty. It's what's called Unix philosophy: 'Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".'
 
-A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both `flexibility and unpredictability`. Integration testing and debugging often become harder. Please read this with a grain of salt because perhaps I'm wrong, but I recalled of the Linux victory over GNU Hurd of microkernel and the [controversies](https://www.howtogeek.com/675569/why-linuxs-systemd-is-still-divisive-after-all-these-years/) over the conglomerate systemd architecture.
+A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both `flexibility and unpredictability`. Integration testing and debugging often become harder. Please read this with a grain of salt because perhaps I'm wrong, but I recalled the Linux victory over GNU Hurd of microkernel and the [controversies](https://www.howtogeek.com/675569/why-linuxs-systemd-is-still-divisive-after-all-these-years/) over the conglomerate systemd architecture.
 
 ## 4. Hewlett-Packard, data loss incident - backup Ops with shell script
 
