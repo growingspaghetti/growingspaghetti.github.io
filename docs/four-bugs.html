@@ -178,7 +178,7 @@
 <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1619047">bugzilla.mozilla.org/show_bug.cgi?id=1619047</a></li>
 </ul>
 <p>Something that the compiler should detect. But the compiler can't tell if it's an <code>illegal practice</code> or just a <code>clever hack</code> to update values in place.</p>
-<p><code>&amp;kCopy</code>s converge into one adress.</p>
+<p><code>&amp;kCopy</code>s converge into one single address.</p>
 <pre><code class="language-go">() {
 	resp := &amp;sapb.Authorizations{}
 	for k, v := range m {
@@ -264,7 +264,7 @@ if (key_data_.has_value() &amp; !key_data_-&gt;label().empty()) {}
 <html><center><iframe width="560" height="315" src="https://www.youtube.com/embed/Opqgwn8TdlM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
 <p>Due to the <code>combinatorial explosion</code> and the devil's proof, you can't say there surely won't be a new combination of functionalities in the uncertain future that introduces a critical bug to the ecosystem.</p>
 <p>In software engineering, &quot;the <code>single-responsibility principle</code>&quot; is heuristically known to tackle this difficulty. It's what's called Unix philosophy: 'Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new &quot;features&quot;.'</p>
-<p>A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both <code>flexibility and unpredictability</code>. Integration testing and debugging often become harder.</p>
+<p>A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both <code>flexibility and unpredictability</code>. Integration testing and debugging often become harder. Please read this with a grain of salt because perhaps I'm wrong, but I recalled of the Linux victory over GNU Hurd of microkernel and the <a href="https://www.howtogeek.com/675569/why-linuxs-systemd-is-still-divisive-after-all-these-years/">controversies</a> over the conglomerate systemd architecture.</p>
 <h2 id="4-hewlett-packard-data-loss-incident---backup-ops-with-shell-script"><a class="header" href="#4-hewlett-packard-data-loss-incident---backup-ops-with-shell-script">4. Hewlett-Packard, data loss incident - backup Ops with shell script</a></h2>
 <ul>
 <li><a href="https://bot.rnewshub.com/77tb-of-kyoto-university-supercomputer-information-lacking-because-of-bug-in-hp-japan-pc-watch-software-program/">bot.rnewshub.com/77tb-of-kyoto-university-supercomputer-information-lacking-because-of-bug-in-hp-japan-pc-watch-software-program/</a></li>
@@ -273,6 +273,7 @@ if (key_data_.has_value() &amp; !key_data_-&gt;label().empty()) {}
 <p>A direct protective measure was the writing of the code in a compiler language such as C, Rust, and Go but not in Bash. An example is <a href="https://github.com/rust-lang/rustup">rustup</a>. This installer itself is written in Rust. Writing an extensive application in something like Bash or <code>AWK</code> can be abusive. But it's not the nitty-gritty.</p>
 <p>Systematic approach is more conservative, and it's recommended to backup addition-wise with generation info like git keeps the full development history. But it's expensive.</p>
 <p>Another problem is the locking or things like the garbage collector's <code>Stop The World</code>. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with <code>lock</code> as keeping atomicity and consistency.</p>
+<p>(to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process with a special user purposely created who doesn't have the permission to modify files anywhere but in <code>logs</code>. thus this data loss could be averted by the permission denial of OS as a fail-safe measure.)</p>
 
                     </main>
 

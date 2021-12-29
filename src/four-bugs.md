@@ -6,7 +6,7 @@ I'd like to pick up four famous bugs that are hard to detect.
 
 Something that the compiler should detect. But the compiler can't tell if it's an `illegal practice` or just a `clever hack` to update values in place.
 
-`&kCopy`s converge into one adress.
+`&kCopy`s converge into one single address.
 ```go
 () {
 	resp := &sapb.Authorizations{}
@@ -111,7 +111,7 @@ Due to the `combinatorial explosion` and the devil's proof, you can't say there 
 
 In software engineering, "the `single-responsibility principle`" is heuristically known to tackle this difficulty. It's what's called Unix philosophy: 'Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".'
 
-A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both `flexibility and unpredictability`. Integration testing and debugging often become harder.
+A downside of microservice architecture is that it's beyond the checking mechanism of compilers, like Regular Expression itself is a powerful language so that it comes with both `flexibility and unpredictability`. Integration testing and debugging often become harder. Please read this with a grain of salt because perhaps I'm wrong, but I recalled of the Linux victory over GNU Hurd of microkernel and the [controversies](https://www.howtogeek.com/675569/why-linuxs-systemd-is-still-divisive-after-all-these-years/) over the conglomerate systemd architecture.
 
 ## 4. Hewlett-Packard, data loss incident - backup Ops with shell script
 
@@ -124,3 +124,5 @@ A direct protective measure was the writing of the code in a compiler language s
 Systematic approach is more conservative, and it's recommended to backup addition-wise with generation info like git keeps the full development history. But it's expensive.
 
 Another problem is the locking or things like the garbage collector's `Stop The World`. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with `lock` as keeping atomicity and consistency.
+
+(to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process with a special user purposely created who doesn't have the permission to modify files anywhere but in `logs`. thus this data loss could be averted by the permission denial of OS as a fail-safe measure.)
