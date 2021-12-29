@@ -125,4 +125,4 @@ Systematic approach is more conservative, and it's recommended to backup additio
 
 Another problem is the locking or things like the garbage collector's `Stop The World`. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with `lock` as keeping atomicity and consistency.
 
-(to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process with a special user purposely created who doesn't have the permission to modify files anywhere but in `logs`. thus this data loss could be averted by the permission denial of OS as a fail-safe measure.)
+(to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process as a special user purposely created who didn't have the permission to modify files anywhere but in `logs`. thus this data loss could be averted by the permission denial of the OS as a fail-safe measure.)
