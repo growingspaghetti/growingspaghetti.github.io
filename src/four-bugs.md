@@ -23,7 +23,7 @@ Something that the compiler should detect. But the compiler can't tell if it's a
 }
 ```
 
-- [github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable](rttps://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable)
+- [github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable](https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable)
 
 ```go
 package main
