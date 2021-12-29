@@ -55,15 +55,90 @@ func main() {
 	set[119] = false
 	set[450] = true
 
+	fmt.Println(set)
+	for k, v := range set {
+		fmt.Println(&k, k, &v, v)
+	}
 	// map[119:false 175:true 450:true]
 	// 0xc000018068 175 0xc000018080 true
 	// 0xc000018068 119 0xc000018080 false
 	// 0xc000018068 450 0xc000018080 true
-	fmt.Println(set)
-	for key, v := range set {
-		fmt.Println(&key, key, &v, v)
-	}
 }
+```
+
+In Rust, `for` loop is a "consumer" by default. That is very confusing at a first look.
+```rust,editable
+use std::collections::HashMap;
+
+fn consuming_iter() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!("{:p}", &m);
+    for (k, v) in m.into_iter() {
+        println!("{}\t{:p}\t{}\t{:p}", k, &k, v, &v);
+    }
+    // println!("{:?}", m) value borrowed here after move error
+}
+
+fn consuming_iter_to_be_called() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!("{:p}", &m);
+    // "for _ in m" is a syntax sugar for m.into_iter()
+    for (k, v) in m {
+        println!("{}\t{:p}\t{}\t{:p}", k, &k, v, &v);
+    }
+    // println!("{:?}", m) value borrowed here after move error
+}
+
+fn non_consuming_iter() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!("{:p}", &m);
+    for (k, v) in m.iter() {
+        println!("{}\t{:p}\t{}\t{:p}", k, k, v, v);
+        // <-same-> println!("{}\t{:p}\t{}\t{:p}", *k, k, *v, v);
+    }
+    println!("{:?}", m)
+}
+
+fn non_consuming_iter_to_be_called() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!("{:p}", &m);
+    // "for _ in &m" is a syntax sugar for .iter()
+    for (k, v) in &m {
+        println!("{}\t{:p}\t{}\t{:p}", k, k, v, v);
+        // <-same-> println!("{}\t{:p}\t{}\t{:p}", *k, k, *v, v);
+    }
+    println!("{:?}", m)
+}
+
+fn main() {
+    // same address of a value in loop
+    consuming_iter();
+    consuming_iter_to_be_called();
+    println!("---");
+    // the original addresses of the values in map
+    non_consuming_iter();
+    non_consuming_iter_to_be_called();
+}
+
+// 0x7ffc7da2ff30 <- frame of map struct in stack pointing to actual values in heap
+// 789	0x7ffc7da2feac	true	0x7ffc7da2fe1f <- value copied to stack
+// 123	0x7ffc7da2feac	true	0x7ffc7da2fe1f <- value copied to stack
+// 456	0x7ffc7da2feac	false	0x7ffc7da2fe1f <- value copied to stack
+// 0x7ffc7da2ff30 <- frame of map struct in stack pointing to actual values in heap
+// 123	0x7ffc7da2feac	true	0x7ffc7da2fe1f <- value copied to stack
+// 456	0x7ffc7da2feac	false	0x7ffc7da2fe1f <- value copied to stack
+// 789	0x7ffc7da2feac	true	0x7ffc7da2fe1f <- value copied to stack
+// ---
+// 0x7ffc7da2feb0 <- frame of map struct in stack pointing to actual values in heap
+// 456	0x562b9bf4ac98	false	0x562b9bf4ac9c <- value in heap
+// 123	0x562b9bf4ac88	true	0x562b9bf4ac8c <- value in heap
+// 789	0x562b9bf4ac80	true	0x562b9bf4ac84 <- value in heap
+// {456: false, 123: true, 789: true}
+// 0x7ffc7da2feb0 <- frame of map struct in stack pointing to actual values in heap
+// 456	0x562b9bf4ac98	false	0x562b9bf4ac9c <- value in heap
+// 123	0x562b9bf4ac90	true	0x562b9bf4ac94 <- value in heap
+// 789	0x562b9bf4ac88	true	0x562b9bf4ac8c <- value in heap
+// {456: false, 123: true, 789: true}
 ```
 
 ---

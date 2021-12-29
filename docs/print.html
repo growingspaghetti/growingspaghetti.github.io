@@ -29503,16 +29503,89 @@ func main() {
 	set[119] = false
 	set[450] = true
 
+	fmt.Println(set)
+	for k, v := range set {
+		fmt.Println(&amp;k, k, &amp;v, v)
+	}
 	// map[119:false 175:true 450:true]
 	// 0xc000018068 175 0xc000018080 true
 	// 0xc000018068 119 0xc000018080 false
 	// 0xc000018068 450 0xc000018080 true
-	fmt.Println(set)
-	for key, v := range set {
-		fmt.Println(&amp;key, key, &amp;v, v)
-	}
 }
 </code></pre>
+<p>In Rust, <code>for</code> loop is a &quot;consumer&quot; by default. That is very confusing at a first look.</p>
+<pre><pre class="playground"><code class="language-rust editable">use std::collections::HashMap;
+
+fn consuming_iter() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!(&quot;{:p}&quot;, &amp;m);
+    for (k, v) in m.into_iter() {
+        println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, k, &amp;k, v, &amp;v);
+    }
+    // println!(&quot;{:?}&quot;, m) value borrowed here after move error
+}
+
+fn consuming_iter_to_be_called() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!(&quot;{:p}&quot;, &amp;m);
+    // &quot;for _ in m&quot; is a syntax sugar for m.into_iter()
+    for (k, v) in m {
+        println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, k, &amp;k, v, &amp;v);
+    }
+    // println!(&quot;{:?}&quot;, m) value borrowed here after move error
+}
+
+fn non_consuming_iter() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!(&quot;{:p}&quot;, &amp;m);
+    for (k, v) in m.iter() {
+        println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, k, k, v, v);
+        // &lt;-same-&gt; println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, *k, k, *v, v);
+    }
+    println!(&quot;{:?}&quot;, m)
+}
+
+fn non_consuming_iter_to_be_called() {
+    let m = HashMap::from([(123, true), (456, false), (789, true)]);
+    println!(&quot;{:p}&quot;, &amp;m);
+    // &quot;for _ in &amp;m&quot; is a syntax sugar for .iter()
+    for (k, v) in &amp;m {
+        println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, k, k, v, v);
+        // &lt;-same-&gt; println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, *k, k, *v, v);
+    }
+    println!(&quot;{:?}&quot;, m)
+}
+
+fn main() {
+    // same address of a value in loop
+    consuming_iter();
+    consuming_iter_to_be_called();
+    println!(&quot;---&quot;);
+    // the original addresses of the values in map
+    non_consuming_iter();
+    non_consuming_iter_to_be_called();
+}
+
+// 0x7ffc7da2ff30 &lt;- frame of map struct in stack pointing to actual values in heap
+// 789	0x7ffc7da2feac	true	0x7ffc7da2fe1f &lt;- value copied to stack
+// 123	0x7ffc7da2feac	true	0x7ffc7da2fe1f &lt;- value copied to stack
+// 456	0x7ffc7da2feac	false	0x7ffc7da2fe1f &lt;- value copied to stack
+// 0x7ffc7da2ff30 &lt;- frame of map struct in stack pointing to actual values in heap
+// 123	0x7ffc7da2feac	true	0x7ffc7da2fe1f &lt;- value copied to stack
+// 456	0x7ffc7da2feac	false	0x7ffc7da2fe1f &lt;- value copied to stack
+// 789	0x7ffc7da2feac	true	0x7ffc7da2fe1f &lt;- value copied to stack
+// ---
+// 0x7ffc7da2feb0 &lt;- frame of map struct in stack pointing to actual values in heap
+// 456	0x562b9bf4ac98	false	0x562b9bf4ac9c &lt;- value in heap
+// 123	0x562b9bf4ac88	true	0x562b9bf4ac8c &lt;- value in heap
+// 789	0x562b9bf4ac80	true	0x562b9bf4ac84 &lt;- value in heap
+// {456: false, 123: true, 789: true}
+// 0x7ffc7da2feb0 &lt;- frame of map struct in stack pointing to actual values in heap
+// 456	0x562b9bf4ac98	false	0x562b9bf4ac9c &lt;- value in heap
+// 123	0x562b9bf4ac90	true	0x562b9bf4ac94 &lt;- value in heap
+// 789	0x562b9bf4ac88	true	0x562b9bf4ac8c &lt;- value in heap
+// {456: false, 123: true, 789: true}
+</code></pre></pre>
 <hr />
 <ul>
 <li><a href="https://www.wantedly.com/companies/wantedly/post_articles/290761">wantedly.com/companies/wantedly/post_articles/290761 (Japanese)</a></li>
