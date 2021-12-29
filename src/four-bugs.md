@@ -117,7 +117,7 @@ A downside of microservice architecture is that it's beyond the checking mechani
 
 - [bot.rnewshub.com/77tb-of-kyoto-university-supercomputer-information-lacking-because-of-bug-in-hp-japan-pc-watch-software-program/](https://bot.rnewshub.com/77tb-of-kyoto-university-supercomputer-information-lacking-because-of-bug-in-hp-japan-pc-watch-software-program/)
 
-The back-up operation was written in a shell script which contained the `find` command and some bash functions. It was during the operation. The new version of this shell script was overritten, which caused the hot reloading by the `sh` process. The Unix shell interpreter returned an empty string '' as one of bash functions became undefined, and the succeeding procedure executed the delete command on the root of directory subtree.
+The back-up operation was written in a shell script which contained the `find` command and some bash functions. It was during the operation. The new version of this shell script was overwitten, which caused the hot reloading by the `sh` process. The Unix shell interpreter returned an empty string '' as one of bash functions became undefined or one of variables get cleared, and the succeeding procedure executed the delete command on the root of directory subtree.
 
 A direct protective measure was the writing of the code in a compiler language such as C, Rust, and Go but not in Bash. An example is [rustup](https://github.com/rust-lang/rustup). This installer itself is written in Rust. Writing an extensive application in something like Bash or `AWK` can be abusive. But it's not the nitty-gritty.
 
