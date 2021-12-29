@@ -29458,19 +29458,19 @@ fn main() {
 <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1619047">bugzilla.mozilla.org/show_bug.cgi?id=1619047</a></li>
 </ul>
 <p>Something that the compiler should detect. But the compiler can't tell if it's an <code>illegal practice</code> or just a <code>clever hack</code> to update values in place.</p>
-<p><code>&amp;kCopy</code>s converge into one single address.</p>
-<pre><code class="language-go">() {
-	resp := &amp;sapb.Authorizations{}
-	for k, v := range m {
-		// Make a copy of k because it will be reassigned with each loop.
-		kCopy := k
-		authzPB, err := modelToAuthzPB(&amp;v)
-		if err != nil {
-			return nil, err
-		}
-		resp.Authz = append(resp.Authz, &amp;sapb.Authorizations_MapElement{Domain: &amp;kCopy, Authz: authzPB})
-	}
-	return resp, nil
+<p><code>&amp;v</code>s converge into one single address.</p>
+<pre><code class="language-go">func authzModelMapToPB(m map[string]authzModel) (*apb.Authorizations, error) {
+        resp := &amp;apb.Authorizations{}
+        for k, v := range m {
+                // Make a copy of k because it will be reassigned with each loop.
+                kCopy := k
+                authzPB, err := modelToAuthzPB(&amp;v)
+                if err != nil {
+                        return nil, err
+                }
+                resp.Authz = append(resp.Authz, &amp;apb.Authorizations_MapElement{Domain: &amp;kCopy, Authz: authzPB})
+        }
+        return resp, nil
 }
 </code></pre>
 <ul>
@@ -29489,6 +29489,28 @@ func main() {
 	fmt.Println(&quot;Addresses:&quot;, out[0], out[1], out[2])
 	// Values: 3 3 3
 	// Addresses: 0xc000126000 0xc000126000 0xc000126000
+}
+</code></pre>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+	set := map[int]bool{}
+	set[175] = true
+	set[119] = false
+	set[450] = true
+
+	// map[119:false 175:true 450:true]
+	// 0xc000018068 175 0xc000018080 true
+	// 0xc000018068 119 0xc000018080 false
+	// 0xc000018068 450 0xc000018080 true
+	fmt.Println(set)
+	for key, v := range set {
+		fmt.Println(&amp;key, key, &amp;v, v)
+	}
 }
 </code></pre>
 <hr />

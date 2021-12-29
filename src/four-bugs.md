@@ -6,20 +6,20 @@ I'd like to pick up four famous bugs that are hard to detect.
 
 Something that the compiler should detect. But the compiler can't tell if it's an `illegal practice` or just a `clever hack` to update values in place.
 
-`&kCopy`s converge into one single address.
+`&v`s converge into one single address.
 ```go
-() {
-	resp := &sapb.Authorizations{}
-	for k, v := range m {
-		// Make a copy of k because it will be reassigned with each loop.
-		kCopy := k
-		authzPB, err := modelToAuthzPB(&v)
-		if err != nil {
-			return nil, err
-		}
-		resp.Authz = append(resp.Authz, &sapb.Authorizations_MapElement{Domain: &kCopy, Authz: authzPB})
-	}
-	return resp, nil
+func authzModelMapToPB(m map[string]authzModel) (*apb.Authorizations, error) {
+        resp := &apb.Authorizations{}
+        for k, v := range m {
+                // Make a copy of k because it will be reassigned with each loop.
+                kCopy := k
+                authzPB, err := modelToAuthzPB(&v)
+                if err != nil {
+                        return nil, err
+                }
+                resp.Authz = append(resp.Authz, &apb.Authorizations_MapElement{Domain: &kCopy, Authz: authzPB})
+        }
+        return resp, nil
 }
 ```
 
@@ -39,6 +39,30 @@ func main() {
 	fmt.Println("Addresses:", out[0], out[1], out[2])
 	// Values: 3 3 3
 	// Addresses: 0xc000126000 0xc000126000 0xc000126000
+}
+```
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	set := map[int]bool{}
+	set[175] = true
+	set[119] = false
+	set[450] = true
+
+	// map[119:false 175:true 450:true]
+	// 0xc000018068 175 0xc000018080 true
+	// 0xc000018068 119 0xc000018080 false
+	// 0xc000018068 450 0xc000018080 true
+	fmt.Println(set)
+	for key, v := range set {
+		fmt.Println(&key, key, &v, v)
+	}
 }
 ```
 
