@@ -29650,7 +29650,7 @@ if (key_data_.has_value() &amp; !key_data_-&gt;label().empty()) {}
 <p>Another problem is the locking or things like the garbage collector's <code>Stop The World</code>. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with <code>lock</code> as keeping atomicity and consistency.</p>
 <p>(to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process as a special user purposely created who didn't have the permission to modify files anywhere but in <code>logs</code>. thus this data loss could be averted by the permission denial of the OS as a fail-safe measure.)</p>
 <h2 id="ps-for-1-lets-encrypt-loop-with-reference"><a class="header" href="#ps-for-1-lets-encrypt-loop-with-reference">P.S. for 1. Let's Encrypt, loop with reference</a></h2>
-<p>It's very often a bad practice not to use the pass-by-value functionality in Go which is the default mode of the language.</p>
+<p>It's very often a bad practice not to use the pass-by-value feature in Go which is the default mode of the language.</p>
 <pre><code class="language-go">package main
 
 import (

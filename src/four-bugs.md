@@ -228,7 +228,7 @@ Another problem is the locking or things like the garbage collector's `Stop The 
 
 ## P.S. for 1. Let's Encrypt, loop with reference
 
-It's very often a bad practice not to use the pass-by-value functionality in Go which is the default mode of the language.
+It's very often a bad practice not to use the pass-by-value feature in Go which is the default mode of the language.
 ```go
 package main
 
