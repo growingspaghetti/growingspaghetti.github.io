@@ -29540,7 +29540,7 @@ fn non_consuming_iter() {
     println!(&quot;{:p}&quot;, &amp;m);
     for (k, v) in m.iter() {
         println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, k, k, v, v);
-        // &lt;-same-&gt; println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, *k, k, *v, v);
+        // println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, *k, k, *v, v); // same. explicit dereferencing
     }
     println!(&quot;{:?}&quot;, m)
 }
@@ -29551,7 +29551,7 @@ fn non_consuming_iter_to_be_called() {
     // &quot;for _ in &amp;m&quot; is a syntax sugar for .iter()
     for (k, v) in &amp;m {
         println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, k, k, v, v);
-        // &lt;-same-&gt; println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, *k, k, *v, v);
+        // println!(&quot;{}\t{:p}\t{}\t{:p}&quot;, *k, k, *v, v); // same. explicit dereferencing
     }
     println!(&quot;{:?}&quot;, m)
 }
@@ -29649,6 +29649,41 @@ if (key_data_.has_value() &amp; !key_data_-&gt;label().empty()) {}
 <p>Systematic approach is more conservative, and it's recommended to backup addition-wise with generation info like the way git keeps the full development history. But it's expensive.</p>
 <p>Another problem is the locking or things like the garbage collector's <code>Stop The World</code>. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with <code>lock</code> as keeping atomicity and consistency.</p>
 <p>(to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process as a special user purposely created who didn't have the permission to modify files anywhere but in <code>logs</code>. thus this data loss could be averted by the permission denial of the OS as a fail-safe measure.)</p>
+<h2 id="ps-for-1-lets-encrypt-loop-with-reference"><a class="header" href="#ps-for-1-lets-encrypt-loop-with-reference">P.S. for 1. Let's Encrypt, loop with reference</a></h2>
+<p>It's very often a bad practice not to use the pass-by-value functionality in Go which is the default mode of the language.</p>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func coalesce(v *bool, zero *interface{}) interface{} {
+	if v != nil {
+		return *v
+	}
+	return *zero
+}
+
+func main() {
+	set := map[int]*bool{}
+	a, b, c, d := 175, 119, 450, 999
+	yes, no := true, false
+	set[a] = &amp;yes
+	set[b] = &amp;no
+	set[c] = &amp;yes
+	set[d] = nil
+
+	fmt.Println(set)
+	for k, v := range set {
+		fmt.Println(&amp;k, k, v, coalesce(v, new(interface{})))
+	}
+	// map[119:0xc000126001 175:0xc000126000 450:0xc000126000 999:&lt;nil&gt;]
+	// 0xc000126030 119 0xc000126001 false
+	// 0xc000126030 450 0xc000126000 true
+	// 0xc000126030 999 &lt;nil&gt; &lt;nil&gt;
+	// 0xc000126030 175 0xc000126000 true
+}
+</code></pre>
 <p>This website is a collection of Ryoji's memos in <a href="https://github.com/growingspaghetti/project-euler">github.com/growingspaghetti/project-euler</a> as the scrapbox.</p>
 <!-- toc -->
 

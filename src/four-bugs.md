@@ -94,7 +94,7 @@ fn non_consuming_iter() {
     println!("{:p}", &m);
     for (k, v) in m.iter() {
         println!("{}\t{:p}\t{}\t{:p}", k, k, v, v);
-        // <-same-> println!("{}\t{:p}\t{}\t{:p}", *k, k, *v, v);
+        // println!("{}\t{:p}\t{}\t{:p}", *k, k, *v, v); // same. explicit dereferencing
     }
     println!("{:?}", m)
 }
@@ -105,7 +105,7 @@ fn non_consuming_iter_to_be_called() {
     // "for _ in &m" is a syntax sugar for .iter()
     for (k, v) in &m {
         println!("{}\t{:p}\t{}\t{:p}", k, k, v, v);
-        // <-same-> println!("{}\t{:p}\t{}\t{:p}", *k, k, *v, v);
+        // println!("{}\t{:p}\t{}\t{:p}", *k, k, *v, v); // same. explicit dereferencing
     }
     println!("{:?}", m)
 }
@@ -225,3 +225,41 @@ Systematic approach is more conservative, and it's recommended to backup additio
 Another problem is the locking or things like the garbage collector's `Stop The World`. Keep observing and applying changes on an ever-changing system is not easy stuff. If possible, it's preferred to make the transition from system-wide approaches to the ones having the nature of divide-and-conquer with `lock` as keeping atomicity and consistency.
 
 (to talk about this incident specifically and the cheapest way of prevention, they should have started the Bash process as a special user purposely created who didn't have the permission to modify files anywhere but in `logs`. thus this data loss could be averted by the permission denial of the OS as a fail-safe measure.)
+
+## P.S. for 1. Let's Encrypt, loop with reference
+
+It's very often a bad practice not to use the pass-by-value functionality in Go which is the default mode of the language.
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func coalesce(v *bool, zero *interface{}) interface{} {
+	if v != nil {
+		return *v
+	}
+	return *zero
+}
+
+func main() {
+	set := map[int]*bool{}
+	a, b, c, d := 175, 119, 450, 999
+	yes, no := true, false
+	set[a] = &yes
+	set[b] = &no
+	set[c] = &yes
+	set[d] = nil
+
+	fmt.Println(set)
+	for k, v := range set {
+		fmt.Println(&k, k, v, coalesce(v, new(interface{})))
+	}
+	// map[119:0xc000126001 175:0xc000126000 450:0xc000126000 999:<nil>]
+	// 0xc000126030 119 0xc000126001 false
+	// 0xc000126030 450 0xc000126000 true
+	// 0xc000126030 999 <nil> <nil>
+	// 0xc000126030 175 0xc000126000 true
+}
+```
