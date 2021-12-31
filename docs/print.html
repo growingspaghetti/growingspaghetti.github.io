@@ -29684,6 +29684,44 @@ func main() {
 	// 0xc000126030 175 0xc000126000 true
 }
 </code></pre>
+<hr />
+<p>Off topic but initialization in Go can be confusing at a glance.</p>
+<ul>
+<li><a href="https://groups.google.com/g/golang-nuts/c/4fFAZOMEDbc">Difference between var, new and :=</a></li>
+</ul>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;unsafe&quot;
+)
+
+func Example() {
+	fmt.Println(&quot;make([]int, 0) -&gt; not nil&quot;)
+	if slice := make([]int, 0); slice != nil {
+		fmt.Println(unsafe.Sizeof(slice))
+		slice = append(slice, 1)
+	}
+	fmt.Println(&quot;new([]int) -&gt; pointer to nil&quot;)
+	if slice := new([]int); *slice == nil {
+		fmt.Println(unsafe.Sizeof(*slice))
+		*slice = append(*slice, 1)
+	}
+	fmt.Println(&quot;var slice []int -&gt; nil&quot;)
+	var slice []int
+	if slice == nil {
+		fmt.Println(unsafe.Sizeof(slice))
+		slice = append(slice, 1)
+	}
+	// Output:
+	// make([]int, 0) -&gt; not nil
+	// 24
+	// new([]int) -&gt; pointer to nil
+	// 24
+	// var slice []int -&gt; nil
+	// 24
+}
+</code></pre>
 <p>This website is a collection of Ryoji's memos in <a href="https://github.com/growingspaghetti/project-euler">github.com/growingspaghetti/project-euler</a> as the scrapbox.</p>
 <!-- toc -->
 

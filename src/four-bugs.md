@@ -263,3 +263,43 @@ func main() {
 	// 0xc000126030 175 0xc000126000 true
 }
 ```
+---
+
+Off topic but initialization in Go can be confusing at a glance.
+
+- [Difference between var, new and :=](https://groups.google.com/g/golang-nuts/c/4fFAZOMEDbc)
+
+```go
+package main
+
+import (
+	"fmt"
+	"unsafe"
+)
+
+func Example() {
+	fmt.Println("make([]int, 0) -> not nil")
+	if slice := make([]int, 0); slice != nil {
+		fmt.Println(unsafe.Sizeof(slice))
+		slice = append(slice, 1)
+	}
+	fmt.Println("new([]int) -> pointer to nil")
+	if slice := new([]int); *slice == nil {
+		fmt.Println(unsafe.Sizeof(*slice))
+		*slice = append(*slice, 1)
+	}
+	fmt.Println("var slice []int -> nil")
+	var slice []int
+	if slice == nil {
+		fmt.Println(unsafe.Sizeof(slice))
+		slice = append(slice, 1)
+	}
+	// Output:
+	// make([]int, 0) -> not nil
+	// 24
+	// new([]int) -> pointer to nil
+	// 24
+	// var slice []int -> nil
+	// 24
+}
+```
