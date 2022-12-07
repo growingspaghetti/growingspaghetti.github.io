@@ -93,10 +93,10 @@
 
 ---
 
-# Princeton algorithms-part1
+# Coursera Princeton algorithms-part1
  - []()
-   - [Reservoir Sampling]()
-   - [Knuth's algorithm S]()
+   - [Course Introduction](./c000.md)
+
 
 ---
 
@@ -130,7 +130,6 @@
 
 # Essays
  - []()
-   - [Regular polygon of n sides each of length b]()
    - [Standard deviation]()
    - [Four bugs](./four-bugs.md)
 
