@@ -191,7 +191,7 @@ updating: RandomWord.java (deflated 65%)
 </code></pre>
 <pre><code class="language-bash">coursera/src$ CLASSPATH=../algs4.jar javac RandomWord.java
 coursera/src$ CLASSPATH=.:../algs4.jar java RandomWord
-# in my environment, while (!StdIn.isEmpty()) didn't stop
+# in my environment, `while (!StdIn.isEmpty())` didn't stop
 </code></pre>
 <hr />
 <p>The following code was not allowed.</p>
@@ -206,16 +206,16 @@ coursera/src$ CLASSPATH=.:../algs4.jar java RandomWord
  * RandomWordSelector selects one of the words, which are fed sequentially, in a real-time manner.
  */
 class RandomWordSelector {
-    private int mealCount;
+    private int consumptionCount;
     private String selection;
 
     public void consume(String word) {
-        double odds = 1.0D / (mealCount + 1);
+        double odds = 1.0D / (consumptionCount + 1);
         boolean retain = StdRandom.bernoulli(odds);
         if (retain) {
             selection = word;
         }
-        mealCount++;
+        consumptionCount++;
     }
 
     public String getSelection() {
