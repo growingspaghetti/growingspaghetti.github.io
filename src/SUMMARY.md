@@ -117,6 +117,7 @@
    - [Square root](./l69.md)
    - [Valid Perfect Square](./l367.md)
    - [Tower of Hanoi]()
+   - [Knapsack problem]()
 
 ---
 
@@ -137,7 +138,7 @@
 
 # Miscellaneous math
  - []()
-   - [Inverse matrix]()
+   - [Inverse matrix and idempotency]()
 
 ---
 
